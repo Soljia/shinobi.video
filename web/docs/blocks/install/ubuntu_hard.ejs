@@ -1,0 +1,234 @@
+<div id="setup_ubuntu_hard"  class="section-block">
+<h3 class="block-title question">Ubuntu 16.04 : The Harder Way</h3>
+<p id="static-ffmpeg"><b>Dont have FFMPEG installed?</b></p>
+    <ol>
+<li>Open <code>Terminal</code>.</li>
+<li>
+<p>Add the ffmpeg 3.x repo if you are not on Ubuntu 17 or above.</p>
+
+<pre><code>sudo add-apt-repository ppa:jonathonf/ffmpeg-3
+</code></pre>
+        </li>
+<li>
+<p>Install the libraries.</p>
+
+<pre><code>sudo apt update && sudo apt install ffmpeg libav-tools x264 x265</code></pre>
+        </li>
+        <li><p>Now run ffmpeg once to see that it works.</p>
+        <pre><code>ffmpeg</code></pre>
+        </li>
+</ol>
+    <p>Can't get FFMPEG 3.x through a repository? Try a static build. Keep in mind this does not work with as many cameras as installing from repo or building yourself.</p>
+    <ul>
+        <li><a href="https://github.com/moeiscool/ffmpegTheEasyWay">How to install a static build of FFMPEG</a> - <code>https://github.com/moeiscool/ffmpegTheEasyWay</code></li>
+        <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-32bit-static.tar.xz">Version 3.3 - 32bit</a> - <code>https://s3.amazonaws.com/cloudcamio/ffmpeg-release-32bit-static.tar.xz</code></li>
+        <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-64bit-static.tar.xz">Version 3.3 - 64bit</a> - <code>https://s3.amazonaws.com/cloudcamio/ffmpeg-release-64bit-static.tar.xz</code></li>
+        <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armel-32bit-static.tar.xz">Version 3.3 - ARMel</a> - <code>https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armel-32bit-static.tar.xz</code></li>
+        <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armhf-32bit-static.tar.xz">Version 3.3 - ARMhf</a> - <code>https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armhf-32bit-static.tar.xz</code></li>
+    </ul>
+    <p>If you choose to build yourself you must enabled the following flags for Shinobi to work correctly.</p>
+    <pre><code>--enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc-5 --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gray --enable-libass --enable-libfreetype --enable-libfribidi --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-librtmp --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libzimg</code></pre>
+    <p><b>Dont have Node.js installed?</b></p>
+<ol>
+<li>Open <code>Terminal</code>.</li>
+<li>
+<p>Install Node.js and it's package manager</p>
+
+<ul>
+<li>
+<em>Note :</em> <code>#apt-get install node</code> installs something else, not Node.js.</li>
+</ul>
+
+<pre><code>sudo apt update<br>sudo apt install curl gnupg2 -y<br>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -<br>sudo apt install nodejs -y<br>sudo apt install npm -y
+</code></pre>
+</li>
+<li>
+<p>Create a symlink to use nodejs.</p>
+
+<ul>
+<li>pm2 needs this. If you don't plan on using pm2, then ignore this step.</li>
+</ul>
+
+<pre><code>ln -s /usr/bin/nodejs /usr/bin/node
+</code></pre>
+</li>
+<li>Not on Ubuntu? Other operating systems can be found here.
+
+<ul>
+<li><a href="https://nodejs.org/en/download/package-manager/">https://nodejs.org/en/download/package-manager/</a></li>
+</ul>
+</li>
+</ol>
+<p><b>Dont have MySQL / MariaDB installed?</b></p>
+<ol>
+<li>
+<p>Open <code>Terminal</code>. Run :</p>
+
+<pre><code>apt install mariadb-server mariadb-client -y
+</code></pre>
+</li>
+<li><p>First installation of the database will prompt you to set a password for <code>root</code> user in the database.</p></li>
+</ol>
+<p><b>Application Install</b></p> 
+<ol>
+<li><p>Open <code>Terminal</code>.</p></li>
+<li>
+<p>Download Shinobi with <code>wget</code> if you don't have <code>git</code> installed.</p>
+
+<ul>
+<li>Do this only if you haven't already downloaded the files.</li>
+</ul>
+
+<pre><code>wget https://github.com/moeiscool/Shinobi/tarball/master
+</code></pre>
+</li>
+<li>
+<p>Untar the downloaded file. The extracted directory is the shinobi directory.</p>
+
+<pre><code>tar -xzf master
+</code></pre>
+</li>
+<li>
+<p>Rename the directory for easier access. The extracted folder name will be different. <code>moeiscool-Shinobi-XXXXXXX</code> is only an example. Find the real folder name by doing `ls`.</p>
+
+<pre><code>ls
+mv moeiscool-Shinobi-XXXXXXX shinobi
+</code></pre>
+</li>
+<li>
+<p>Set permissions on the shinobi directory. <em>Where <code>camera.js</code> is located.</em></p>
+
+<pre><code>chmod -R 755 shinobi
+</code></pre>
+</li>
+<li>
+<p>Open Shinobi directory.</p>
+
+<pre><code>cd shinobi
+</code></pre>
+
+<p><b>Setup SQL</b></p>
+</li>
+<li>
+<p>Go to <code>sql</code> and install the SQL files in your database.</p>
+
+<pre><code>cd sql
+</code></pre>
+</li>
+<li>
+<p>Terminal SQL client can be accessed by running :</p>
+
+<ul>
+<li>The password will have been set during the installation of MySQL.</li>
+</ul>
+
+<pre><code>mysql -u root -p
+</code></pre>
+</li>
+<li>
+<p><em>OPTIONAL :</em> Create New SQL User with privileges. If you choose to use your own pre-defined credentials skip this step.</p>
+
+<pre><code>source ./user.sql
+</code></pre>
+
+<ul>
+<li>or create your own</li>
+</ul>
+
+<pre><code>CREATE USER 'majesticflame'@'127.0.0.1' IDENTIFIED BY '';
+GRANT ALL PRIVILEGES ON * . * TO 'majesticflame'@'127.0.0.1';
+FLUSH PRIVILEGES;
+</code></pre>
+</li>
+<li>
+<p>while still in the SQL client. Install the Shinobi database. It will create a database called <code>ccio</code>.</p>
+
+<pre><code>source ./framework.sql
+</code></pre>
+</li>
+<li>
+<p><em>OPTIONAL :</em> <code>default_data.sql</code> contains a demo user and a demo <code>jpeg input</code> monitor.</p>
+
+<pre><code>source ./default_data.sql
+</code></pre>
+</li>
+<li>
+<p>After importing the data. Exit the sql client.</p>
+
+<pre><code>exit
+</code></pre>
+</li>
+<li>
+<p>Go up one directory to enter the main directory. <em>Where <code>camera.js</code> is located.</em> </p>
+
+<pre><code>cd ..
+</code></pre>
+</li>
+<li>
+<p>Copy <code>conf.sample.json</code> as another file named <code>conf.json</code>.</p>
+
+<pre><code>cp conf.sample.json conf.json
+</code></pre>
+
+<p>14a. Edit <code>conf.json</code> to reflect your sql credentials. I don't reccommend using root.</p>
+
+<pre><code>nano conf.json
+</code></pre>
+
+<p>14b. Set your timezone in <code>conf.json</code>. <strong>This is important if your event times are not matching.</strong></p>
+
+<pre><code>"utcOffset":"-0800"
+</code></pre>
+</li>
+<li>
+<p>Copy <code>super.sample.json</code> as another file named <code>super.json</code>. This is the login to create isolated accounts. To use this you would enable `Superuser` at login.</p>
+<ul>
+<li><code>Username : admin@shinobi.video</code></li>
+<li><code>Password <small>md5</small> : admin</code></li>
+</ul>
+<pre><code>cp super.sample.json super.json
+</code></pre>
+</li>
+</ol>
+    <p><b>Install Libraries</b></p>
+    <ol>
+<li>
+<p>Run <code>npm install</code> while in the main directory. This will install the libraries Shinobi needs.</p>
+
+<pre><code>npm install
+</code></pre>
+</li>
+<li>
+<p><b>PM2  is needed to use UPDATE.sh and to Daeomonize the process</b></p>
+<pre><code>npm install pm2 -g
+</code></pre>
+</li>
+</ol>
+    <p><b>Launch Shinobi</b></p>
+    <ol>
+<li>
+    <p>then to start : </p>
+    <pre><code>pm2 start camera.js
+</code></pre>
+    <ul>
+<li>run <code>pm2 logs</code> to see the console for any errors.</li>
+<li>
+<code>forever</code> is another program to daemonize, but i've had more success with <code>pm2</code>.</li>
+</ul>
+</li>
+<li>
+<p>To get your IP you can run the following command.</p>
+
+<pre><code>ifconfig
+</code></pre>
+</li>
+<li>
+<p>Open up <code>http://YOUR_IP:8080</code> in your browser. The <b>Default Login</b> was originally set by adding <code>default_data.sql</code>.</p>    
+<ul>
+<li><code>Username : ccio@m03.ca</code></li>
+<li><code>Password : password</code></li>
+</ul>
+</li>
+        <li>Enjoy!</li>
+</ol>
+</div>

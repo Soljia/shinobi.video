@@ -1,0 +1,310 @@
+<style>
+    #noobvertisement{display:none}
+.download-list{list-style:none;margin:0;padding:0;}
+.download-list li{padding:10px;font-size:25pt;}
+.download-list li i{color:#333}
+.body-dark .download-list li i{color:#fff}
+.download-list li:not(:last-child){border-bottom:1px dotted #ddd}
+.body-dark .download-list li:not(:last-child){border-color:#333}
+.product-price{font-size:40pt;margin-bottom: 0;line-height:1}
+.product-price .amount{font-weight:bold}
+.product-price .currency,.product-price .currencyType{font-size:80%}
+.product-info .specifications{list-style:none;margin:0 0 10px 0;padding:0;}
+.product-info .specifications li{border-bottom:1px dotted #ddd;padding:5px}
+
+.product-rating{
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+
+.product-title{
+	font-size: 20px;
+}
+
+.product-desc{
+	font-size: 14px;
+}
+.product-stock{
+	color: #6b6b6b;
+    text-transform:uppercase;
+    letter-spacing:2px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.product-info{
+    margin: 0;
+}
+.product-info .tab-pane{
+    padding:15px;border-radius:5px;margin-top:15px;background: rgba(200,200,200,0.1);
+}
+body:not(.body-dark) .product-info .tab-pane,.product-info .tab-pane.white{
+    background:#f9f9f9;color:#333
+}
+/*    */
+    
+.service1-items {
+	padding: 0px 0 0px 0;
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-width: 100%;
+	height: 321px;
+	width: 130px;
+}
+
+.service1-item {
+	display: block;
+	float: left;
+	position: relative;
+	padding: 0 10px 10px 0;
+}
+
+.body-dark .service1-item > .img {
+    box-shadow:0 0 15px #333
+}
+.service1-item > .img {
+    box-shadow:0 0 5px #888;
+	height: 110px;
+	width: 110px;
+    background-size:cover;
+    background-position:center
+	opacity: 0.6;
+	transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-moz-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+    border-radius:50%;
+}
+
+.service1-item > .img:hover {
+	cursor: pointer;
+	opacity: 1;
+}
+
+.service-image-left {
+	padding-right: 50px;
+}
+
+.service-image-right {
+	padding-left: 50px;
+}
+
+.service-image-left .img,.service-image-right .img{
+	max-width: 100%;
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+.body-dark .service-image-left .img{border-radius:50%}
+</style>
+<section id="learn">
+<div class="container-fluid">
+    <div class="content-wrapper">	
+		<div class="item-container">
+			<div class="container no-wpadding-container">	
+				<div class="row flex-table">
+				<div class="col-md-2 hidden-xs">
+                        <ul id="doc-menu" class="nav doc-menu hidden-xs affix-top doc-menu-background" data-spy="affix">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/docs/cameras">Connection URLs</a></li>
+                            <li><a href="/support">Support</a></li>
+                            <li><a href="/metal">Metal</a></li>
+                            <li>
+                                <a href="/shop">Shop</a>
+                                <ul class="nav doc-sub-menu">
+                                    <% Object.keys(products).forEach(function(n,v){
+                                    v=products[n]
+                                    %>  
+                                    <li><a href="/shop/<%-v.id%>"><%-v.stripe.name%></a></li>
+                                    <% }) %>
+                                </ul>
+                            </li>
+                            <li><a href="/shop/tos">Terms of Service</a></li>
+                            <li><a href="/shop/rebate">Rebate</a></li>
+                            <li><a href="/shop/returns">Returns</a></li>
+                            <li><a href="/shop/tos#warranty">Warranty</a></li>
+                            <li><a href="/shop/tos#shipping">Shipping</a></li>
+                        </ul>
+                </div>
+				<div class="col-md-10">
+				<div class="col-md-12">
+				<div class="row ">
+					<div class="product col-md-6 service-image-left">
+                        <div id="item-display" class="img imgPop" src="<%-product.images[0]%>" style="background-image:url(<%-product.images[0]%>)"></div>
+					</div>
+                    <div class="col-md-6 product-details">
+                        <div class="product-title"><%-product.name%></div>
+                        <div class="product-desc"><%-product.shortDescription%></div>
+<!--                        <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>-->
+                        <hr>
+                        <div class="product-price"><span class="currencyType">$</span><span class="amount"><%- product.amount %></span> <span class="currency"><%- product.currency.toUpperCase() %></span></div>
+                        <div id="moreText">
+                            <div><small><a href="/shop/rebate">Mail In Rebate : $<span class="rebate"></span> <span class="currency"><%- product.currency.toUpperCase() %></span></a></small></div>
+                            <div><small id="multi_total"></small></div>
+                        </div>
+                        <div class="product-stock"><%- product.shipping %><br><small><%- product.shippingTime %></small></div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <a total_step="-1" class="btn btn-default">&nbsp;<i class="fa fa-minus"></i>&nbsp;</a>
+                                    </div>
+                                    <input id="buy_total" class="form-control text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <a total_step="1" class="btn btn-default">&nbsp;<i class="fa fa-plus"></i>&nbsp;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <a class="btn btn-sm btn-success btn-block" id="buy_now">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="clearfix" style="margin:10px"></div>
+                        <div>
+                            <% product.images.forEach(function(v,n){
+                                if(n===0){
+                                    return
+                                }
+                            %>
+                            <a class="service1-item">
+                                <div class="img imgPop" src="<%-v%>" style="background-image:url(<%-v%>)"></div>
+                            </a>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix" style="margin:10px"></div>
+                <div class="product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs">
+
+                        <li class="active"><a href="#service-one" data-toggle="tab">Description</a></li>
+                        <% if(product.links&&product.links.length>0){ %>
+                        <li><a href="#linksDownloads" data-toggle="tab">Apps, Firmware &amp; Manuals</a></li>
+                        <% } %>
+                        <li><a href="#service-three" data-toggle="tab">Reviews</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="service-one">
+
+                            <section class="product-info">
+                                <p><%-product.description%></p>
+                                <% if(product.features&&product.features.length>0){ %>
+                                    <h3>Features</h3>
+                                    <ul class="features">
+                                        <% product.features.forEach(function(v,n){ %>
+                                        <li><%-v%></li>
+                                        <% }) %>
+                                    </ul>
+                                <% } %>
+                                <h3>Package Includes</h3>
+                                <ul class="packageIncludes">
+                                    <% product.packageIncludes.forEach(function(v,n){ %>
+                                    <li><%-v%></li>
+                                    <% }) %>
+                                </ul>
+                                <h3>Specifications</h3>
+                                <ul class="specifications">
+                                    <% Object.keys(product.specifications).forEach(function(b,m){
+                                        if(product.specifications[b]===1){
+                                            product.specifications[b]='&nbsp;<i class="fa fa-check text-success"></i>&nbsp;'
+                                        }
+                                        %>
+                                    <li><b><%-b%></b><span class="pull-right"><%-product.specifications[b]%></span></li>
+                                    <% }) %>
+                                </ul>
+                            </section>
+
+                        </div>
+                        <div class="tab-pane fade white" id="service-three">
+                            <% include ../disqus.ejs %>
+                        </div>
+                        <% if(product.links&&product.links.length>0){ %>
+                        <div class="tab-pane fade" id="linksDownloads">
+                            <ul class="download-list">
+                                <% product.links.forEach(function(v,n){ %>
+                                <li>
+                                    <% switch(v.type){
+                                        case'download':
+                                            %><i class="fa fa-download"></i> <%
+                                        break;
+                                        case'link':
+                                            %><i class="fa fa-paperclip"></i> <%
+                                        break;
+                                    } %>
+                                    <a href="<%- v.href %>" <% if(v.type==="download"){%>download<%} %>><%- v.label %></a>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+		</div>
+	</div>
+</div>
+</div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[rel="tooltip"]').tooltip();
+    $('body')
+        .on('load','#dsq-app1',function(){
+            $(this).css('height','auto')
+        })
+        .resize(productImageResize)
+        .resize()
+        
+    $('#buy_total')
+        .change(function(){
+            var total = parseInt($(this).val())
+            var moreText = $('#moreText')
+            var rebateBase = parseInt(<%-product.rebateBase%>) || 10
+            var rebateElement = $('.rebate')
+            var totalPriceElement = $('#multi_total')
+            if(total<=1||isNaN(total)){
+                total=1
+                $(this).val(total)
+                moreText.hide()
+            }else{
+                moreText.show()
+                rebateElement.text(rebateBase * total)
+                totalPriceElement.text('x'+total+' : $'+total*<%-product.amount%>+' <%-product.currency.toUpperCase()%>')
+            }
+            $('#buy_now').unbind('click').click(function(){
+                var stripe=<%-JSON.stringify(product.stripe)%>
+                stripe.name=total+' x <%-product.stripe.name%>'
+                stripe.amount=total*<%-product.stripe.amount%>
+                handler.open(stripe);
+            })
+        })
+        .change()
+    $('[total_step]')
+        .click(function(){
+            var total = parseInt($('#buy_total').val())
+            var step = parseInt($(this).attr('total_step'))
+            var newTotal = step+total
+            $('#buy_total').val(newTotal).change()
+        })
+});
+var productImageResize=function(){
+    var ele=$('#item-display')
+    ele.css('height',ele.width())
+}
+$('.flip-card').click(function(){
+    var $card = $(this).parents('.card-container');
+    if($card.hasClass('hover')){
+        $card.removeClass('hover');
+    } else {
+        $card.addClass('hover');
+    }
+})
+//stripe : Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+</script>

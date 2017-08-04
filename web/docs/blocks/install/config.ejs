@@ -1,0 +1,224 @@
+<div class="section-block">
+<h3 class="block-title question" id="config_login">Default Login</h3>
+<p>After importing <cod>default_data.sql</cod> the following login credentials become active.</p>
+<ul>
+<li><code>Username : ccio@m03.ca</code></li>
+<li><code>Password : password</code></li>
+</ul>
+<p>To change these credentials after logged in.</p>
+<ol>
+  <li>Login</li>
+  <li>Click <b>user email</b> located at the top right of the dashboard.</li>
+  <li>Open <b>Settings</b>.</li>
+  <li>Change details to your liking.</li>
+</ol>
+<h3 class="block-title question" id="config_conf">conf.json</h3>
+<p><b>conf.json</b> is the file that you create from <b>conf.sample.json</b> during the install process using the following command from inside the Shinobi directory.
+  
+</p><pre lang=""><code>cp conf.sample.json conf.json</code></pre>
+
+<p>Anyway! on to what’s really important. What’s in the file itself. This is the contents of <b>conf.sample.json</b>.
+  
+</p><pre lang=""><code>{
+  "port": 8080,
+  "utcOffset":"-0800",
+  "DropboxAppKey": "mwgh09b16myew4s",
+  "db": {
+    "host": "127.0.0.1",
+    "user": "majesticflame",
+    "password": "",
+    "database": "ccio",
+    "port":3306
+  },
+  "mail":{
+    "service": "gmail",
+    "auth": {
+        "user": "your_email@gmail.com",
+        "pass": "your_password_or_app_specific_password"
+        }
+  },
+  "cron":{
+      "key":"change_this_to_something_very_random__just_anything_other_than_this"
+  },
+  "pluginKeys":{
+      "Motion":"change_this_to_something_very_random____make_sure_to_match__/plugins/motion/conf.json"
+  }
+}</code></pre>
+
+<h3 class="block-title question">Available Options for conf.json</h3>
+<table class="table table-striped">
+  <tbody><tr>
+<th>Options</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+  <tr>
+<td>cpuUsageMarker</td>
+<td>no</td>
+<td>string</td>
+<td>The marker that is used to search for CPU usage in <code>top</code> command. Default is <code>%Cpu</code>. Some systems, like Puppy Linux, require it be set to <code>CPU</code>.</td>
+</tr>
+      <tr>
+<td>defaultMjpeg</td>
+<td>no</td>
+<td>string</td>
+<td>A path leading to a JPEG file. This default image is needed for when the camera cannot provide frames.</td>
+</tr>
+      <tr>
+<td>doSnapshot</td>
+<td>no</td>
+<td>boolean</td>
+<td>By default the snapshot in the top left open its own FFMPEG process for a moment to get a single frame, You can avoid this by turning on <b>JPEG API</b> or setting this option to <code>false</code>.</td>
+</tr>
+  <tr>
+<td>updateKey</td>
+<td>no</td>
+<td>string</td>
+<td>For updating by <a href="/docs/api#how-to-update">API</a>.</td>
+</tr>
+  <tr>
+<td>streamDir</td>
+<td>no</td>
+<td>string</td>
+<td>default is <code>/dev/shm/streams/</code>. Remember to end with <code>/</code>. Leave it undefined or <b>null</b> to use default. <b>Be careful in using HLS as Stream Type. This directory should be set as somewhere in RAM</b>
+</td>
+</tr>
+  <tr>
+<td>videosDir</td>
+<td>no</td>
+<td>string</td>
+      <td>default is <code>videos/</code> in the Shinobi directory. Remember to end with <code>/</code>. Leave it undefined or <b>null</b> to use default.</td>
+</tr>
+  <tr>
+<td>windowsTempDir</td>
+<td>no</td>
+<td>string</td>
+<td>default is <b>C:/Windows/Temp</b>. If your system is not located on the C: drive then you must add this option in your conf.json file.</td>
+</tr>
+  <tr>
+<td>DropboxAppKey</td>
+<td>no</td>
+<td>string</td>
+<td>Future releases will hide dropbox functions when this key is left null.</td>
+</tr>
+  <tr>
+<td>port</td>
+<td>yes</td>
+<td>int</td>
+<td>Port that is used for the Shinobi server instance. Default is <b>8080</b>
+</td>
+</tr>
+  <tr>
+<td>utcOffset</td>
+<td>yes</td>
+<td>string</td>
+<td>Timezone that matches your SQL database.</td>
+</tr>
+  <tr>
+<td>db</td>
+<td>yes</td>
+<td>object</td>
+<td>The login information for the SQL database</td>
+</tr>
+  <tr>
+<td>db.host</td>
+<td>yes</td>
+<td>string</td>
+<td>The IP address or domain name. Default is <b>127.0.0.1</b>
+</td>
+</tr>
+  <tr>
+<td>db.user</td>
+<td>yes</td>
+<td>string</td>
+<td>The user name. Default is <b>majesticflame</b>.</td>
+</tr>
+  <tr>
+<td>db.password</td>
+<td>yes</td>
+<td>string</td>
+<td>The password. Default is <i>no password.</i>
+</td>
+</tr>
+  <tr>
+<td>db.database</td>
+<td>yes</td>
+<td>string</td>
+<td>The database name. Default is <b>ccio</b>.</td>
+</tr>
+  <tr>
+<td>db.port</td>
+<td>yes</td>
+<td>int</td>
+<td>The port number for Shinobi. Default is <b>3306</b>.</td>
+</tr>
+  <tr>
+<td>cron</td>
+<td>no</td>
+<td>object</td>
+<td>The object that contains some options for <b>cron.js</b>
+</td>
+</tr>
+  <tr>
+<td>cron.deleteOld</td>
+<td>no</td>
+<td>boolean</td>
+<td>cron will delete videos older than <b>Max Number of Days</b> per account. Default is <b>true</b>.</td>
+</tr>
+  <tr>
+<td>cron.deleteNoVideo</td>
+<td>no</td>
+<td>boolean</td>
+<td>cron will delete SQL rows that it thinks have no video files. Default is <b>true</b>.</td>
+</tr>
+  <tr>
+<td>cron.deleteOverMax</td>
+<td>no</td>
+<td>boolean</td>
+<td>cron will delete files that are over the set maximum storage per account. Default is <b>true</b>.</td>
+</tr>
+  <tr>
+<td>mail</td>
+<td>no</td>
+<td>object</td>
+<td>If your Email account uses 2-Step Authentication, like Gmail, then you will be require to create an Application Password.</td>
+</tr>
+  <tr>
+<td>ssl</td>
+<td>no</td>
+<td>object</td>
+<td>If you would to use SSL (Encryption) you can include this object.</td>
+</tr>
+  <tr>
+<td>ssl.key</td>
+<td>yes*</td>
+<td>string</td>
+<td>Required if SSL object is present. This is a reference to a file that usually ends in <b>.key</b>.<br><i>Example : ssl/server.key</i> will direct to a folder named <b>ssl</b> inside your Shinobi directory.</td>
+</tr>
+  <tr>
+<td>ssl.cert</td>
+<td>yes*</td>
+<td>string</td>
+<td>Required if SSL object is present. This is a reference to a file that usually ends in <b>.crt</b>.<br><i>Example : ssl/server.crt</i> will direct to a folder named <b>ssl</b> inside your Shinobi directory.</td>
+</tr>
+  <tr>
+<td>ssl.passphrase</td>
+<td>yes*</td>
+<td>string</td>
+<td>If your key and certificate use a passphrase you must define it or SSL will not start.</td>
+</tr>
+  <tr>
+<td>ssl.port</td>
+<td>no</td>
+<td>int</td>
+<td>This is the port SSL will listen on. If option is undefined <b>443</b> will be used.</td>
+</tr>
+      <tr>
+<td>language</td>
+<td>no</td>
+<td>string</td>
+<td>Default is <b>en_CA</b>. You can check the <code>langauges</code> folder inside the Shinobi directory for more options. You can make more by using <code>node tools/translateLanguageFile.js</code>.</td>
+</tr>
+</tbody></table>
+</div>

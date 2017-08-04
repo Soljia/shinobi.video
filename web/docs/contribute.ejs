@@ -1,0 +1,63 @@
+<% var Title='Contributing'; %>
+<% include blocks/header.ejs %>
+<body class="body-orange">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon fa fa-heartbeat"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="general" class="doc-section">
+                               <div class="section-block">
+                                   <img src="/libs/assets/meeting.png" style="float:right;margin-left:20px;max-width:300px">
+                                   <p>Have an idea for a plugin or feature and wnat to add it in to Shinobi? Find me on Discord! We can talk about it in a live chat :)</p>
+                                   <p>You can post suggestions in the Discord #suggestions channel. Please do not treat this channel like a "demands" window.</p>
+
+                                   <p>When you have a suggestion please try and make the changes yourself then post a pull request to the <code>dev</code> branch of Shinobi Pro, this will later get merged to Shinobi CE. Then we can decide if it's a good change for Shinobi. If you don't know how to go about it or would like to skip that and have me do the changes you can order a support package or wait for it to be completed when a developer gets to it.</p>
+
+                                   <p><a href="http://shinobi.video/support">http://shinobi.video/support</a></p>
+                                   
+                                   <p><a href="https://github.com/ShinobiCCTV/Shinobi/tree/dev">https://github.com/ShinobiCCTV/Shinobi/tree/dev</a></p>
+                       
+                                   <p>If your changes include additional libraries, you must make changes to installation processes to ensure that your changes work out of the box.</p>
+
+                                   <p><strong>Learn about the different sets of code you can contribute:</strong></p>
+
+                                   <p><a href="https://github.com/moeiscool/Shinobi/wiki/Plugins#contributing-a-plugin">Contributing a Plugin</a></p>
+
+                                   <p><strong>Don't have code to contribute?</strong></p>
+
+                                   <p>Don't worry it'll come to you. In the mean time you can check out some ways to <a href="/docs/donate">Support Shinobi</a>. Donating finances is the best way to contribute to Shinobi.</p>
+                                   <p><i>All contributed code becomes the property of Shinobi. All contributors give permission to Shinobi and Shinobi developers to use the code however it is seen fit. This is agreed upon when making your first commit.</i></p>
+                                </div>
+                            </section><!--//doc-section-->
+
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                                <li><a class="scrollto" href="#using-a-plugin">Using a Plugin</a></li>
+                                <li><a class="scrollto" href="#contributing-a-plugin">Contributing a Plugin</a></li>
+                                <li><a class="scrollto" href="#why-socketio-for-transport">Why Socket.io for transport?</a></li>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

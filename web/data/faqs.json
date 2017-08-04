@@ -1,0 +1,90 @@
+{
+    "General":[
+        {
+            "Q": "Is there an API for it?",
+            "A": "Sure. Head on over to the <a href=\"//shinobi.video/docs/api\">API Access</a> page."
+        },
+        {
+            "Q": "How do I update?",
+            "A": "Please have a look at the <a href=\"//shinobi.video/docs/start#installation-section\">Install</a> page."
+        },
+        {
+            "Q": "Does it record continuously?",
+            "A": "yes, There is a cutoff at 15 minutes by default. You can change it in the monitor settings."
+        },
+        {
+            "Q": "Where is conf.json?",
+            "A": "There is <b>conf.sample.json</b> rename it to <b>conf.json</b>."
+        },
+        {
+            "Q": "What type of Cameras are supported?",
+            "A": "<a href=\"//shinobi.video/docs/supported\">Supported Cameras</a> page is what you want."
+        },
+        {
+            "Q": "Where can I make feature requests?",
+            "A": "In the <code>#suggestions</code> channel on <a href=\"http://discordapp.com/invite/mdhmvuH/\">Discord</a>. If you are on a paid support package you may open a ticket in the client area. Either method will work, ticket made in the client area ensures priority for requests."
+        },
+        {
+            "Q": "How do I turn on 2-Factor Authentication (2FA)?",
+            "A": "After logging into your account open Settings. You will see the option if your version of Shinobi has the feature and are not logged into a sub account. Mail options must be set in your application configuration (conf.json)."
+        }
+    ],
+    "Technical":[
+        {
+            "Q": "Can I run this on HTTPS instead of HTTP?",
+            "A": "Yes. You can have it going through a proxy or through cloudflare with a domain, quick and painless. Websocket works excellent through cloudflare."
+        },
+        {
+            "Q": "Why are my videos unplayable somtimes??",
+            "A": "<p>This can mean a number of things.</p><ul><li>Your settings are incompatible with the camera stream. Try using <code>WebM</code> as the file format and <code>libvpx</code> for the video encoder with audio off. <i>Turning off timestamps</i> sometimes also helps.</li><li>Your build of FFMPEG does not work correctly with your operating system. You can rebuild manually or reinstall from a repository.</li><li>Your libraries are damaged or out of date.</li></ul>"
+        },
+        {
+            "Q": "Where can i change the videos or temporary streams directory?",
+            "A": "Please have a look at the <a href=\"//shinobi.video/docs/start#config_conf\">Configuration section</a> on the Install page."
+        },
+        {
+            "Q": "Would it work for a raspberry pi streaming RTSP h264 video?",
+            "A": "If you can open the stream in VLC Media Player then ffmpeg should be able to get it too. ffmpeg is what Shinobi uses for encoding."
+        },
+        {
+            "Q": "Does it timestamp the videos?",
+            "A": "It does but for some wacky reason the time is off sometimes. I am trying to figure out why it does that. I am welcoming any input on this."
+        },
+        {
+            "Q": "Is the video montage showing the actual stream or a reduced version?",
+            "A": "Default resizes to 640x480 or 640x360. This can be changed in the monitor settngs."
+        },
+        {
+            "Q": "Can I set the mode of my camera (Record, Watch, or Stop) from HTTP? (Trigger a Camera)",
+            "A": "Sure. Head on over to the <a href=\"//shinobi.video/docs/api\">API Access</a> page."
+        },
+        {
+            "Q": "Why can’t I see anything in my camera window? There are no logs.",
+            "A": "This might mean ffmpeg was unable to start. Please ensure your machine is capable of installing ffmpeg. by running the following commands. Ubuntu’s package manager will inform whether or not there is a build available for your flavour of Ubuntu."
+        },
+        {
+            "Q": "I can’t record to WebM or MP4, but I can see the stream.",
+            "A": "For <b>WebM</b> you need <b>libvpx</b> installed and for <b>MP4</b> you require <b>libx264</b> (and <b>libx265</b> if you want it). Then compile FFMPEG. Otherwise with Ubuntu 16.04 Server you should get all the needed libraries with <b>apt-get install libav-tools</b>."
+        },
+        {
+            "Q": "I can’t open some events, the time or URL is incorrect.",
+            "A": "<p>Please check your <b>conf.json</b>. The timezone may be incorrect. Option <b>utcOffset</b> should be set to <b>one</b> of the following:</p><ul><li>the system’s timezone, Example :  America/Vancouver would be <b>-0800</b>.</li><li>the timezone that your SQL database is using (normally the system timezone)</li><li><b>null</b> (defaults to system timezone)</li><li>Remove the option from <b>conf.json</b>. This is the same as setting to <b>null</b>.</li></ul>"
+        },
+        {
+            "Q": "I keep getting \"undefined function\" errors, why?",
+            "A": "<p>Your version of Node.js is too old. You must have <b>7.2.0(+)</b>. Upgrade to the latest with the following commands.</p><pre lang><code>sudo npm cache clean -f\nsudo npm install -g n\nsudo n stable</code></pre>"
+        },
+        {
+            "Q": "npm install canvas does not work",
+            "A": "<p>Install the following libraries.</p><pre lang><code>sudo apt-get install libgif-dev</code></pre>"
+        },
+        {
+            "Q": "I see strange artifacts, smeering, streaking, melting, and maybe ice cream",
+            "A": "<p>Set your <b>Analyzation Duration</b> in the <b>Input</b> Section to <b>1000</b>. Also by default FFMPEG tries UDP first. You can change this by using this flag in the <b>Custom</b> Section’s <b>Input Flags</b> box.</p><pre>-rtsp_transport tcp</pre>"
+        },
+        {
+            "Q": "After disconnecting SSH my Shinobi stops working correctly.",
+            "A": "<p>It seems that if you run PM2 as a regular user and disconnect from SSH it will not maintain this daemon. Please run as root if you would like to daemonize with PM2. Otherwise I suggest trying <b>forever</b> instead of PM2.</p><pre lang><code>npm install forever -g</code></pre>"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+<title>Shinobi Articles - <%- articles.title %></title>
+<header class="page__header">
+    <% include menu.ejs %>
+    <div class="page__container">
+        <div data-editable data-name="page__heading">
+            <%- articles.page__heading %>
+        </div>
+        <div data-editable data-name="page__opening">
+            <%- articles.page__opening %>
+        </div>
+        <div data-editable data-name="page__byline" class="page__byline">
+            <%- articles.page__byline %>
+        </div>
+        <div class="date"><%-articles.date%></div>
+    </div>
+</header>
+<main class="page__main">
+<div class="page__container">
+    <section class="page__content formatted" data-editable data-name="page__content">
+        <%-articles.page__content%>
+    </section>
+    <hr>
+    <% include ../disqus.ejs %>
+    </div>
+</main>
+<% if(isAuthorized===true){ %>
+<link rel="stylesheet" type="text/css" href="/libs/css/content-tools.min.css">
+<script src="/libs/js/content-tools.min.js"></script>
+<script>
+    editor={date:function(){return moment('<%-articles.date%>').format('YYYY-MM-DD HH:mm:ss')}}
+</script>
+<script>window.editing=true</script>
+<script src="/libs/js/editor.js"></script>
+<% } %>

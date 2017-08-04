@@ -1,0 +1,62 @@
+<% 
+try{pageData=JSON.parse(pageData);}catch(err){var pageData=''}
+if(pageData){
+    var Title=currentBrand+' Connection URLs'; %>
+    <style>
+        #cameraTable tr td:first-child{vertical-align:middle}
+        .table .table{background:none}
+        #legend{width:100%;text-align:center;}
+        #legend a{display:inline-block;text-decoration:none;}
+        .body-dark #legend a{color:#fff}
+    </style>
+<% }else{
+    var Title='Camera Brands'; %>
+<style>
+    #brands > div{display:inline-block;vertical-align:top}
+    #brands > div ul li{padding:0}
+</style>
+<% } %>
+<% include blocks/header.ejs %>
+<body class="body-orange">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="content-inner">
+                        <section class="doc-section">
+                            <% include blocks/search.ejs %>
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle3 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="8727169313"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle4 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="1203902518"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+            </div>
+                            <% if(pageData){%>
+                                <% include blocks/cameras/found.ejs %>
+                            <% }else{ %>
+                                <% include blocks/cameras/main.ejs %>
+                          <% } %>
+                            <div class="text-center"><small>Camera URL information and camera brand list are from <a href="https://www.ispyconnect.com/sources.aspx">iSpyconnect</a></small></div>
+                        </section><!--//content-inner-->
+                    </div><!--//doc-content-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

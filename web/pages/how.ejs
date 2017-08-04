@@ -1,0 +1,105 @@
+<% include blocks/header.ejs %>
+<style>
+    header{background-image:url(/libs/assets/backgrounds/1.jpg)}
+</style>
+<header id="first">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="border-radius:50%" src="/libs/assets/icon/apple-touch-icon-152x152.png">
+            <h1 class="cursive">How?</h1>
+            <h4 style="text-transform:uppercase">How Does it Work?</h4>
+            <hr>
+            <div class="btn-group">
+                <a href="#learn" class="btn btn-primary btn-xl page-scroll">Find Out</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</header>
+<section class="bg-primary" id="learn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <h2 class="margin-top-0 text-primary">Why make this?</h2>
+                <blockquote>
+                    <p class="text-faded">
+                        I want to make a world class CCTV platform. One that anyone could use. Simply login to your account, add camera details, set options and away you go. No client app installations. Viewing streams and recordings on your mobile device by simply opening a web page.
+                    </p>
+                    <p class="text-faded">
+                        This means you could view it on any device with a capable web browser. A base was needed to start with so I took to the internet for more answers.
+                    </p>
+                    <p class="text-faded">
+                        A popular CCTV application born in 2003 was the primary choice but quickly found it wasn't capable of fufilling the role.
+                    </p>
+                    <small>Moe Alam</small>
+                </blockquote>
+                <div class="btn-group">
+                    <a href="#zm-list" class="btn btn-default btn-xl page-scroll">How?</a> 
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="libs/assets/panda-sigh.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="zm-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary">Why the others didn't work</h2>
+                <p>Specific reasons why the other platform could not be used.</p>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+      <table class="table" style="font-size:15pt">
+<!--
+          <thead>
+              <tr>
+                  <th></th>
+              </tr>
+          </thead>
+-->
+          <tbody>
+              <% [
+                  {
+                      title:'MJPEG streams : no good',
+                      text:'<ul><li>With MJPEG you are opening a new stream every time you create an image with an MJPEG url. Even if you remove this element it will continue to eat resources from the server and client. Only way to deal with it currently is through an <code>iframe</code>, <code>popup</code>, or <code>hard refresh</code>.</li><li><i>Shinobi addresses this with <code>Websocket</code> streams. As frames are captured by FFMPEG they are base64 encoded and sent to the client.</i></li><li><i>As of January 2017 : Shinobi can output HLS (m3u8) and MJPEG (in an iframe) also.</i></li></ul>',
+                  },
+                  {
+                      title:'JPEG Storage : mildly acceptable',
+                      text:'<ul><li>Saving each frame as a separate file in JPEG format can have a seriously detrimental effect on storage space and the hardware itself. Hardware is more likely to fail under the stress of continuously saving frames to storage.</li><li><i>Shinobi saves to WebM and MP4 files. While MP4 takes a fair amount of space.. its level of CPU usage during encoding for H.264 streams is just amazing.</i></li></ul>',
+                  },
+                  {
+                      title:'Using too many languages',
+                      text:'<ul><li>The platform uses Perl, PHP, JavaScript, C++, HTML, CSS, MySQL, and probably more. This makes it difficult to modify the code for other purposes.</li><li><i>Shinobi uses JavaScript, HTML, CSS, and MySQL. Simple right? It should be.</i></li></ul>',
+                  },
+                  {
+                      title:'Outdated methods',
+                      text:'<ul><li>While connected to the dashboard will query the database for events every few minutes, continuously getting/counting the same events over and over.</li><li><i>Shinobi uses Websockets to get real-time data about Videos and Events.</i></li><li>For every camera a new process is created every time a viewer opens a stream. 1 Stream = 1 Process.</li><li><i>Shinobi uses 1 process per camera for all viewers.</i></li></ul>',
+                  },
+                  {
+                      title:'General Issues',
+                      text:'<ul><li>No Audio recording</li><li>No ability to re-stream</li></ul>',
+                  },
+              ].forEach(function(v,n){ %>
+              <tr>
+                  <td><%-v.title%></td>
+                  <td><%-v.text%></td>
+              </tr>
+           <%  }) %>
+          </tbody>
+      </table>
+        <blockquote>
+            <img src="libs/assets/moe.png" style="width:350px" class="pull-right">
+            <p>I couldn't use the current software solutions that were present.</p>
+            <p>So I began Shinobi.</p>
+            <p><small>Moe Alam</small></p>
+        </blockquote>
+    </div>
+  </section>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

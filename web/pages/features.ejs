@@ -1,0 +1,325 @@
+<% config.Title='Features'; %>
+<% include blocks/header.ejs %>
+<style>
+    .super-table tr td:first-child{text-transform:initial;font-weight: 500;}
+    header{background-image:url(/libs/assets/backgrounds/1.jpg)}
+</style>
+<header id="first">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="height:350px" src="/libs/assets/iot-network.png">
+            <h1 class="cursive">Features</h1>
+            <h4 style="text-transform:uppercase">Special, Yet Familiar</h4>
+            <hr>
+            <div class="btn-group">
+                <a href="#learn" class="btn btn-default btn-xl page-scroll">Find Out How</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</header>
+<% include blocks/subheader.ejs %>
+<section id="learn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary" title="ZoneMinder vs Shinobi">Features Comparison</h2>
+                <p>"We live in a world where shinobi are younger than you... yet more powerful than me."</p>
+                <hr class="primary">
+            </div>
+        </div>
+      <table class="super-table red-center" style="font-size:15pt">
+          <thead>
+              <tr>
+                  <td>&nbsp;</td>
+                  <td>Shinobi</td>
+                  <td>ZoneMinder</td>
+              </tr>
+          </thead>
+          <tbody>
+              <% [
+                  {
+                      label:'Started In',
+                      feature:'2016',
+                      compare1:'2003',
+                      description:'The year the platform started.',
+                  },
+                  {
+                      label:'Written in',
+                      feature:'JavaScript',
+                      compare1:'C++, Perl and PHP',
+                      description:'The main server language used to manage operations.',
+                  },
+                  {
+                      label:'Maintained by Author',
+                      feature:1,
+                      compare1:0,
+                      description:'Whether or not the platform is being developed by a third party or the original Author(s).',
+                  },
+                  {
+                      label:'Runs On',
+                      feature:'Linux, macOS, Windows',
+                      compare1:'Linux',
+                      description:'The operating system that the platform will run on.',
+                  },
+                  {
+                      label:'Multicast Streams',
+                      feature:1,
+                      compare1:0,
+                      description:'When you have one source providing data to multiple clients. Base64 and MJPEG streams with Shinobi work in this manner.',
+                  },
+                  {
+                      label:'MJPEG Streams',
+                      feature:1,
+                      compare1:1,
+                      description:'Motion JPEG, A socket that stays open only for serving JPEG images.',
+                  },
+                  {
+                      label:'JPEG Streams',
+                      feature:1,
+                      compare1:1,
+                      description:'JPEG still images saved to RAM. They can be accessed by URL. Streams refresh this image on a timer.',
+                  },
+                  {
+                      label:'HLS Streams (m3u8)',
+                      feature:1,
+                      compare1:0,
+                      description:'Similar to facebook live videos. Chunks of MPEG-4 files are created and given to the client as a continuous stream. This method supports audio.',
+                  },
+                  {
+                      label:'Websocket Streams (Base64)',
+                      feature:1,
+                      compare1:0,
+                      description:'Frames are base64 encoded then pushed to the client over websocket. Then drawn to a canvas element with javascript.',
+                  },
+                  {
+                      label:'Recording Method',
+                      feature:'Video Files',
+                      compare1:'Each frame as a File<br><a href="/why#JPEGStoragemildlyacceptable">or Video Files, Added in May 2017</a>',
+                      description:'Actual video files for recordings. Like MP4 and WebM.',
+                  },
+                  {
+                      label:'MP4 Recording <small>(Modern)</small>',
+                      feature:1,
+                      compare1:'<a href="/why#JPEGStoragemildlyacceptable">Added in May 2017</a>',
+                      description:'MP4 is short for MPEG-4 and is a modern video format. This format runs on modern mobile devices natively.',
+                  },
+                  {
+                      label:'WebM Recording <small>(Modern)</small>',
+                      feature:1,
+                      compare1:0,
+                      description:'WebM is special because the files are super compressed. The drawback is how much CPU is used to create them and is not playable on all modern mobile devices without third-party programs like VLC.',
+                  },
+                  {
+                      label:'JPEG Recording <small>(Old Method)</small>',
+                      feature:0,
+                      compare1:1,
+                      description:'Individual JPEG frames being saved to storage. This method can shorten hardware life.',
+                  },
+                  {
+                      label:'Records Audio',
+                      feature:1,
+                      compare1:'<a href="/why#Outdatedmethods">Added in May 2017</a>',
+                      description:'Recording audio is illegal in some countries. Please ensure you do not have it enabled where such laws apply.',
+                  },
+                  {
+                      label:'Websocket Video Recording',
+                      feature:1,
+                      compare1:0,
+                      description:'Record frames that are pushed to the server over websocket. This can be useful for mobile devices setup as dashcams or mobile cloud recording units.',
+                  },
+                  {
+                      important:1,
+                      label:'Stream Limit',
+                      feature:'None with Base64 and JPEG Mode',
+                      compare1:'~6, Depends on method used to view',
+                      description:'This limitation is more due to browser capabilities. With Shinobi we can trick the browser into letting us do it anyway. Be aware the limitation is to avoid performance drops. We should be allowed to deal with it at our discretion in a global manner. Not all browsers allow disabling the limit.',
+                  },
+                  {
+                      label:'Region Motion Detection',
+                      feature:1,
+                      compare1:1,
+                      description:'Choose an area between coordinates on your video stream for motion detection to occur.',
+                  },
+                  {
+                      label:'"No Motion" Detection',
+                      feature:1,
+                      compare1:0,
+                      description:'A notification if motion is not detected after a certain amount of time. This is useful for those monitoring experiments or equipment.',
+                  },
+                  {
+                      label:'Delete Motionless Video',
+                      feature:"Checked once the video segment is complete.",
+                      compare1:"Checked when periodic audit of the entire database is run.",
+                      description:'Continue recording and check to see if video has motion. Files without motion found will be deleted automatically.',
+                  },
+                  {
+                      label:'Isolated Accounts',
+                      feature:1,
+                      compare1:0,
+                      description:'An "Admin" account for creating cameras and sub accounts. This account will be have it\'s own Group Key.',
+                  },
+                  {
+                      label:'Sub Accounts',
+                      feature:1,
+                      compare1:1,
+                      description:'Sub Accounts can be made for multiple users who wish to monitor the same cameras and data associated with or without permissions.',
+                  },
+                  {
+                      label:'Filters',
+                      feature:1,
+                      compare1:1,
+                      description:'Filters are run with the cron job, by default every 1 hour. You can delete certain files, run commands, or get data about events.',
+                  },
+                  {
+                      label:'Monitor Groups',
+                      feature:1,
+                      compare1:1,
+                      description:'Groupings for monitors to quickly display certain streams and data.',
+                  },
+                  {
+                      label:'2-Factor Authentication',
+                      feature:1,
+                      compare1:0,
+                      description:'After logging in a code is sent to your email and you will be presented with a screen to validate that code before you can access your account.',
+                  },
+                  {
+                      label:'Time-lapse Viewer',
+                      feature:1,
+                      compare1:0,
+                      description:'Watch a whole days worth of videos in a few minutes.',
+                  },
+                  {
+                      label:'RESTful API Access',
+                      feature:1,
+                      compare1:1,
+                      description:'Integrate Shinobi into your app or control it remotely.',
+                  },
+                  {
+                      label:'Embeddable Streams (Natively)',
+                      feature:1,
+                      compare1:0,
+                      description:'Streams that you can add to your website. Just paste the code.',
+                  },
+                  {
+                      label:'Stream Analyzer built-in',
+                      feature:1,
+                      compare1:0,
+                      description:'Under the hood of the analyzer is FFprobe. A well crafted command line tool that helps you get configure your camera faster and with more confidence.',
+                  },
+                  {
+                      label:'Camera Scanner',
+                      feature:1,
+                      compare1:1,
+                      description:'The scanner will find some ONVIF compliant cameras based on the IP range specified.',
+                  },
+                  {
+                      label:'Event Notification',
+                      feature:1,
+                      compare1:1,
+                      description:'Many events on the dashboard are triggered by responses from the server that come in JSON strings.',
+                  },
+                  {
+                      label:'Push Events via Websocket',
+                      feature:1,
+                      compare1:0,
+                      description:'With websocket you can send all kinds of data. In Shinobi Websocket is used to push stream data to the browser.',
+                  },
+                  {
+                      label:'Video Compiler',
+                      feature:0,
+                      compare1:1,
+                      description:'A tool to create videos. The alternative uses it to combine JPEG images to create a video.',
+                  },
+                  {
+                      label:'Processes per Camera',
+                      feature:'1',
+                      compare1:'2 - 3 Minimum',
+                      description:'The number of procsesses that are needed to have a camera recording and stream. The alternative will create 1 new process for each stream that is open. Shinobi uses 1 altogether for all streams (per camera) that are open.',
+                  },
+                  {
+                      label:'Manual Snapshot from Stream',
+                      feature:1,
+                      compare1:0,
+                      description:'Take a quick picture of the stream by clicking a button presented on the dahsboard.',
+                  },
+                  {
+                      label:'External Triggering',
+                      feature:1,
+                      compare1:1,
+                      description:'Modifiying camera modes remotely through a script or on a wim.',
+                  },
+                  {
+                      label:'PTZ Support',
+                      feature:1,
+                      compare1:1,
+                      description:'Pan-Tilt-Zoom Support for Cameras.',
+                  },
+                  {
+                      label:'Automatic Backup',
+                      feature:1,
+                      compare1:1,
+                      description:'Automatically upload video data to the a remote address.',
+                  },
+                  {
+                      label:'Web Interface',
+                      feature:1,
+                      compare1:1,
+                      description:'A panel that can be accessed by a web browser like Google Chrome or Mozilla Firefox.',
+                  },
+                  {
+                      label:'Mobile Ready',
+                      feature:1,
+                      compare1:0,
+                      description:'The same web interface runs in mobile elegantly.',
+                  },
+                  {
+                      label:'Database',
+                      feature:'MySQL / MariaDB',
+                      compare1:'MySQL / MariaDB',
+                      description:'Where information about the users, filesystem, and cameras are stored.',
+                  },
+                  {
+                      important:1,
+                      label:'Telemetry',
+                      feature:'<b>It is against our principles to use telemetry in private installations</b>',
+                      compare1:1,
+                      description:'This data will be used to determine things like who and where people are, how big their systems are, the underlying hardware and operating system, etc.',
+                  },
+              ].forEach(function(v,n){
+                  ['feature','compare1'].forEach(function(b){
+                      if(v[b]===1){v[b]='<i class="fa fa-check text-success"></i>'}
+                      if(v[b]===0){v[b]='<i class="fa fa-times text-danger"></i>'}
+                  })
+                  if(v.important===1){
+                      v.label='<i class="fa fa-exclamation-triangle" title="Important"></i> '+v.label
+                  }
+                  %>
+              <tr>
+                  <td><%-v.label%><div class="description"><small><%-v.description%></small></div></td>
+                  <td><%-v.feature%></td>
+                  <td><%-v.compare1%></td>
+              </tr>
+           <%  }) %>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td>&nbsp;</td>
+                  <td><a class="btn btn-ghost" href="/metal">Order Metal</a></td>
+                  <td><a class="btn btn-default" href="/articles/2017-07-29-why-not-just-use-zoneminder">More Info</a></td>
+              </tr>
+          </tfoot>
+      </table>
+       <blockquote style="margin-top:20px;">
+            <img src="libs/assets/moe.png" style="width:250px" class="pull-right">
+            <p>This is the most popular of many solutions in the CCTV and NVR sector. Originally the intent was to use this for our purposes but found it isn't capable of the task.</p>
+            <p>Thus Shinobi had to be born.</p>
+            <p><small>Moe Alam</small></p>
+        </blockquote>
+        <p><small>More Information about why Shinobi had to be made can be found <a href="/why">here</a>.</small></p>
+    </div>
+</section>
+<% include blocks/adstrip.ejs %>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shinobi - Simple CCTV and NVR Solution<% if(config.Title){ %> - <%= config.Title %> <% } %></title>
+      <meta name="description" content="Shinobi is the Open Source CCTV software written in Node.JS. Designed with multiple account system, Streams by WebSocket, and Save to WebM and MP4. Shinobi can record IP Cameras and Local Cameras." />
+      <% include globalHeader.ejs %>
+    <link rel="stylesheet" href="/libs/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/css/animate.min.css" />
+    <link rel="stylesheet" href="/libs/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/libs/css/super-table.css" />
+    <link rel="stylesheet" href="/libs/css/prices.css" />
+    <link rel="stylesheet" href="/libs/css/rotating-card.css" />
+    <link rel="stylesheet" href="/libs/css/styles.css" />
+    <script src="/libs/js/jquery.min.js"></script>
+    </head>
+  <body>
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bar"></span>
+                    <span class="fa fa-bar"></span>
+                    <span class="fa fa-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/"><img src="/libs/assets/icon/favicon.ico" style="display:inline-block;width:15px;height:15px;margin-right:10px;border-radius:50%"> <span class="cursive">Shinobi</span></a>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+<%
+            var menu=[
+                        {
+                            href:'/pro',
+                            text:'Pro',
+                            class:''
+                        },
+                        {
+                            href:'/docs',
+                            text:'Docs',
+                            class:''
+                        },
+                        {
+                            href:'/articles',
+                            text:'Articles',
+                            class:''
+                        },
+                        {
+                            href:'/features',
+                            text:'Features',
+                            class:''
+                        },
+                        {
+                            href:'/gallery',
+                            text:'Gallery',
+                            class:''
+                        },
+                        {
+                            href:'/shop',
+                            text:'Shop',
+                            class:''
+                        },
+                        {
+                            href:'/why',
+                            text:'Why',
+                            class:''
+                        },
+                        {
+                            href:'/contact',
+                            text:'Contact',
+                            class:''
+                        }
+                    ]
+                    menu.forEach(function(v,n){ %>
+                        <li>
+                            <a class="<%- v.class %>" href="<%- v.href %>"><%- v.text %></a>
+                        </li>
+                    <% }) %>
+                </ul>
+<!--
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal">About</a>
+                    </li>
+                </ul>
+-->
+            </div>
+        </div>
+    </nav>

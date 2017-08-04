@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="/libs/css/content-tools.min.css">
+<header class="page__header">
+    <% include menu.ejs %>
+    <div class="page__container">
+        <div data-editable data-name="page__heading">
+            <h1 class="page__heading">
+                Click the pink pencil icon top-left
+            </h1>
+        </div>
+        <div data-editable data-name="page__opening">
+            <p class="page__opening">
+                Yep, this page is a little bit special because you get to edit it. I trust you'll only write nice things. Unrelated to this, I also disabled the save option.
+            </p>
+        </div>
+        <div data-editable data-name="page__byline" class="page__byline">
+            <p>
+                By : Moe Alam
+            </p>
+        </div>
+    </div>
+</header>
+<main class="page__main">
+                <div class="page__container">
+                    
+    <section class="page__content formatted" data-editable data-name="page__content">
+        <h2 id="learn">
+            What are you waiting for?
+        </h2>
+        <p>
+            As soon as you've clicked the pencil icon the page will be editable and two new elements will appear; the <b>toolbox</b>&nbsp;and the <b>inspector bar</b>. The toolbox by default will appear in the upper left corner of the page, but it can be dragged to wherever you like. The inspector bar will appear fixed to the bottom of the page (it will be empty until an element on the page is selected).
+        </p>
+    </section>
+
+    </div>
+</main>
+<script src="/libs/js/content-tools.min.js"></script>
+<script>
+    editor={date:function(){return moment().format('YYYY-MM-DD HH:mm:ss')}}
+</script>
+<script src="/libs/js/editor.js"></script>

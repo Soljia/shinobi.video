@@ -1,0 +1,55 @@
+<div id="setup_vbox"  class="section-block">
+<h3 class="block-title question">VirtualBox</h3>
+<ul>
+<li>
+<p>You know what to do with this if you know what VirtualBox is.</p>
+
+<ul>
+<li>Shinobi.ova
+<a href="<%= config.vboxDownload %>"><%= config.vboxDownload %></a>
+
+<ul>
+<li><code>Username : shinobi</code></li>
+<li><code>Password : night</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+<p>Once logged in </p>
+
+<pre><code>cd shinobi
+</code></pre>
+</li>
+<li>
+<p>Start server.</p>
+
+<pre><code>pm2 start camera.js
+</code></pre>
+</li>
+<li>
+<p>Open up <code>http://localhost:8080</code> in your browser.</p>
+
+<ul>
+<li>
+<em>Note :</em> if you are installed on a remote computer open up the IP in your web browser.
+
+<ul>
+<li><code>Username : ccio@m03.ca</code></li>
+<li><code>Password : password</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>To get your IP you can run the following command.</p>
+
+<pre><code>ifconfig
+</code></pre>
+</li>
+</ul>
+</div>

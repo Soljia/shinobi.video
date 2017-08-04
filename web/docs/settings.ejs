@@ -1,0 +1,83 @@
+<% var Title='Settings'; %>
+
+<% include blocks/header.ejs %>
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon fa fa-wrench"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                                <% include blocks/search.ejs %>
+                                <% pageData.forEach(function(v){ %>
+                            <section class="doc-section">
+                                <h2 class="section-title"><a id="content-<%-link_id(v.section)%>" class="text-faded" href="#content-<%-link_id(v.section)%>"><i class="fa fa-paperclip"></i></a> &nbsp;<%- v.section %></h2>
+                                <% v.blocks.forEach(function(b){ %>
+                                <div id="content-<%-link_id(b.name)%>" class="section-block form-group-group <%- b.color %>">
+                                    <h3><a class="text-white" href="#content-<%-link_id(b.name)%>"><i class="fa fa-paperclip"></i></a> &nbsp;<%- b.name %></h3>
+                                    <table class="table table-striped table-inverse">
+                                      <tbody>
+                                    <tr>
+                                    <th>Field</th>
+                                    <th>Description</th>
+                                    <th>Default</th>
+                                    <th>Example</th>
+                                    </tr>
+                                    <%    b.info.forEach(function(y){
+                                          if(y.possible instanceof Array){
+                                                  y.possible_draw='';
+                                                  y.possible.forEach(function(g){
+                                                      y.possible_draw+='<li class="possible"><b>'+g.name+' : </b>'+g.info+'</li>';
+                                                  })
+                                              }else{
+                                                  y.possible_draw=y.possible;
+                                              }
+                                            %>
+                                          <tr>
+                                          <td><%-y.field%></td>
+                                          <td><%-y.description%><% if(typeof y.possible==='string'&&y.possible!==''){ %><br><b>Possible : </b><%-y.possible_draw%><% }if(y.possible instanceof Array){ %><ul><%-y.possible_draw%></ul><% } %></td>
+                                          <td><%-y.default%></td>
+                                          <td><%-y.example%></td>
+                                          </tr>
+                                          <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <% }) %>
+                           </section>
+                                <% }) %>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                         <% pageData.forEach(function(v){ %>
+                                <li><a class="scrollto" href="#<%-link_id(v.section)%>"><%-v.section%></a>
+                                    <ul class="nav doc-sub-menu">
+                                            <% v.blocks.forEach(function(b){ %>
+                                            <li><a class="scrollto" href="#content-<%-link_id(b.name)%>"><%-b.name%></a></li>
+                                        <% }) %>
+                                    </ul>
+                                </li>
+                            <% }) %>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

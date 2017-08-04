@@ -1,0 +1,95 @@
+<% var Title='Credits'; %>
+<% include blocks/header.ejs %>
+<body class="body-orange body-dark">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_gift"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="credits" class="doc-section">
+<div class="section-block">
+        <p>This page is a dedication to those that I believe contributed greatly to the platform. It would be unacceptable to disregard their contributions to Shinobi.</p>
+<p>The people mentioned on this page, I have no clue whether or not they identify themselves as <i>Shinobi Devs</i>.. but <i>they are awesome Shinobi Devs</i>. Without them Shinobi would not be what it is now and what it will hopefully become.</p>
+<p>Thank You from Moe Alam.</p>
+<p>If your name has appeared here and you don’t want it to be then please send me a message and I’ll remove it asap.</p>
+            <table class="table table-striped table-inverse">
+  <tbody><tr>
+<td>@knackrack615</td>
+<td>Opened the first community chat board for Shinobi. Helps maintain current board and provides valuable information.</td>
+</tr>
+  <tr>
+<td>@kevinGodell</td>
+<td>Has provided important features and techniques for Shinobi. Such as MJPEG and HLS as well as fixing Base64’s half image issue. As well as supporting the community by answering questions and being frequently active on the community chat.</td>
+</tr>
+  <tr>
+<td>@techrockedge</td>
+<td>Provided valuable information and code. Has diagnosed bugs and brought new techniques to Shinobi with IR-based motion detection.</td>
+</tr>
+  <tr>
+<td>@mrproper</td>
+<td>Provided valuable information and code.</td>
+</tr>
+  <tr>
+<td>@turbomettwurst</td>
+<td>Added the first Docker install method.</td>
+</tr>
+  <tr>
+<td>@kzap</td>
+<td>Added Mac OS install instructions</td>
+</tr>
+  <tr>
+<td>@cbrherms</td>
+<td>Modified the <code>kitematic</code> and <code>latest</code> tag Docker methods and merged them. Now the current image of docker on <code>latest</code> will run in both kitematic and through the proper method of use. Which creates a separate image for the database.</td>
+</tr>
+  <tr>
+<td>@mafischer (michaelmab88)</td>
+<td>Created the <a href="https://github.com/mafischer/shinobi-doorbird-plugin">Doorbird plugin</a> and helped refine many development builds.</td>
+</tr>
+  <tr>
+<td>@DL44227 (Damian)</td>
+<td>Has fixed many bugs in the client side and pointed out many user experience issues. Also has high rate of quality provided with all suggestions.</td>
+</tr>
+  <tr>
+<td>@mattdurant</td>
+<td>Has fixed the aspect ratio issue on Base64 streams and provided a method to have timestamps with the <code>copy</code> encoder when recording.</td>
+</tr>
+</tbody></table>
+
+<p>” <i>Is there someone precious to you? Someone who makes you strong? truly strong?” -Haku</i></p>
+<p><b>My brothers, mother and father.</b> Without them I would have no time or shelter with the level of comfort that I do. They are the reason I exist and thrive. They are my life force. They are precious to me. <b>My family.</b></p>
+
+      </div>
+                                <div class="section-block">
+                                        <% include blocks/support.ejs %>
+                                </div><!--//section-block-->
+                                
+                            </section><!--//doc-section-->
+
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                                <li><a class="scrollto" href="#credits">Credits</a></li>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

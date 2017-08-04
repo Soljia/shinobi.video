@@ -1,0 +1,23 @@
+<div class="branding">
+    <table style="width:100%">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="/">
+                        <img style="height:40px;border-radius:50%;position:relative;top:-5px" src="/libs/assets/icon/apple-touch-icon-57x57.png">
+                    </a>
+                    <a href="/docs" style="font-size:22pt">
+                        <span class="text-highlight">Shinobi</span><span class="text-bold">Docs</span>
+                    </a>
+                </td>
+                <td style="text-transform:initial"><% include ../../pages/blocks/donations.ejs %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<% var Title; if(Title){ %>
+<ol class="breadcrumb">
+    <li><a href="/docs">Home</a></li>
+    <li class="active"><%= Title %></li>
+</ol>
+<% } %>

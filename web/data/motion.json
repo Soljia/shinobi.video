@@ -1,0 +1,104 @@
+[
+    {
+        "description":"Install Cario2 on Ubuntu / Debian",
+        "blocks":[
+            {
+                "text":"Cairo2 is the base engine used for detection."
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Install libraries",
+                        "code":"sudo apt-get install libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Install Cario2 on CentOS / Fedora",
+        "blocks":[
+            {
+                "orderList":[
+                    {
+                        "text":"Install libraries",
+                        "code":"sudo yum install cairo-devel libjpeg-turbo-devel giflib-devel -y"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Install the Shinobi Plugin",
+        "blocks":[
+            {
+                "orderList":[
+                    {
+                        "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin.",
+                        "code":"npm install canvas moment"
+                    },
+                    {
+                        "text":"Setup the configuration file for the plugin.",
+                        "code":"cp plugins/motion/conf.sample.json plugins/motion/conf.json"
+                    },
+                    {
+                        "text":"<b>OPTIONAL : </b> Modify the conf.json to match your current listening port. Default is 8080.",
+                        "code":"nano plugins/motion/conf.json"
+                    },
+                    {
+                        "text":"Check that your main configuration file, for the main Shinobi app, has a Plugin Key set. If one is not set the plugin will not work. You may review <code>conf.sample.json</code> to see the default setup.",
+                        "code":"nano conf.json"
+                    },
+                    {
+                        "text":"Start the Motion plugin",
+                        "code":"pm2 start plugins/motion/shinobi-motion.js"
+                    },
+                    {
+                        "text":"When complete you will see <code>Detector : Motion Connected</code> in your Monitor Settings. Shinobi does not need to be restarted unless you modified the <code>PluginKeys</code> in <code>conf.json</code>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Once Installed",
+        "blocks":[
+            {
+                "text":"Important information to note are as follows."
+            },
+            {
+                "list":[
+                    {
+                        "text":"<code>UI Element > Motion Meter : </code> When motion occurs a red bar will appear under your stream to indicate how much motion has happened."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > How to Record : </code> This chooses how the detector engine will choose to create or keep videos for review."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > How to Record > Hotswap Modes : </code> Monitor should be set to Watch-Only. Records when motion is found. By default it will record for 10 minutes then switch back to Watch-Only. This method does not have buffer frames. To get some frames before a specific event you can try using \"Delete Motionless\" instead."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > How to Record > Delete Motionless Video : </code> Monitor should be set to Record. This records all the time, Checks if motion happened when the segment closes and then deletes it if no motion is found."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > Send Frames : </code> Enabling this will push frames to your detection plugin for analyzation."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > Indifference : </code> The opposite of sensitivity. Until what level of confidence should the plugin allow motion until setting off a trigger. This is also the global indifference value."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > Region Editor > Indifference : </code> If this value is left blank the global indifference value will be used."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Why aren't plugins just integrated?",
+        "blocks":[
+            {
+                "text":"Not everyone uses motion detection or object tracking and the libraries required can be bothersome to install, based on the OS. For example if I make shinobi-opencv.js a feature then everyone will be required to install OpenCV just to use basic features in Shinobi. This also allows us to swap the plugin with a custom one or run it on another machine entirely. Sharing the work between multiple machines can be a great way to optimize performance."
+            }
+        ]
+    }
+]

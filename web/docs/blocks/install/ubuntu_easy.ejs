@@ -1,0 +1,90 @@
+<div id="setup_ubuntu_easy"  class="section-block">
+    <h3 class="block-title question">Ubuntu 16.04 : The Easier Way</h3>
+<ol>
+<li><p>Open <code>Terminal</code>.</p></li>
+<li>
+<p>Install git command line library.</p>
+
+<pre><code>apt install git -y
+</code></pre>
+</li>
+<li>
+<p>Pull the <code>master</code> repository.</p>
+
+<pre><code>git clone https://github.com/moeiscool/Shinobi.git Shinobi
+</code></pre>
+</li>
+<li>
+<p>Open Shinobi directory.</p>
+
+<pre><code>cd Shinobi
+</code></pre>
+</li>
+<li>
+<p>Make INSTALL.sh an executable file.</p>
+
+<pre><code>chmod +x INSTALL/ubuntu.sh
+</code></pre>
+</li>
+<li>
+<p>Execute <code>INSTALL/ubuntu.sh</code>. Run :</p>
+
+<ul>
+<li>
+<p>This installs <code>libav-tools</code>, <code>nodejs</code>, <code>npm</code>, <code>pm2</code>, and <code>mysql-server</code></p>
+
+<pre><code>INSTALL/ubuntu.sh
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Packages will be installed. MySQL will ask to create a password on first installation.</p></li>
+<li><p>Then the installer will ask you for the credentials created. The default username is usually <code>root</code>.</p></li>
+<li>
+<p>Copy <code>conf.sample.json</code> as another file named <code>conf.json</code>.</p>
+
+<pre><code>cp conf.sample.json conf.json
+</code></pre>
+</li>
+<li>
+<p>Set your timezone in <code>conf.json</code>. <strong>This is important if your event times are not matching.</strong></p>
+
+<pre><code>"utcOffset":"-0800"
+</code></pre>
+</li>
+<li>
+<p>Edit <code>conf.json</code> to reflect your sql credentials. I don't reccommend using root.</p>
+
+<pre><code>nano conf.json
+</code></pre>
+</li>
+<li>
+<p>After installation is complete</p>
+
+<pre><code>pm2 start camera.js
+</code></pre>
+</li>
+<li>
+<p>Open up <code>http://localhost:8080</code> in your browser.</p>
+
+<ul>
+<li>
+<em>Note :</em> if you are installed on a remote computer open up the IP in your web browser.
+
+<ul>
+<li><code>Username : ccio@m03.ca</code></li>
+<li><code>Password : password</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>To get your IP you can run the following command.</p>
+
+<pre><code>ifconfig
+</code></pre>
+</li>
+</ul>
+                                </div><!--//section-block-->

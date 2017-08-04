@@ -1,0 +1,105 @@
+<% var Title='Motion Detection'; %>
+<% include blocks/header.ejs %>
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon fa fa-plug"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section class="doc-section">
+                                <blockquote>
+                                    If your <code>shinobi-motion.js</code> plugin is crashing try : setting the dimenions to 320x240. Pressing save, then modifying your regions if you have to and once again saving the settings.
+                                </blockquote>
+<% pageData.forEach(function(v,n){ %>
+    <div class="section-block">
+        <h3 class="block-title question"><a id="content-<%- link_id(v.description) %>" href="#content-<%- link_id(v.description) %>" class="text-faded"><i class="fa fa-paperclip"></i></a>  <%- v.description %></h3>
+        <% v.blocks.forEach(function(b,m){ %>
+            <% var drawListItems = function(b,m){ %>
+                <li>
+                    <% Object.keys(b).forEach(function(t,y){ %>
+                        <% switch(t){
+                        case 'text': %>
+                            <div><p><%- b[t] %></p></div>
+                        <% break;
+                        case 'code': %>
+                            <pre><code><%- b[t] %></code></pre>
+                        <% break;
+                        case 'list': %>
+                            <ul>
+                                <% b[t].forEach(drawListItems) %>
+                            </ul>
+                        <% break;
+                        case 'orderList': %>
+                            <ol>
+                                <% b[t].forEach(drawListItems) %>
+                            </ol>
+                        <% break; %>
+                        <% } %>
+                    <% }) %>
+                </li>
+            <% } %>
+            <% Object.keys(b).forEach(function(t,y){ %>
+                <% switch(t){
+                case 'text': %>
+                    <div><p><%- b[t] %></p></div>
+                <% break;
+                case 'code': %>
+                    <pre><code><%- b[t] %></code></pre>
+                <% break;
+                case 'list': %>
+                    <ul>
+                        <% b[t].forEach(drawListItems) %>
+                    </ul>
+                <% break;
+                case 'orderList': %>
+                    <ol>
+                        <% b[t].forEach(drawListItems) %>
+                    </ol>
+                <% break; %>
+                <% } %>
+            <% }) %>
+        <%  }) %>
+    </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+<%  }) %>
+                            </section><!--//doc-section-->
+            <div class="row" style="margin-top:30px">
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle3 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="8727169313"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle4 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="1203902518"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+            </div>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                         <% pageData.forEach(function(v){ %>
+                                <li><a class="scrollto" href="#content-<%-link_id(v.description)%>"><%-v.description%></a></li>
+                            <% }) %>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

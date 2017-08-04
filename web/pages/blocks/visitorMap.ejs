@@ -1,0 +1,45 @@
+<section id="mapHolder" style="padding:30px 0;" class="bg-dark hidden-xs text-center">
+    <div class="container" style="padding:0;background:transparent;border:0">
+        <style>
+            #mapOfVisitors{width:100%;height:300px;border-radius:5px;overflow:hidden;}
+            #mapOfVisitors *{transition:none}
+        </style>
+        <h1 style="margin:0">Shinobi is already used around the world</h1>
+        <small>These are <span class="usersCount"></span> visitors online now in <span class="countriesCount"></span> Countries.</small>
+        <hr>
+        <div class="hidden-xs" id="mapOfVisitors"></div>
+        <br>
+        <h6 class="wide-space text-center text-uppercase"><a class="btn btn-sm btn-default" href="/docs/donate">Contribute</a></h6>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%-config.googleMapsKey%>&callback=initVisitorMap"></script>
+        <script>
+            var initVisitorMap=function(){
+                $.get('/getOnlineVisitors',function(d){
+                    if(d.users){
+                        $('.usersCount').text(d.usersCount)
+                        $('.citiesCount').text(d.citiesCount)
+                        $('.countriesCount').text(d.countriesCount)
+                        var map = new google.maps.Map(document.getElementById('mapOfVisitors'), {
+                          zoom: 2,
+                            styles:[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}],
+                          center: {lat: 49.282729, lng:-123.120738}
+                        });
+                        timeout=0
+                        $.each(d.users,function(n,v){
+                            setTimeout(function(){
+                                new google.maps.Marker({
+                                  map: map,
+                                  title:v.geo.city+', '+v.geo.region_name+', '+v.geo.country_name,
+                                  animation: google.maps.Animation.DROP,
+                                  position: {lat:v.geo.latitude, lng:v.geo.longitude}
+                                });
+                            },timeout)
+                            timeout+=50
+                        })
+                    }else{
+                        $('#mapHolder').remove()
+                    }
+                })
+            }
+        </script>
+    </div>
+</section>

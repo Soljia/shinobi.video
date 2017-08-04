@@ -1,0 +1,205 @@
+[
+    {
+        "description":"The Ninja Way",
+        "blocks":[
+            {
+                "text":"The easiest way to install, directly on metal, is through NPM. The following operating systems are supported.",
+                "list":[
+                    {
+                        "text":"Ubuntu 16, Ubuntu 17"
+                    },
+                    {
+                        "text":"CentOS, Fedora, RHEL"
+                    }
+                ]
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"<b>Ubuntu</b> - Download and Install Node.js, NPM.",
+                        "code":"sudo apt update<br>sudo apt install curl gnupg2 -y<br>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -<br>sudo apt install nodejs -y<br>sudo apt install npm -y"
+                    }
+                ]
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"<b>CentOS / RHEL</b> - Download and Install Node.js, NPM.",
+                        "code":"sudo yum update<br>sudo yum install curl -y<br>curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -<br>sudo yum install nodejs npm -y"
+                    },
+                    {
+                        "text":"Install Shinobi",
+                        "code":"mkdir Shinobi<br>cd Shinobi<br>sudo npm install shinobi<br>mv node_modules/shinobi/* .<br>sudo npm start"
+                    },
+                    {
+                        "text":"You will be asked a series of questions throughout the installation."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Docker : Kitematic",
+        "blocks":[
+            {
+                "text":"<b>Docker is not officially supported and is not recommended.</b> The kitematic method is provided for those who wish to quickly test Shinobi. The Docker files included in the master and dev branches are maintained by the community. If you would like support with Docker please find a community member who maintains the Docker files or please refer to Docker's forum.",
+                "list":[
+                    {
+                        "text":"Shinobi on <a href=\"https://hub.docker.com/r/shinobicctv/shinobi/\">Docker Hub</a>"
+                    },
+                    {
+                        "text":"Kitematic on <a href=\"https://github.com/docker/kitematic\">Github</a>"
+                    }
+                ]
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Download and Install Kitematic"
+                    },
+                    {
+                        "text":"Search for Shinobi on Kitematic and click <b>...</b> Then select the tag <b>kitematic</b>. Then click <b>Create</b>.<br><img src=\"/libs/assets/docs/docker1.jpg\" style=\"max-width:100%\">"
+                    },
+                    {
+                        "text":"Once completed you should see a window like this.<br><img src=\"/libs/assets/docs/docker2.jpg\" style=\"max-width:100%\">"
+                    },
+                    {
+                        "text":"Click the <b>Settings</b> tab on the right then click <b>Ports</b> just below it.<br><img src=\"/libs/assets/docs/docker3.jpg\" style=\"max-width:100%\">"
+                    },
+                    {
+                        "text":"Click the <b>Web Address with 8083</b> next to it. You will be presented with a login screen. The default credentials are as follows.",
+                        "list":[
+                            {
+                                "code":"Username : ccio@m03.ca<br>Password : password"
+                            }
+                        ]
+                    },
+                    {
+                        "text":"Updating :</b> Restart the shinobi docker instance to update the following files and folders. They will be overwritten.",
+                        "list":[
+                            {
+                                "code":"- camera.js<br>- cron.js<br>- plugins/motion/shinobi-motion.js<br>- plugins/opencv/shinobi-opencv.js<br>- UPDATE.sh<br>- web/"
+                            }
+                        ]
+                    },
+                    {
+                        "text":"Enjoy!",
+                        "list":[
+                            {
+                                "text":"<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=hRsp9pMh1M4\">How to add more CPUs to VirtualBox</a>"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Ubuntu : The Easier Way",
+        "blocks":[
+            {
+                "text":"This installer works well with Ubuntu 16 and 17."
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Open <code>Terminal</code>."
+                    },
+                    {
+                        "text":"Download and Install Node.js, NPM.",
+                        "code":"sudo apt update<br>sudo apt install curl gnupg2 -y<br>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -<br>sudo apt install nodejs -y<br>sudo apt install npm -y"
+                    },
+                    {
+                        "text":"Install git command line library.",
+                        "code":"apt install git -y"
+                    },
+                    {
+                        "text":"Pull the <code>master</code> repository.",
+                        "code":"git clone https://github.com/moeiscool/Shinobi.git Shinobi"
+                    },
+                    {
+                        "text":"Open Shinobi directory.",
+                        "code":"cd Shinobi"
+                    },
+                    {
+                        "text":"Start the installer",
+                        "code":"chmod +x INSTALL/ubuntu.sh && INSTALL/ubuntu.sh"
+                    },
+                    {
+                        "text":"Packages will be installed. MariaDB will ask to create a password on first installation."
+                    },
+                    {
+                        "text":"Once complete. Open up <code>http://localhost:8080</code> in your browser.",
+                        "list":[
+                            {
+                                "text":"<b>Note :</b> if you are installed on a remote computer open up the IP in your web browser."
+                            }
+                        ]
+                    },
+                    {
+                        "text":"Default credentials are as follows if you chose to install <code>default_data.sql</code>.",
+                        "code":"Username : ccio@m03.ca<br>Password : password"
+                    },
+                    {
+                        "text":"To update Shinobi with git and restart :",
+                        "code":"cd Shinobi<br>git pull<br>pm2 restart camera.js<br>pm2 restart cron.js"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"CentOS, Fedora, RHEL : The Easier Way",
+        "blocks":[
+            {
+                "text":"This installer works well with CentOS 7."
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Open <code>Terminal</code>."
+                    },
+                    {
+                        "text":"Download and Install Node.js, NPM.",
+                        "code":"sudo yum update<br>sudo yum install curl -y<br>curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -<br>sudo yum install nodejs npm -y"
+                    },
+                    {
+                        "text":"Install git command line library.",
+                        "code":"yum install git -y"
+                    },
+                    {
+                        "text":"Pull the <code>master</code> repository.",
+                        "code":"git clone https://github.com/moeiscool/Shinobi.git Shinobi"
+                    },
+                    {
+                        "text":"Open Shinobi directory.",
+                        "code":"cd Shinobi"
+                    },
+                    {
+                        "text":"Start the installer",
+                        "code":"chmod +x INSTALL/centos.sh && INSTALL/centos.sh"
+                    },
+                    {
+                        "text":"Packages will be installed. MariaDB will ask to create a password on first installation."
+                    },
+                    {
+                        "text":"Once complete. Open up <code>http://localhost:8080</code> in your browser.",
+                        "list":[
+                            {
+                                "text":"<b>Note :</b> if you are installed on a remote computer open up the IP in your web browser."
+                            }
+                        ]
+                    },
+                    {
+                        "text":"Default credentials are as follows if you chose to install <code>default_data.sql</code>.",
+                        "code":"Username : ccio@m03.ca<br>Password : password"
+                    },
+                    {
+                        "text":"To update Shinobi with git and restart :",
+                        "code":"cd Shinobi<br>git pull<br>pm2 restart camera.js<br>pm2 restart cron.js"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,81 @@
+<title>Shinobi - <%- config.Title;%></title>
+<% var keys = Object.keys(articlesPosts) %>
+<header class="page__header">
+    <% include menu.ejs %>
+    <div class="page__container">
+        <div data-editable data-name="page__heading">
+            <h1 class="page__heading">
+                Learn about Shinobi
+            </h1>
+        </div>
+        <div data-editable data-name="page__opening">
+            <p class="page__opening">
+                General information about Shinobi.<br>To get detailed information please refer to the <a href="/docs">Docs</a>.
+            </p>
+        </div>
+        <form id="searchForm">
+            <input id="search" placeholder="Search Articles">
+        </form>
+    </div>
+</header>
+<main class="page__main">
+    <div class="page__container">
+        <section class="formatted">
+            <div class="index-nav__row">
+                <div class="index-nav__item flex-4">
+                    <ul class="article-list">
+                    <% keys.forEach(function(n,v){
+                       v=articlesPosts[n]
+                    %>
+                        <a href="/articles/<%-v.id%>"><li>
+                            <span class="pull-right"><%-v.date%></span>
+                            <h2 id="<%-v.id%>"><%-v.title%></h2>
+                            <p><%-v.page__opening.replace(/(<([^>]+)>)/ig,"")%></p>
+                        </li></a>
+                    <% }) %>
+                    </ul>
+                </div>
+                <div class="index-nav__item flex-1 article-categories">
+                <% Object.keys(articlesMonthsbyYear).forEach(function(n,v){
+                    v = articlesMonthsbyYear[n]
+                %>
+                    <h3><%-n%></h3>
+                    <ul>
+                        <% v.forEach(function(b){ %>
+                        <li>
+                            <a class="article-month" month="<%-b%>" year="<%-n%>"><%-b%></a>
+                        </li>
+                        <% }) %>
+                    </ul>
+                <% }) %>
+                </div>
+            </div>
+        </section>
+        <div style="margin:30px"></div>
+    </div>
+</main>
+<script>
+$('#searchForm').submit(function(e){
+    e.preventDefault()
+    $.get('/articles/search?search='+$('#search').val(),function(d){
+        var tmp='';
+        $.each(d.articles,function(n,v){
+            tmp+='<a href="/articles/'+v.id+'"><li>'
+            tmp+='<span class="pull-right">'+v.date+'</span>'
+            tmp+='<h2 id="'+v.id+'">'+v.title+'</h2>'
+            tmp+='<p>'+v.page__opening.replace(/(<([^>]+)>)/ig,"")+'</p>'
+            tmp+='</li></a>'
+        })
+        $('.article-list').html(tmp)
+    })
+    return false;
+})
+$('.article-month').click(function(){
+    e={e:$(this),s:$('#search')}
+    e.currentValue=e.s.val()
+    e.val='date":"'+e.e.attr('year')+'-'+moment(e.e.attr('month'), 'MMMM').format('MM')
+    e.s.val(e.val)
+    $('#searchForm').submit()
+    e.s.val(e.currentValue)
+})
+</script>

@@ -1,0 +1,175 @@
+<% config.Title='Home'; %>
+<% include blocks/header.ejs %>
+    <header id="first">
+        <div class="_shade">
+        <div class="header-content">
+            <div class="inner">
+                <img style="border-radius:50%" src="libs/assets/icon/apple-touch-icon-152x152.png">
+                
+                <h1 class="cursive">Shinobi</h1>
+                <h1 style="margin:0;display:none">Shinobi</h1>
+                <h4 style="text-transform:uppercase">The Open Source CCTV Solution</h4>
+                <hr>
+                <div class="btn-group">
+                    <a href="#one" class="btn btn-default btn-xl page-scroll">Learn More</a>
+                </div>
+                <div style="margin-top:30px">
+                    <% include blocks/donations.ejs %>
+                </div>
+                <div style="font-size:20pt;margin-top:30px">
+                    <a href="http://discordapp.com/invite/mdhmvuH/"><i class="fa fa-comments"></i></a> &nbsp; <a href="https://www.reddit.com/r/ShinobiCCTV/"><i class="fa fa-reddit"></i></a> &nbsp; <a href="https://www.youtube.com/user/MrMoea92"><i class="fa fa-youtube"></i></a> &nbsp; <a href="https://twitter.com/ShinobiCCTV"><i class="fa fa-twitter"></i></a> &nbsp; <a href="https://www.facebook.com/Shinobi-1223193167773738/?ref=bookmarks"><i class="fa fa-facebook"></i></a> &nbsp; <a href="https://github.com/moeiscool/Shinobi"><i class="fa fa-github"></i></a> &nbsp; <a href="https://www.linkedin.com/cws/share?url=http://shinobi.video"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+<% include blocks/subheader.ejs %>
+    <section class="bg-primary" id="one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <h2 class="margin-top-0 text-primary">Made with <i style="color: red;" class="fa fa-heart"></i></h2>
+                    <br>
+                    <p class="large">
+                        Shinobi is Open Source, written in Node.js, and real easy to use. It is the future of CCTV and NVR for developers and end-users alike. It is catered to by professionals and most importantly by the one who created it.
+                    </p>
+                    <div class="btn-group">
+                        <a href="/docs" class="btn btn-default btn-xl page-scroll"><i class="fa fa-book"></i> Docs</a> 
+                        <a href="https://github.com/moeiscool/Shinobi" class="btn btn-default btn-xl page-scroll"><i class="fa fa-github"></i> Github</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div id="main_video" class="video-holder">
+                        <img class="logo" style="border-radius:50%" src="/libs/assets/icon/apple-touch-icon-152x152.png">
+                        <video style="width:100%;" controls preload="auto">
+                            <source src="https://s3.amazonaws.com/cloudcamio/shinobi.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <script>
+                        var video=$('#main_video video')[0]
+                        video.addEventListener("playing",function(){
+                            $('#main_video .logo').css('opacity',0);
+                        },false);
+                        video.addEventListener("pause",function(){
+                            $('#main_video .logo').css('opacity',1);
+                        },false)
+                    </script>
+                    <style>
+                        #main_video{position:relative;}
+                        #main_video .logo{position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;max-width:30%;transition:0.2s}
+                    </style>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="margin-top-0 text-primary">Some Aspects</h2>
+                    <p>Shinobi can be used as a Baby Monitor, Construction Site Montage Viewer, Store Camera DVR, and much more.</p>
+                    <hr class="primary">
+                </div>
+            </div>
+          <div class="row text-center">
+              <div class="col-md-4">
+                <div><i class="fa fa-4x fa-unlink theme-color"></i></div>
+                <div><h3>Defeats Limits</h3></div>
+                <div><p>Don't be held back by a maximum number of streams based on browser.</p></div>
+              </div>
+              <div class="col-md-4">
+                <div><i class="fa fa-4x fa-eercast theme-color"></i></div>
+                <div><h3>Modern Recording</h3></div>
+                <div><p>Record to MP4 or WebM and open videos on your mobile device.</p></div>
+              </div>
+              <div class="col-md-4">
+                <div><i class="fa fa-4x fa-bolt theme-color"></i></div>
+                <div><h3>Realtime Data</h3></div>
+                <div><p>Websocket provides realtime events pushed to connected clients.</p></div>
+              </div>
+          </div>
+        </div>
+      </section>
+    <% include blocks/visitorMap.ejs %>
+    <% include blocks/twopaths.ejs %>
+    <section id="quotes">
+        <div class="container">
+        <div class="row">
+        <div class="text-center">
+            <h2 class="margin-top-0 text-primary">What others say</h2>
+            <hr class="primary">
+            <div class="col-md-4">
+                <blockquote>
+                    <p>"Thank you for building this project! Zoneminder has been a staple of the DVR world for as long as I can remember, but now that cameras are more and more dropping MJPEG support and resolutions keep getting higher, the feature set just isn't keeping up and I've been looking for an alternative for a while now. I've tried contributing over there quite a few times over the past couple of years, and while I'm comfortable with C, the linux-only workflow for C development just doesn't click with me."</p>
+                    <p><small>A Contributor on Github</small></p>
+                </blockquote>
+            </div>
+            <div class="col-md-4">
+                <blockquote>
+                    <p>"After trying zoneminder without success (heavy unstable and slow) I passed to Shinobi that despite being young spins a thousand times better (I have a setup with 16 cameras recording in FHD to ~ 10fps on a pentium of ~ 2009 and I turn with load below 1.5)."</p>
+                    <p><small>A Reddit user<br>/r/ItalyInformatica</small></p>
+                </blockquote>
+            </div>
+            <div class="col-md-4">
+                <blockquote>
+                    <p>"I would suggest Shinobi as a NVR. It's still in the early days but works a lot better than ZoneMinder for me. I'm able to record 16 cams at 1080p 15fps continously whith no load on server (Pentium E5500 3GB RAM) where zm crashed with 6 cams at 720p. Not to mention the better interface."</p>
+                    <p><small>A Reddit user<br>/r/HomeNetworking</small></p>
+                </blockquote>
+            </div>
+            <div class="clearfix" style="margin:30px"></div>
+            <a href="/features#learn" class="btn btn-primary btn-xl">Compared to the leading alternative</a>
+        </div>
+        </div>
+        </div>
+    </section>
+    <% include blocks/adstrip.ejs %>
+    <section class="bg-primary" id="licenses">
+        <% include blocks/table-metal.ejs %>
+    </section>
+    <section class="container-fluid" id="four">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center">
+                    <h2 class="text-primary">Supported by an Active Community</h2>
+                    <br>
+                    <p class="text-faded">
+                        Shinobi is used all around the globe and developed on by hundreds of developers. Some of us like to get together and talk about how Shinobi can be made better.
+                    </p>
+                    <a href="http://discordapp.com/invite/mdhmvuH/" class="btn btn-primary btn-xl">Join us on Discord</a>
+                    <div style="margin:20px 0">
+                        <a href="https://twitter.com/ShinobiCCTV" title="Twitter"><i class="fa fa-4x fa-twitter"></i></a> &nbsp; &nbsp; 
+                        <a href="https://www.facebook.com/Shinobi-1223193167773738/?ref=bookmarks" title="Facebook"><i class="fa fa-4x fa-facebook"></i></a> &nbsp;  &nbsp; 
+                        <a href="https://www.reddit.com/r/ShinobiCCTV/" title="Reddit"><i class="fa fa-4x fa-reddit"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h2 class="text-primary">Need Professional Support?</h2>
+                    <br>
+                    <p class="text-faded">
+                        Shinobi is made to last and is maintained with care. If you need to get a big operation running, personell briefed, or a place to take your woes. Here it is.
+                    </p>
+                    <a href="/support" class="btn btn-primary btn-xl">Support from Professionals</a>
+                    <div style="margin:20px 0">
+                        <a href="/support"><i class="fa fa-4x fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid bg-primary" id="small-why">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-primary">Why Make This?<br><small>Other Solutions Already Exist.</small></h2>
+                    <br>
+                    <p><img style="border-radius:50%" src="/libs/assets/icon/apple-touch-icon-152x152.png"></p>
+                    <p class="text-faded">
+                        The creator of Shinobi wanted to make a cloud video recording solution. One that anyone could easily use. Simply login to your account, add camera details, set options, and away you go. Viewing streams and recordings on your mobile device by simply opening a web page. No installations. This means you could view it on any device with a capable browser.
+                    </p>
+                    <a href="/why" class="btn btn-primary btn-xl">Why Shinobi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

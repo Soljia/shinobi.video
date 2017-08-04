@@ -1,0 +1,24 @@
+<style>
+    #theme-floater{position:fixed;left:0;bottom:10px;border-radius:0 5px 5px 0;box-shadow:0 0 15px #333;padding:10px;background:#222;color:#fff;z-index:100}
+    .body-dark #theme-floater{color:#333;background:#ddd}
+</style>
+<a id="theme-floater" title="Change Theme" class="hidden-xs">
+    <i class="fa fa-paint-brush"></i>
+</a>
+<script>
+$('#theme-floater').click(function(){
+    e={}
+    e.e=$('body')
+    e.e.toggleClass('body-dark')
+    if(e.e.hasClass('body-dark')){
+        e.value='dark'
+    }else{
+        e.value='light'
+    }
+    localStorage.setItem('theme',e.value)
+})
+e={theme:localStorage.getItem('theme')}
+if(e.theme==='dark'){
+    $('body').addClass('body-dark')
+}
+</script>

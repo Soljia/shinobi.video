@@ -1,0 +1,234 @@
+[
+    {
+        "description":"Login by API - Get Temporary API Key",
+        "blocks":[
+            {
+                "text":"Provide your login credentials. <code>machineID</code> can be anything.",
+                "code":"$.post('http://xxx.xxx.xxx.xxx/?json=true',{machineID: \"fMUVxYdG1X3hWb7GNkTd\", mail: \"ccio@m03.ca\", pass: \"123\", function: \"dash\"},function(d){<br>     console.log(d.$user)<br>})",
+                "list":[
+                    "<b>mail : </b> Address used to login.",
+                    "<b>pass : </b> Password associated to the account being used to login.",
+                    "<b>ke : </b> Group Key, this can be found in Settings.",
+                    "<b>machineID : </b> The unique string used to identify a machine when using 2-Factor Authentication."
+                ]
+            },
+            {
+                "text":"If you have 2-Factor Authentication enabled you will need to pass a second gate. <code>machineID</code> must be the same as the one used at the first gate.",
+                "code":"$.post('http://xxx.xxx.xxx.xxx/?json=true',{ke: \"2Df5hBE\", id: \"XDf5hB3\", machineID: \"fMUVxYdG1X3hWb7GNkTd\", factorAuthKey: \"123456\"},function(d){<br>     console.log(d.$user)<br>})",
+                "list":[
+                    "<b>id : </b> User ID, this can be found after login.",
+                    "<b>factorAuthKey : </b> The key you will receive to pass the verification for your account."
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Get Streams",
+        "blocks":[
+            {
+                "text":"<b>JPEG Snapshot.</b> Snapshot must be enabled in Monitor Settings.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/jpeg/[GROUP KEY]/[MONITOR ID]/s.jpg"
+            },
+            {
+                "text":"<b>MJPEG Stream.</b> Stream type must be MJPEG.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/mjpeg/[GROUP KEY]/[MONITOR ID]"
+            },
+            {
+                "text":"<b>MJPEG for iframe.</b>",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/mjpeg/[GROUP KEY]/[MONITOR ID]/full"
+            },
+            {
+                "text":"<b>m3u8 for HLS Stream.</b> Stream type must be HLS.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/hls/[GROUP KEY]/[MONITOR ID]/s.m3u8"
+            }
+        ]
+    },
+    {
+        "description":"Getting Monitors",
+        "blocks":[
+            {
+                "text":"Get all saved monitors",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/monitor/[GROUP KEY]"
+            },
+            {
+                "text":"This method will get all <b>started</b> monitors",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/smonitor/[GROUP KEY]"
+            },
+            {
+                "text":"Get a single monitor by ID",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/monitor/[GROUP KEY]/[MONITOR ID]"
+            }
+        ]
+    },
+    {
+        "description":"Getting Videos",
+        "blocks":[
+            {
+                "text":"Get videos for group key",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]"
+            },
+            {
+                "text":"Get videos for monitor ID",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]"
+            },
+            {
+                "text":"Get video file",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]"
+            },
+            {
+                "text":"Get video file after start time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss"
+            },
+            {
+                "text":"Get video file before end time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?end=YYYY-MM-DDTHH:mm:ss"
+            },
+            {
+                "text":"Get video file between start time and end time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss&end=YYYY-MM-DDTHH:mm:ss"
+            },
+            {
+                "text":"Get video file with custom start operator",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss&startOperator=>="
+            },
+            {
+                "text":"Get video file with custom end operator",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?end=YYYY-MM-DDTHH:mm:ss&endOperator=<="
+            }
+        ]
+    },
+    {
+        "description":"System Triggers",
+        "blocks":[
+            {
+                "text":"Trigger a Motion Event (Pretend to be a Motion Engine)",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/motion/[GROUP KEY]/[MONITOR ID]?data={\"plug\":\"<i>camera1</i>\",\"name\":\"<i>stairs</i>\",\"reason\":\"<i>motion</i>\",\"confidence\":<i>197.4755859375</i>}",
+                "list":[
+                    "<b>plug :</b> The name of the plugin. You can put the name of the camera.",
+                    "<b>name :</b> The name of the region. <small>Example : door</small>",
+                    "<b>reason :</b> The reason for this trigger. <small>Example : motion</small>",
+                    "<b>confidence :</b> A number to signify how much confidence this engine has that there is motion. <small>Example : 197.4755859375</small>"
+                ]
+            },
+            {
+                "text":"Update Shinobi with built in script.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/update/[UPDATE KEY]"
+            }
+        ]
+    },
+    {
+        "description":"Monitor Triggers",
+        "blocks":[
+            {
+                "text":"Set to a mode for a monitor.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/monitor/[GROUP KEY]/[MONITOR ID]/[MODE]"
+            },
+            {
+                "text":"[MODE]</strong> can be one of the following.",
+                "list":[
+                    "stop, start, record",
+                    "stop = Disabled",
+                    "start = Watch-Only",
+                    "record = Record"
+                ]
+            },
+            {
+                "text":"Set to a mode for a number of minutes to elapse before automatically stops.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/monitor/[GROUP KEY]/[MONITOR ID]/[MODE]/[TIME]"
+            },
+            {
+                "text":"Set to a mode for a period of time before automatically stops.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/monitor/[GROUP KEY]/[MONITOR ID]/[MODE]/[TIME]/[TIME INTERVAL]"
+            },
+            {
+                "text":"Here is an example of setting the mode to <strong>record</strong> on a camera with ID <strong>bunny</strong> under group key <strong>2Df5hBE</strong>. It will stay in this mode until changed.",
+                "code":"http://xxx.xxx.xxx.xxx/XXXXXXXXXXXXXXXXX/monitor/2Df5hBE/bunny/record"
+            },
+            {
+                "text":"Setting the mode to <strong>record</strong> on a camera with ID <strong>bunny</strong> for <strong>10 minutes</strong> under group key <strong>2Df5hBE</strong>. It will automatically return to <strong>Disabled</strong> itself after <strong>10 minutes</strong>.",
+                "code":"http://xxx.xxx.xxx.xxx/XXXXXXXXXXXXXXXXX/monitor/2Df5hBE/bunny/record/10/min"
+            },
+            {
+                "text":"[TIME INTERVAL]</strong> can be left blank to use <strong>seconds</strong> or one of the following.",
+                "code":"min, minute, minutes, hr, hour, hours, day, or days"
+            }
+        ]
+    },
+    {
+        "description":"Modifying a Video or Deleting it",
+        "blocks":[
+            {
+                "text":"Delete a video",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]/delete"
+            },
+            {
+                "text":"Mark as Unread",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]/status/1"
+            },
+            {
+                "text":"Mark as Read",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]/status/2"
+            }
+        ]
+    },
+    {
+        "description":"Add, Edit or Delete a Monitor",
+        "blocks":[
+            {
+                "text":"Configuration of monitors remotely.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/configureMonitor/[GROUP KEY]/[MONITOR ID]/[ACTION*]?data={\"mid\":..}",
+                "list":[
+                    "<code>[ACTION*]</code> can be set to <code>delete</code> or not used entirely, There are no other options.",
+                    "It is not necessary to put the <code>data</code> JSON if you are deleting.",
+                    "The act of adding a monitor with an already existing ID will edit the existing monitor.",
+                    "For an example of what to put for the <code>data</code> object check out this <a href='https://s3.amazonaws.com/cloudcamio/Shinobi_awFST99MGn_config.json'>Sample JSON</a>."
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Embedding Streams",
+        "blocks":[
+            {
+                "text":"Embedding a websocket stream can be done through an iframe or using a GET request. You can even proxy it through another web engine because the embed URL will only start a stream after it gets the websocket library.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/embed/[GROUP KEY]/[MONITOR ID]"
+            },
+            {
+                "text":"You can <code>add jQuery</code> with this method.",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/embed/[GROUP KEY]/[MONITOR ID]/jquery"
+            },
+            {
+                "text":"It's good for :",
+                "list":[
+                    "Direct access from a browser tab.",
+                    "In an iframe",
+                    "On a page without jQuery"
+                ]
+            },
+            {
+                "text":"You can embed with jQuery like this",
+                "code":"$.get('http://xxx.xxx.xxx.xxx/[API KEY]/embed/[GROUP KEY]/[MONITOR ID]',function(data){ $('body').append(data) })"
+            },
+            {
+                "text":"You can use it in an iframe like this",
+                "code":"&lt;iframe src=\"http://xxx.xxx.xxx.xxx/[API KEY]/embed/[GROUP KEY]/[MONITOR ID]/jquery|fullscreen\"&gt;&lt;/iframe&gt;"
+            },
+            {
+                "text":"other available options are as follows. You must separate them with <code>|</code>",
+                "list":[
+                    "<b>jquery :</b> this addon adds jquery to the embed page. By default jquery is not loaded in case you have already loaded it where you are embedding the stream.",
+                    "<b>fullscreen :</b> This adds CSS rules to fullscreen the stream element. This is good when embedding with an iframe.",
+                    "<b>gui :</b> Extra CSS rules are added to display other information the Shinobi engine might have to provide."
+                ]
+            },
+            {
+                "text":"You <strong>cannot</strong> use the URL like this",
+                "code":"&lt;img src=\"http://xxx.xxx.xxx.xxx/[API KEY]/embed/[GROUP KEY]/[MONITOR ID]\"&gt;"
+            },
+            {
+                "text":"Embedding on WordPress?</strong> You may need to set jQuery like this before the embed code for the feature to work.",
+                "code":"$=jQuery"
+            }
+        ]
+    }
+]

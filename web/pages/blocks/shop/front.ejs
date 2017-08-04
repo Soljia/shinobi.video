@@ -1,0 +1,144 @@
+<header id="first" style="min-height:500px">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="height:350px" src="/libs/assets/store-devices.png">
+            <h1 class="cursive">Shop</h1>
+            <h4 style="text-transform:uppercase">Hardware that works</h4>
+        </div>
+        </div>
+    </div>
+</header>
+<% include ../../blocks/subheader.ejs %>
+<section id="learn">
+    <div class="content-inner">
+    <div class="container">
+				<div class="row">
+				<div class="col-md-2 hidden-xs" style="padding:0">
+                        <ul id="doc-menu" class="nav doc-menu hidden-xs affix-top doc-menu-background">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/docs/cameras">Connection URLs</a></li>
+                            <li><a href="/support">Support</a></li>
+                            <li><a href="/metal">Metal</a></li>
+                            <li>
+                                <a href="/shop">Shop</a>
+                                <ul class="nav doc-sub-menu">
+                                    <% Object.keys(products).forEach(function(n,v){
+                                    v=products[n]
+                                    %>  
+                                    <li><a href="/shop/<%-v.id%>"><%- v.stripe.name %></a></li>
+                                    <% }) %>
+                                </ul>
+                            </li>
+                            <li><a href="/shop/tos">Terms of Service</a></li>
+                            <li><a href="/shop/rebate">Rebate</a></li>
+                            <li><a href="/shop/returns">Returns</a></li>
+                            <li><a href="/shop/tos#warranty">Warranty</a></li>
+                            <li><a href="/shop/tos#shipping">Shipping</a></li>
+                        </ul>
+                </div>
+				<div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12" style="margin-top:-10px">
+                            <% include ../../../docs/blocks/search.ejs %>
+                        </div>
+                    </div>
+				<div class="row">
+                    <% 
+        Object.keys(products).forEach(function(n,v){
+            v=products[n]
+            v.stripe.description=v.shortDescription
+            v.stripe.currency=v.currency
+            v.stripe.amount=v.amount*100
+            %>
+<div class="col-md-4 col-sm-6 section-block">
+    <div class="tags hidden">
+        <% v.tags.forEach(function(b,m){ %>
+        <li><b>tag:<%- b %></b></li>
+        <% }) %>
+    </div>
+     <div class="card-container manual-flip">
+        <div class="card">
+            <div class="front">
+                <div class="cover">
+                    <img src="<%- v.background %>"/>
+                </div>
+                <div class="user">
+                    <a href="/shop/<%-v.id%>"><div class="img img-circle" src="<%- v.images[0] %>" style="background-image:url(<%- v.images[0] %>)"></div></a>
+                </div>
+                <div class="content">
+                    <div class="main text-center">
+                        <h3 class="name"><%- v.stripe.name %></h3>
+                        <p class="profession"><%- v.shortDescription %></p>
+                        <p class="price"><span class="currencyType">$</span><span class="amount"><%- v.amount %></span> <span class="currency"><%- v.currency.toUpperCase() %></span></p>
+                        <p><span class="shipping"><%- v.shipping %></span></p>
+                        <p class="text-center"><a class="btn btn-sm btn-primary btn-block" id="buy_<%-v.id%>">Purchase</a>
+                            <script>
+                            document.getElementById('buy_<%-v.id%>').addEventListener('click', function(e) {
+                              handler.open(<%-JSON.stringify(v.stripe)%>);
+                              e.preventDefault();
+                            });
+                            </script>
+                        </p>
+                    </div>
+                    <div class="footer">
+                        <button class="btn btn-simple flip-card">
+                            <i class="fa fa-mail-forward"></i> More Details
+                        </button>
+                    </div>
+                </div>
+            </div> <!-- end front panel -->
+            <div class="back">
+                <div class="header">
+                    <h5 class="motto"><%- v.name %></h5>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        <p class="profession text-center"><%- v.shortDescription %></p>
+                        <ul class="specifications">
+                            <% Object.keys(v.specifications).forEach(function(b,m){
+                                if(v.specifications[b]===1){
+                                    v.specifications[b]='&nbsp;<i class="fa fa-check text-success"></i>&nbsp;'
+                                }
+                                %>
+                            <li><b><%-b%></b><span class="pull-right"><%-v.specifications[b]%></span></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn btn-simple flip-card" rel="tooltip">
+                    <i class="fa fa-reply"></i> Back
+                </button>
+                <a class="btn btn-simple right-link" href="/shop/<%-v.id%>">
+                    Product Page <i class="fa fa-shopping-cart"></i>
+                </a>
+            </div> <!-- end back panel -->
+        </div> <!-- end card -->
+    </div> <!-- end card-container -->
+</div> <!-- end col sm 3 -->
+        <% }) %>
+            </div>
+            </div>
+            </div>
+    </div>
+    </div>
+</section>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[rel="tooltip"]').tooltip();
+
+});
+
+$('body').on('click','.flip-card',function(){
+    var $card = $(this).parents('.card-container');
+    if($card.hasClass('hover')){
+        $card.removeClass('hover');
+    } else {
+        $card.addClass('hover');
+    }
+})
+//stripe : Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+</script>

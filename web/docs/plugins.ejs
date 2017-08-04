@@ -1,0 +1,107 @@
+<% var Title='Plugins'; %>
+<% include blocks/header.ejs %>
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon fa fa-plug"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="general" class="doc-section">
+<div class="section-block">
+<h1>
+<a id="contributing-a-plugin" class="anchor" href="#contributing-a-plugin" aria-hidden="true"></a>Contributing a Plugin</h1>
+<h3 class="block-title question">
+<a id="criteria-for-a-plugin" class="anchor" href="#criteria-for-a-plugin" aria-hidden="true"></a>Criteria for a plugin</h3>
+
+<ul>
+<li>Shinobi must be able to run if the plugin is not present.
+
+<ul>
+<li>Exceptions will only be made if the plugin is better off as a feature in which case it shouldn't be classified as a plugin.</li>
+</ul>
+</li>
+<li>Required dependencies must have an installation process included</li>
+<li>Plugin must be a separate process (a daemon)</li>
+<li>Plugin interfaces with <code>camera.js</code> through <code>socket.io-client</code>.
+
+<ul>
+<li>OpenCV plugin can be reviewed as an <a href="https://github.com/moeiscool/Shinobi/blob/master/plugins/opencv/shinobi-opencv.js">example.</a>
+</li>
+</ul>
+</li>
+<li>Instructions must be provided for simple installation and usage.</li>
+<li>Options for plugin must be hidden unless plugin is connected to <code>camera.js</code>.</li>
+<li>Plugin cannot undermine the overall performance of Shinobi.</li>
+<li>Reviewed, tested, and accepted by peers or a senior developer in the <a href="http://discordapp.com/invite/mdhmvuH/">Discord</a> community chat.</li>
+</ul>
+</div>
+<div class="section-block">
+<h1>
+<a id="why-socketio-for-transport" class="anchor" href="#why-socketio-for-transport" aria-hidden="true"></a>Why Socket.io for transport?</h1>
+
+<ul>
+<li>Well mainly because this allows for a plug and play feel.
+
+<ul>
+<li>Not having to restart the server for a plugin makes sense.</li>
+</ul>
+</li>
+<li>Fast and reliable data transfer.
+
+<ul>
+<li>It was previously attempted that we use UDP ports to achieve the same result but found there was quality loss.</li>
+</ul>
+</li>
+<li>Socket.io is supported by many languages, not just Node.js
+
+<ul>
+<li>Write your plugin in Python, C++, whatever. As long as it communicates with <code>camera.js</code> through socket.io the data exchange remains the same.</li>
+</ul>
+</li>
+<li>Since each plugin is it's own process it can be run on another machine entirely.
+
+<ul>
+<li>You could have one machine do camera.js functions and another do opencv requests.</li>
+</ul>
+</li>
+</ul>
+
+                                </div>
+                            </section><!--//doc-section-->
+
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                                <li><a class="scrollto" href="#contributing-a-plugin">Contributing a Plugin</a></li>
+                                <li><a class="scrollto" href="#why-socketio-for-transport">Why Socket.io for transport?</a></li>
+                                <li>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a href="/docs/motion">Motion Detection</a></li>
+                                        <li><a href="/docs/object">Object Detection</a></li>
+                                        <li><a href="https://github.com/mafischer/shinobi-doorbird-plugin" target="_blank">Doorbird by Michael Fischer</a></li>
+                                    </ul>
+                                </li>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

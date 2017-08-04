@@ -1,0 +1,438 @@
+{
+    "4MB6P":{
+        "id":"4MB6P",
+        "enabled":1,
+        "created":"2017/07/09 22:39",
+        "name":"H.O. SAFE 4MP HD IP Camera",
+        "description":"Metal Body, Bullet Style",
+        "shortDescription":"Camera for Home and Office.",
+        "dimensions":"4x3.5x8",
+        "dimensionsUnit":"in",
+        "weight":"16",
+        "weightUnit":"oz",
+        "currency":"usd",
+        "amount":150,
+        "shipping":"Free Shipping",
+        "shippingTime":"2 - 3 Weeks",
+        "tags":[
+            "Bullet",
+            "Metal Body",
+            "Metal Housing",
+            "RTSP",
+            "ONVIF"
+        ],
+        "images":[
+            "/libs/assets/products/4MB6P/1.jpg",
+            "/libs/assets/products/4MB6P/2.jpg",
+            "/libs/assets/products/4MB6P/3.jpg",
+            "/libs/assets/products/4MB6P/4.jpg",
+            "/libs/assets/products/4MB6P/5.jpg",
+            "/libs/assets/products/4MB6P/6.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/3.jpg",
+        "stripe":{
+            "name":"1440p HD IP Camera",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"1 Year",
+            "Model":"4MB6P",
+            "Brand":"H.O. SAFE",
+            "Pixel Count":"4 Megapixels",
+            "Resolution":"1440p (2560x1440)",
+            "ONVIF":1,
+            "RTSP / H.264":1,
+            "Weatherproof":1
+        },
+        "links":[
+            {
+                "type":"download",
+                "label":"ONVIF Device Manager",
+                "href":"https://s3.amazonaws.com/cloudcamio/odm-v2.2.250.msi"
+            },
+            {
+                "type":"link",
+                "label":"H.O. SAFE (HOSAFE) Connection URLs",
+                "href":"/docs/cameras/Hosafe"
+            }
+        ],
+        "packageIncludes":[
+            "High Definition IP Camera",
+            "Power Supply",
+            "Warning Sticker"
+        ],
+        "categories":[
+            "IP Cameras",
+            "ONVIF"
+        ]
+    },
+    "4MB6Px5":{
+        "id":"4MB6Px5",
+        "enabled":1,
+        "created":"2017/07/09 22:39",
+        "name":"5 x H.O. SAFE 4MP HD IP Camera",
+        "description":"Metal Body, Bullet Style",
+        "shortDescription":"Camera for Home and Office.",
+        "dimensions":"4x3.5x8",
+        "dimensionsUnit":"in",
+        "weight":"16",
+        "weightUnit":"oz",
+        "currency":"usd",
+        "amount":700,
+        "shipping":"Free Shipping",
+        "shippingTime":"2 - 3 Weeks",
+        "tags":[
+            "Bullet",
+            "Metal Body",
+            "Metal Housing",
+            "RTSP",
+            "ONVIF"
+        ],
+        "images":[
+            "/libs/assets/products/4MB6P/4.jpg",
+            "/libs/assets/products/4MB6P/2.jpg",
+            "/libs/assets/products/4MB6P/3.jpg",
+            "/libs/assets/products/4MB6P/1.jpg",
+            "/libs/assets/products/4MB6P/5.jpg",
+            "/libs/assets/products/4MB6P/6.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/3.jpg",
+        "stripe":{
+            "name":"5 x 1440p HD IP Camera",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"1 Year",
+            "Model":"4MB6P",
+            "Brand":"H.O. SAFE",
+            "Pixel Count":"4 Megapixels",
+            "Resolution":"1440p (2560x1440)",
+            "ONVIF":1,
+            "RTSP / H.264":1,
+            "Weatherproof":1
+        },
+        "links":[
+            {
+                "type":"download",
+                "label":"ONVIF Device Manager",
+                "href":"https://s3.amazonaws.com/cloudcamio/odm-v2.2.250.msi"
+            },
+            {
+                "type":"link",
+                "label":"H.O. SAFE (HOSAFE) Connection URLs",
+                "href":"/docs/cameras/Hosafe"
+            }
+        ],
+        "packageIncludes":[
+            "5 x High Definition IP Camera",
+            "5 x Power Supply",
+            "5 x Warning Sticker"
+        ],
+        "categories":[
+            "IP Cameras",
+            "ONVIF"
+        ]
+    },
+    "1MD1B":{
+        "id":"1MD1B",
+        "enabled":1,
+        "created":"2017/07/10 11:49",
+        "name":"H.O. SAFE 1MP HD IP Camera",
+        "description":"Metal Body, Dome Style",
+        "shortDescription":"Camera for Home and Office.",
+        "dimensions":"4x3.5x8",
+        "dimensionsUnit":"in",
+        "weight":"16",
+        "weightUnit":"oz",
+        "currency":"usd",
+        "amount":90,
+        "shipping":"Free Shipping",
+        "shippingTime":"2 - 3 Weeks",
+        "tags":[
+            "Dome",
+            "Metal Body",
+            "Metal Housing",
+            "RTSP",
+            "ONVIF"
+        ],
+        "images":[
+            "/libs/assets/products/1MD1B/1.jpg",
+            "/libs/assets/products/1MD1B/2.jpg",
+            "/libs/assets/products/1MD1B/3.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/4.jpg",
+        "stripe":{
+            "name":"720p HD IP Camera",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"1 Year",
+            "Model":"1MD1B",
+            "Brand":"H.O. SAFE",
+            "Pixel Count":"1 Megapixel",
+            "Resolution":"720p (1280x720)",
+            "ONVIF":1,
+            "RTSP / H.264":1,
+            "Weatherproof":1,
+            "Colors":"Black and White"
+        },
+        "links":[
+            {
+                "type":"download",
+                "label":"ONVIF Device Manager",
+                "href":"https://s3.amazonaws.com/cloudcamio/odm-v2.2.250.msi"
+            },
+            {
+                "type":"link",
+                "label":"H.O. SAFE (HOSAFE) Connection URLs",
+                "href":"/docs/cameras/Hosafe"
+            }
+        ],
+        "packageIncludes":[
+            "High Definition IP Camera",
+            "Power Supply",
+            "Warning Sticker"
+        ],
+        "categories":[
+            "IP Cameras",
+            "ONVIF"
+        ]
+    },
+    "1MD1Bx5":{
+        "id":"1MD1Bx5",
+        "enabled":1,
+        "created":"2017/07/10 11:49",
+        "name":"5 x H.O. SAFE 1MP HD IP Camera",
+        "description":"Metal Body, Dome Style",
+        "shortDescription":"Camera for Home and Office.",
+        "dimensions":"4x3.5x8",
+        "dimensionsUnit":"in",
+        "weight":"16",
+        "weightUnit":"oz",
+        "currency":"usd",
+        "amount":420,
+        "shipping":"Free Shipping",
+        "shippingTime":"2 - 3 Weeks",
+        "tags":[
+            "Dome",
+            "Metal Body",
+            "Metal Housing",
+            "RTSP",
+            "ONVIF"
+        ],
+        "images":[
+            "/libs/assets/products/1MD1B/3.jpg",
+            "/libs/assets/products/1MD1B/2.jpg",
+            "/libs/assets/products/1MD1B/1.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/4.jpg",
+        "stripe":{
+            "name":"5 x 720p HD IP Camera",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"1 Year",
+            "Model":"1MD1B",
+            "Brand":"H.O. SAFE",
+            "Pixel Count":"1 Megapixel",
+            "Resolution":"720p (1280x720)",
+            "ONVIF":1,
+            "RTSP / H.264":1,
+            "Weatherproof":1,
+            "Colors":"Black and White"
+        },
+        "links":[
+            {
+                "type":"download",
+                "label":"ONVIF Device Manager",
+                "href":"https://s3.amazonaws.com/cloudcamio/odm-v2.2.250.msi"
+            },
+            {
+                "type":"link",
+                "label":"H.O. SAFE (HOSAFE) Connection URLs",
+                "href":"/docs/cameras/Hosafe"
+            }
+        ],
+        "packageIncludes":[
+            "5 x High Definition IP Camera",
+            "5 x Power Supply",
+            "5 x Warning Sticker"
+        ],
+        "categories":[
+            "IP Cameras",
+            "ONVIF"
+        ]
+    },
+    "T2200":{
+        "id":"T2200",
+        "enabled":1,
+        "created":"2017/07/12 11:49",
+        "name":"Actiontec T2200M VDSL2 Bonded Modem",
+        "description":"<p>As one of the most robust consumer routers available, the T2200M VDSL modem router delivers a brilliant HD IPTV, gaming, VoIP, and Web experience. This model does not have WiFi. This modem can be used on UNMETERED.Direct.</p><p><b>Default Mode :</b> Bridge Mode<br><b>Default IP :</b> 10.10.10.1<br><b>Subnet :</b> 255.255.255.248</p>",
+        "shortDescription":"Unlocked with PPPoE",
+        "dimensions":"",
+        "dimensionsUnit":"in",
+        "weight":"2",
+        "weightUnit":"lb",
+        "currency":"cad",
+        "amount":100,
+        "shipping":"Free Shipping",
+        "shippingTime":"1 Week",
+        "tags":[
+            "DSL",
+            "Internet",
+            "Modem"
+        ],
+        "features":[
+            "Gigabit Ethernet (WAN and LAN)",
+            "VDSL 2 access technology (backward compatible to ASDL2+/ASDL2)",
+            "3 x 10/100Base-T Ethernet ports (LAN)",
+            "1 x 10/100/1000 Base-T Ethernet ports (LAN)",
+            "DHCP server option",
+            "MAC address cloning",
+            "QoS support, including diffserv and random early detection",
+            "PPPoE support",
+            "External Radius support",
+            "Web-based configuration support",
+            "FTP firmware upgradeable",
+            "Web download support",
+            "TR-069 support with remote management",
+            "TR-064 local management"
+        ],
+        "images":[
+            "/libs/assets/products/T2200M/1.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/2.jpg",
+        "stripe":{
+            "name":"Actiontec T2200M Modem",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"30 Days",
+            "Model":"T2200",
+            "Brand":"Actiontec",
+            "Megabit Ports":"3 x 10/100",
+            "Gigabit Ports":"1 x 10/100/1000",
+            "Max Download Speed":"100 Mbps",
+            "VDSL and ADSL":1,
+            "Bond Connections":1,
+            "Bridge":1
+        },
+        "packageIncludes":[
+            "T2200M VDSL2 Bonded Modem",
+            "Power Supply",
+            "Ethernet Cable",
+            "Telephone Cable"
+        ],
+        "categories":[
+            "DSL Modems"
+        ]
+    },
+    "CDA3-20":{
+        "id":"CDA3-20",
+        "enabled":1,
+        "created":"2017/07/12 16:20",
+        "name":"Hitron CDA3-20 Gigabit Cable Modem",
+        "description":"<p>The CDA3 is the perfect choice for cable operators who want to offer high-speed broadband access to their customer base economically. It delivers speeds of up to 960Mbps (24×8) with twenty-four bonded downstream channels over its DOCSIS interface. The CDA3 allows MSOs to offer their customers various broadband applications such as telecommuting, HD and UHD video on demand over IP connectivity to small office/home office (SOHO), high-speed residential Internet access, interactive multimedia services, etc. The CDA3 is an intelligent device that enhances its basic data transmission features with IPv6 support. This makes it especially suitable for the transmission of data based on this protocol.</p><p>Doesn't work for Rogers billed customers, can work under <a href='//UNMETERED.Direct' target='_blank'>UNMETERED.Direct</a>. Confirm with your Service Provider for compatibility first. This Hitron CDA3-20 does not have built-in router or wi-fi features.</p>",
+        "shortDescription":"Works with UNMETERED",
+        "dimensions":"35.8 x 26 x 11.4",
+        "dimensionsUnit":"cm",
+        "weight":"1.2",
+        "weightUnit":"kg",
+        "currency":"cad",
+        "amount":150,
+        "shipping":"Free Shipping",
+        "shippingTime":"1 Week",
+        "tags":[
+            "Cable",
+            "Internet",
+            "Modem"
+        ],
+        "images":[
+            "/libs/assets/products/CDA3-20/1.jpg",
+            "/libs/assets/products/CDA3-20/2.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/5.jpg",
+        "stripe":{
+            "name":"Hitron CDA3-20 Modem",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"30 Days",
+            "Model":"CDA3-20",
+            "Brand":"Hitron",
+            "Megabit Ports":"3 x 10/100",
+            "Gigabit Ports":"1 x 10/100/1000",
+            "Max Download Speed":"100 Mbps",
+            "DOCSIS":"3.0"
+        },
+        "packageIncludes":[
+            "Hitron CDA3-20 Gigabit Cable Modem",
+            "Power Supply",
+            "Ethernet Cable"
+        ],
+        "categories":[
+            "Cable Modems"
+        ],
+        "links":[
+            {
+                "type":"download",
+                "label":"Resident CDA Guide",
+                "href":"https://s3.amazonaws.com/cloudcamio/manuals/Hitron_CDA.pdf"
+            }
+        ]
+    },
+    "SR552n":{
+        "id":"SR552n",
+        "enabled":1,
+        "created":"2017/07/12 16:20",
+        "name":"SmartRG SR552n Bonded ADSL2+/VDSL2 + 5-Port WiFi",
+        "description":"<p>THE SR552n BONDED DSL/FTTH GATEWAY provides high performance and flexibility for broadband and IPTV subscribers, effectively bridging the gap between copper and fiber. Utilizing the latest Broadcom VDSL2 chipset, the SR552n bonds two VDSL2 lines (or two ADSL2+ lines), extending the rate/reach of high-bandwidth services and providing high-availability with automatic failover. Under the hood of the SR552n is also a high-power output 802.11n WiFi Access Point and 5-port Gigabit Ethernet switch. The SR552n can also be used as a Gigabit Ethernet WAN gateway, via the onboard SmartPort™, and includes a carrier-grade router, firewall, and industry-leading TR-069 management. </p>",
+        "shortDescription":"Works with UNMETERED",
+        "dimensions":"225x60x175",
+        "dimensionsUnit":"mm",
+        "weight":"500",
+        "weightUnit":"g",
+        "currency":"cad",
+        "amount":250,
+        "shipping":"Free Shipping",
+        "shippingTime":"1 Week",
+        "tags":[
+            "DSL",
+            "Internet",
+            "Modem"
+        ],
+        "images":[
+            "/libs/assets/products/SR552n/1.jpg"
+        ],
+        "background":"/libs/assets/backgrounds/2.jpg",
+        "stripe":{
+            "name":"SmartRG SR552n Bonded",
+            "billingAddress":true
+        },
+        "specifications":{
+            "Warranty":"30 Days",
+            "Model":"SR552n",
+            "Brand":"SmartRG",
+            "Gigabit Ports":"5 x 10/100/1000",
+            "VDSL2 and ADSL2+":1,
+            "Bond Connections":1,
+            "Bridge":1
+        },
+        "packageIncludes":[
+            "Hitron SR552n Gigabit Cable Modem",
+            "Power Supply",
+            "Ethernet Cable"
+        ],
+        "categories":[
+            "DSL Modems"
+        ],
+        "links":[
+            {
+                "type":"download",
+                "label":"Data Sheet",
+                "href":"https://s3.amazonaws.com/cloudcamio/manuals/SmartRG_SR552n.pdf"
+            }
+        ]
+    }
+}

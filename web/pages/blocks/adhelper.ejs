@@ -1,0 +1,77 @@
+<!--
+<div id="whyYouBlock" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="overflow: hidden;">
+      <div class="modal-header" style="background-color:#31708f;color:#fff">
+        <h4 class="modal-title"><i class="fa fa-frown-o"></i> Oh no!</h4>
+      </div>
+      <div class="modal-body">
+          <blockquote>
+              <h3>Allowing ads helps Shinobi stay free.</h3>
+              <p><b>Please turn off your Ad blocker to stop seeing this message.</b> We promise there won't be any popups.</p>
+              <p>When Shinobi reaches <b>$600</b> in contributions for the month <b>all ads will be removed for everyone</b>.</p>
+              <p>Thank you for your understanding <i class="fa fa-heart" style="color:red"></i></p>
+              <small>Shinobi Development Team</small>
+          </blockquote>
+          <small>If an advertisement is inappropriate please <a href="/contact">contact us</a>.</small>
+      </div>
+      <div class="modal-footer">
+        <a href="/docs/donate" class="btn btn-primary" style="transition:0s">Donate</a> 
+        <a whyYou="reset" class="btn btn-primary" style="transition:0s"></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="/libs/js/showads.js"></script>
+<script>
+    setTimeout(function(){
+        if(window.canRunAds !== true){
+            $.whyYou={e:$('#whyYouBlock'),reset:$('[whyYou="reset"]')}
+            $.whyYou.e.modal('show')
+            $.whyYou.clear=function(){
+                clearInterval($.whyYou.interval)
+            }
+            $.whyYou.set=function(){
+                $.whyYou.reset.text('Remind me in 30 minutes')
+                $.whyYou.interval=setInterval(function(){
+                    $.whyYou.e.modal('show')
+                },1000*60*30)
+            }
+            $.whyYou.set()
+            $.whyYou.e.on('hidden.bs.modal',function(){
+                $.whyYou.reset.text(':(')
+                setTimeout(function(){
+                    $.whyYou.clear()
+                    $.whyYou.set()
+                },1000)
+            })
+            $.whyYou.reset.click(function(){
+                $.whyYou.e.modal('hide')
+            })
+        }
+    },1000*5)
+</script>
+-->
+<!--Follower ad-->
+<style>
+    #follower{position:fixed;left:0;bottom:0;z-index:6;width:auto}
+    #follower .end{position:absolute;top:0;right:0;color:#fff;text-shadow:0 0 15px #333;z-index:2;cursor:pointer}
+    #follower .note{position:absolute;bottom:0;right:0;color:#fff;z-index:2;padding:5px;background:#333;}
+</style>
+<div id="follower" class="hidden-sm hidden-xs" style="display:none">
+    <div class="end"><i class="fa fa-times fa-spin"></i></div>
+    <small class="note">Sorry for the Ads</small>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- longdown --> <ins class="adsbygoogle"      style="display:inline-block;width:160px;height:600px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="4862030510"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+</div>
+<script>
+    $('#follower .note').click(function(){
+        $('#follower .adsbygoogle').focus()
+    })
+    $('#follower .end').click(function(){
+        $('#follower').remove()
+    })
+    setTimeout(function(){
+        $('#follower').show()
+    },1000*5)
+</script>

@@ -1,0 +1,119 @@
+<% config.Title='Feature Requests';%>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>var handler = StripeCheckout.configure({
+  key: 'pk_live_SjzKuxKHK0ascZEkjF82aQB9',
+  image: '/libs/assets/icon/mstile-310x310-circle.png',
+  locale: 'auto',
+  token: function(token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+</script>
+<% include blocks/header.ejs %>
+<style>
+    #learn ul,#learn p{font-size:16pt}
+    .form-element .form-group{}
+    .form-element .form-group label{width:100%;display:flex}
+    .form-element .form-group label div:nth-child(1){width:30%;}
+    .form-element .form-group label div:nth-child(1) span{border-bottom:1px solid #ddd;display:block}
+    .form-element .form-group label div:nth-child(2){width:70%;border-radius:5px;padding:5px;border:1px solid #ddd}
+</style>
+<header id="first" style="min-height:500px">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="height:350px" src="/libs/assets/store-devices.png">
+            <h1 class="cursive">Feature Requests</h1>
+            <h4 style="text-transform:uppercase">For ShinobiCCTV Open Source Software</h4>
+        </div>
+        </div>
+    </div>
+</header>
+<% include blocks/subheader.ejs %>
+<section id="learn">
+<div class="container-fluid">
+    <div class="content-wrapper">	
+		<div class="item-container">
+			<div class="container" style="padding-top:0px;padding-bottom:30px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 id="rebates" class="text-primary"><i class="fa fa-pencil-square-o text-success"></i> Filing a Request</h2>
+                        <p>Please complete the form found to the right to file a request. But wait! As yourself a few questions first.</p>
+                        <ul>
+                            <li>Is this feature custom (private) or a community feature (public)?</li>
+                            <li>How soon do you need this feature?</li>
+                            <li>How much modifcation would be required to add this feature?
+                                <ul>
+                                    <li>Will the main server file need to be edited?</li>
+                                    <li></li>
+                                </ul>
+                            </li>
+                            <li>Can you estimate how long it might take you to complete this feature?</li>
+                        </ul>
+                        <h2 id="rebates" class="text-primary"><i class="fa fa-star text-warning"></i> Please be curteous</h2>
+                        <p>We would like to accept as many features that benefit Shinobi, and the community, as possible.</p>
+                        <p>Unfortunately time and effort is limited. Focus on requests, and also notes written by developers, are prioritized. If you would like to push the development for any specific feature you may order a support package.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="text-primary"><i class="fa fa-leaf text-success"></i> Electronic Form</h2>
+                        <form class="form-element" id="rebateForm">
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Name</span></div>
+                                    <div><input class="form-control" name="name"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Email <small>Not visible to public.</small></span></div>
+                                    <div><input class="form-control" name="mail"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Country</span></div>
+                                    <div><input class="form-control" name="country"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Title of Feature</span></div>
+                                    <div><input class="form-control" name="title"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Describe Feature</span></div>
+                                    <div><textarea class="form-control" style="height:200px" name="note"></textarea></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-default">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    $('#rebateForm').submit(function(ee){
+        e={e:$(this)}
+        e.submitButton=e.e.find('[type=submit]').removeClass('btn-default btn-success btn-danger')
+        $.post('/feature-request',e.e.serialize(),function(d){
+            if(d.ok===true){
+                e.e.find('input,textarea').prop('disabled',true)
+                e.submitButton.text('Sent! We will review your request!').addClass('btn-success')
+                $('#rebateForm').unbind('submit').submit(function(e){return false;e.preventDefault()})
+            }else{
+                e.submitButton.text(d.msg).addClass('btn-danger')
+            }
+        })
+        ee.preventDefault()
+    })
+</script>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

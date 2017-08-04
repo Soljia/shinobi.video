@@ -1,0 +1,53 @@
+<% var Title='FAQs'; %>
+<% include blocks/header.ejs %>
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_lifesaver"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <% include blocks/search.ejs %>
+                            <% Object.keys(pageData).forEach(function(n,v){
+                                 v=pageData[n] %>
+                            <section id="<%-link_id(n)%>" class="doc-section">
+                                <h2 class="section-title"><%-n%></h2>
+                                <%
+                                    v.forEach(function(b,m){ %>
+                               <div class="section-block">
+                                   <h3 class="question" id="content-<%-link_id(b.Q)%>"><a class="text-faded" href="#content-<%-link_id(b.Q)%>"><i class="fa fa-paperclip"></i></a> <%=b.Q%></h3>
+                                    <div class="answer"><%-b.A%></div>
+                                </div>
+                                  <%  }) %>
+                            </section>
+                            <% }) %>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                            <% Object.keys(pageData).forEach(function(n,v){
+                                 v=pageData[n] %>
+                                <li><a class="scrollto" href="#<%-link_id(n)%>"><%-n%></a></li>
+                            <% }) %>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

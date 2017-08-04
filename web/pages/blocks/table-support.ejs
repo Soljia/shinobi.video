@@ -1,0 +1,71 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary">Support Packages</h2>
+                <p>Shinobi is free software. Ordering a support package supports the engineers.</p>
+                <hr class="primary">
+            </div>
+        </div>
+<div class="disply-table" style="margin-top:50px;margin-bottom:30px"><table id="packages" class="super-table">
+    <thead><tr><td style="text-align:center;font-size:1.5em;border-bottom:none">&nbsp;</td></tr></thead>
+    <tbody></tbody>
+    <tfoot><tr><td>&nbsp;</td></tr></tfoot>
+</table>
+<script>
+    var plans=[
+        {"name":"Tiny Once",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Tiny Monthly",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Micro",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Mini",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Individual",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Priority",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Enterprise",href:'http://billing.place/cart/shinobi/'},
+    ]
+    var specs={
+        "License Included":"Business",
+        "Bug Support":["10 days","10 days","10 days","5 days","5 days","72 days","1 hour"],
+        "General Support":["48 hours","48 hours","48 hours","24 hours","24 hours","5 hours","1 hour"],
+        "Email Support":[0,0,0,0,1,1,1],
+        "Remote Support":[0,0,0,0,1,1,1],
+        "Voice Support":[0,0,0,0,0,0,'FaceTime and Discord'],
+        "Feature Request Priority":["Low","Low","Low","Low","Low","Medium","High"],
+        "Payment Cycle":["One Time, 1 Week","Monthly","Annually","Annually","Monthly","Monthly","Monthly"],
+        "Price":["10","10","90","300","50","300","1000"],
+    }
+    var details={
+        "Bug Support": "Support and Software Update for when you have found a bug that is interferring with how Shinobi is supposed to function and with how you use Shinobi. Support will be expected within the specified time period.",
+        "General Support": "Support on how to use Shinobi. Setting up cameras and tweaking settings for your system and purpose.",
+        "Email Support": "Communication through direct email with the creator of Shinobi or senior developer.",
+        "Remote Support": "Support through Remote Desktop or through your Shinobi installation from a remote address.",
+        "Voice Support": "Communication over FaceTime or Discord, just like a regular call.",
+        "Feature Request Priority": "Priority for feature requests and suggestions.",
+        "Payment Cycle": "How frequent you will be billed for the selected package.",
+    }
+    tmp='';
+    $.each(plans,function(n,v){
+        tmp+='<td><a href="'+v.href+'"><div class="circ-img" style="background-image:url('+v.img+')"></div><br>'+v.name+'</a></td>'
+    })
+    $('#packages.super-table thead tr').append(tmp);
+    tmp='';
+    $.each(plans,function(n,v){
+        tmp+='<td><a class="btn btn-primary btn-xs" href="'+v.href+'">Order Form</a></td>'
+    })
+    $('#packages.super-table tfoot tr').append(tmp);
+    tmp='';
+    $.each(specs,function(m,b){
+        if((b instanceof Array)===false){b=[b,b,b,b,b,b,b]}
+        tmp+='<tr><td>'+m+'</td>'
+        $.each(b,function(c,x){
+            if(m==='Price'){
+                x='<b class="currency">$'+x+'</b>'
+            }
+            if(x===1||x===0){
+                if(x===1){x='&nbsp;<i class="fa fa-check text-primary"></i>&nbsp;'}else{x='-'}
+            }
+            tmp+='<td>'+x+'</td>'
+        })
+        tmp+='</tr>';
+    })
+$('#packages.super-table tbody').html(tmp);//$('.tooltipster').tooltipster({position:'right',interactive:true});
+</script></div>
+    </div>

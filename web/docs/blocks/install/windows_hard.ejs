@@ -1,0 +1,81 @@
+<div id="windows-hard"  class="section-block">
+    <h3 class="block-title question">Windows : The Hard Way</h3>
+    <h5>Windows</h5>
+    <blockquote style="border-color:#d9534f">
+        <p><b>Warning :</b> Shinobi is running on a process manager, <code>PM2</code>, which sometimes opens command windows for other tasks. Choosing not to use PM2 avoids this command window issue, see below on different start methods.</p>
+        
+        <p>Please create a <b><a href="https://www.youtube.com/watch?v=0OKji4QF2lA" target="_blank" title="Video and Download Link to ImDisk">Ram Disk</a></b> or use an <b>SD card</b> for your temporary files. To avoid this you can install Ubuntu Desktop instead. Ubuntu comes with a temporary directory for you to use by default so it is not necessary to set one for it.</p>
+    </blockquote>
+<p>You will need a few things installed before being able to run Shinobi.</p>
+<ul>
+    <li><a href="https://github.com/moeiscool/Shinobi/zipball/master">Shinobi</a> <i>Latest Master</i></li>
+    <li><a href="https://s3.amazonaws.com/cloudcamio/node-v6.10.3-x64.msi">Node.js 6.10.3+</a></li>
+    <li><a href="https://s3.amazonaws.com/cloudcamio/mariadb-10.2.6-winx64.msi">MariaDB 10.2.6+</a></li>
+    <li><a href="https://s3.amazonaws.com/cloudcamio/HeidiSQL_9.4.0.5125_Setup.exe">HeidiSQL 9.4+</a> <i>or use your own SQL client.</i></li>
+    <li>FFmpeg 3.3.1
+        <ul>
+            <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-3.3.1-win64-static.zip">64bit (x64)</a></li>
+            <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-3.3.1-win32-static.zip">32bit (x86)</a></li>
+        </ul>
+    </li>
+</ul>
+    <p>Let's begin.</p>
+    <ol>
+        <li>Download all the files listed above.</li>
+        <li><p>Install Node.js, MariaDB and your favorite SQL client. The links are posted above.</p>
+            <ul>
+                <li>MariaDB : <a href="https://www.youtube.com/edit?o=U&video_id=v0Q1zFVvX3M">How to Install MariaDB in under 2 Minutes</a></li>
+            </ul>
+        </li>
+        <li>
+            <p>Once all those are installed download and extract Shinobi and place where you want it to run from.</p>
+            <pre><code><i>Example</i> C:/Shinobi</code></pre>
+        </li>
+        <li>
+            <p>Open HeidiSQL (or your SQL client) and log in to the MariaDB server now running on your system. The credentials are the ones you put in during the installation of MariaDB.</p>
+        </li>
+        <li>
+            <p>Open the <b>Query</b> tab on HeidiSQL. Then open your Shinobi directory and locate the folder labeled <code>sql</code>. Drag the following files to your query tab and click the <i class="fa fa-play"></i> <b>Run</b> button to import the database.</p>
+            <ul>
+                <li><code>framework.sql</code></li>
+                <li><code>user.sql</code></li>
+                <li><code>default_data.sql</code></li>
+            </ul>
+        </li>
+        <li>
+            <p>Open the ffmpeg zip you downloaded. Find the folder labelled <code>bin</code>. Copy this folder into your Shinobi directory and rename it to <code>ffmpeg</code>.</p>
+            <pre><code><i>Example</i> C:/Shinobi/ffmpeg</code></pre>
+        </li>
+        <li>
+            <p>Make a copy of <b>conf.sample.json</b> and rename it to <b>conf.json</b>.</p>
+            <blockquote style="border-color:#d9534f;border-width:15px"><p>Set your <code>windowsTempDir</code> inside your <code>conf.json</code>. <b>You must do this on Windows</b> or you may end up with very bad performance and possibly shortening the life of your hardware at the same time. </p>
+            <p>It is recommended that you use <a href="https://www.youtube.com/watch?v=0OKji4QF2lA" target="_blank" title="Video and Download Link to ImDisk">ImDisk</a> or a SD Card as the temporary directory.</p>
+                <p>More information about <code>conf.json</code> file can be found <a class="scrollto" href="#config_conf">here</a>.</p>
+            </blockquote>
+            <pre><code>"windowsTempDir":"R:/Temp",</code></pre>
+        </li>
+        <li>
+            <p>Open Command Prompt. Click the <b>Start Menu</b> on your Windows taskbar and begin typing <code>cmd.exe</code>. Open the Shinobi directory.</p>
+            <pre><code>cd C:/Shinobi</code></pre>
+        </li>
+        <li><p>Install the Shinobi libraries.</p>
+            <pre><code>npm install pm2 -g
+npm install</code></pre>
+        </li>
+        <li><p>Run Shinobi one of two ways.</p>
+            <ul>
+                <li>
+<p><b>With Process Manager</b> (you can close the initial command windows after starting with automatic restart if process crashes)</p>
+            <pre><code>pm2 start camera.js
+pm2 start cron.js</code></pre>
+                </li>
+                <li>
+            <p><b>The regular way</b> (you must keep the command window open after starting shinobi, no other command windows should be visible.)</p>
+            <pre><code>node camera.js</code></pre>
+            <p>Open a new Command prompt window and start the cron script.</p>
+            <pre><code>node cron.js</code></pre>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>

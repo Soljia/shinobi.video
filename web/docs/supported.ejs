@@ -1,0 +1,383 @@
+<% var Title='Supported'; %>
+<% include blocks/header.ejs %>
+<body class="body-pink">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_puzzle_alt"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="supported-cameras" class="doc-section">
+                                <h2 class="section-title">Supported Cameras</h3>
+                                <div class="section-block">
+<h3 class="block-title question"><a id="input-methods-input-type" class="anchor" href="#input-methods-input-type" aria-hidden="true"></a>Input Methods (Input Type)</h3>
+<table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+  <tr>
+<td>JPEG</td>
+<td>Snapshot Image URL</td>
+</tr>
+  <tr>
+<td>MJPEG</td>
+<td>Motion JPEG Image stream</td>
+</tr>
+  <tr>
+<td>H.264</td>
+<td>MP4 Video made by the camera</td>
+</tr>
+  <tr>
+<td>Streamer v1</td>
+<td>RTC based stream capture done by a compatible browser. Can be considered as a method for recording local cameras. <i>Experimental : Currently streams video only, no audio.</i>
+</td>
+</tr>
+  <tr>
+<td>Local</td>
+<td>For USB or Integrated Cameras such as Webcams</td>
+</tr>
+</tbody></table>
+<h3 class="block-title question"><a id="output-methods-stream-type" class="anchor" href="#output-methods-stream-type" aria-hidden="true"></a>Output Methods (Stream Type)</h3>
+<table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+  <tr>
+<td>Base64</td>
+<td>Frames that are base64 encoded by the server then sent over websocket and are then drawn in a canvas element.</td>
+</tr>
+  <tr>
+<td>JPEG</td>
+<td>Within the dashboard JPEG streams are harnessed by refreshing an image element on a timer. Frames are written to RAM and can be accessed via the JPEG API.</td>
+</tr>
+  <tr>
+<td>MJPEG</td>
+<td>A standard streaming method. This method can be read by zoneminder.</td>
+</tr>
+  <tr>
+<td>HLS</td>
+<td>A method that records slices of video which are downloaded by the user via XHR requests. Please be advised that using this method may be detrimental to SSDs. Please point the <b>streamDir</b> to location located in your ram such as <b>/dev/shm</b>.</td>
+</tr>
+</tbody></table>
+<h3 class="block-title question"><a id="video-recording-formats" class="anchor" href="#video-recording-formats" aria-hidden="true"></a>Video Recording Formats</h3>
+<p>If you are looking for a format that isn’t here let me know and we can work on getting it added. Open a thread in the issues or leave note in #suggestions on slack.</p>
+<table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>Type</th>
+<th>Encoder</th>
+<th>Description</th>
+</tr>
+  <tr>
+<td>WebM</td>
+<td>libvpx</td>
+<td>Seems to work without fail so far. <b>If WebM recording does not work please make sure libvpx is installed with ffmpeg</b>
+</td>
+</tr>
+  <tr>
+<td>MP4</td>
+<td>copy,libx264,libx265</td>
+<td>libx264 and libx265 have had issues lately. copy seems to not work when timestamp is enabled. Looking to resolve asap.</td>
+</tr>
+</tbody></table>
+<h3 class="block-title question"><a id="tested-cameras" class="anchor" href="#tested-cameras" aria-hidden="true"></a>Tested Cameras</h3>
+<table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>Model</th>
+<th>Resolution</th>
+<th>Type</th>
+<th>Stream URL</th>
+<th>Save to</th>
+<th>Note</th>
+</tr>
+  <tr>
+<td>Alienware R15 Webcam on Firefox for Windows</td>
+<td>640x480</td>
+<td>Streamer</td>
+<td>Login as a Streamer</td>
+<td>WebM</td>
+<td></td>
+</tr>
+  <tr>
+<td>LG GPad on Chrome for Android</td>
+<td>640x480</td>
+<td>Streamer</td>
+<td>Login as a Streamer</td>
+<td>WebM</td>
+<td></td>
+</tr>
+  <tr>
+<td>Grandstream GXV3610-FHD</td>
+<td>2048x1536</td>
+<td>MJPEG</td>
+<td>/goform/stream?cmd=get&amp;channel=0</td>
+<td>WebM, MP4</td>
+<td></td>
+</tr>
+  <tr>
+<td>Grandstream GXV3615</td>
+<td>2048x1536</td>
+<td>MJPEG</td>
+<td>/goform/stream?cmd=get&amp;channel=0</td>
+<td>WebM, MP4</td>
+<td></td>
+</tr>
+  <tr>
+<td>Foscam FI9826W</td>
+<td>1280x720</td>
+<td>H264</td>
+<td>/videoSub</td>
+<td>WebM, MP4</td>
+<td></td>
+</tr>
+  <tr>
+<td>Foscam Clone</td>
+<td>640x480</td>
+<td>MJPEG</td>
+<td>/videostream.cgi</td>
+<td>WebM, MP4</td>
+<td></td>
+</tr>
+  <tr>
+<td>AXIS Q6034-E</td>
+<td>1280x720</td>
+<td>H264</td>
+<td>/axis-media/media.3gp</td>
+<td>WebM, MP4</td>
+<td></td>
+</tr>
+  <tr>
+<td>AOTE IP Camera</td>
+<td>640x480</td>
+<td>JPEG</td>
+<td>/cgi-bin/snapshot.cgi?1</td>
+<td>WebM</td>
+<td></td>
+</tr>
+  <tr>
+<td>HikVision DS-2CD2135F-IWS</td>
+<td>2048x1536</td>
+<td>H264</td>
+<td>/Streaming/Channels/1?tcp</td>
+<td>MP4</td>
+<td>Camera supports h265 and h265+ but has green artifacts</td>
+</tr>
+  <tr>
+<td>YI Home Camera</td>
+<td>1280x720</td>
+<td>H264</td>
+<td>/ch0_0.h264</td>
+<td></td>
+<td>Requires a Mod to run. <a href="https://github.com/fritz-smh/yi-hack">fritz-smh/yi-hack</a>
+</td>
+</tr>
+  <tr>
+<td>Wansview W3 (X-Series)</td>
+<td></td>
+<td>H264</td>
+<td>/live/ch0</td>
+<td>MP4</td>
+<td>Tested on port 554</td>
+</tr>
+</tbody></table>
+<h3 class="block-title question"><a id="public-camera-streams" class="anchor" href="#public-camera-streams" aria-hidden="true"></a>Public Camera Streams</h3>
+<p>I suggest testing with <a href="http://camelive.info/">one of these</a> if you don’t have your own camera yet. Courtesy of <a href="http://camelive.info/">camlive.info</a> and camera stream publishers. Shinobi is not affiliated with camlive.info.</p>
+                                </div><!--//section-block-->
+                           </section>
+                            <section id="supported-systems" class="doc-section">
+                      <h2 class="section-title">Supported Systems</h3>
+                                <div class="section-block">
+<h3 class="block-title question">
+<a id="recommended-installation-methods" class="anchor" href="#recommended-installation-methods" aria-hidden="true"></a>Recommended Installation Methods</h3>
+ <table class="table table-striped table-inverse">
+  <tbody><tr>
+<td>Ubuntu 16.04</td>
+<td><a href="http://shinobi.video/docs/start#setup_ubuntu_easy">Ubuntu 16.04 : The Easier Way</a></td>
+</tr>
+  <tr>
+<td>Mac OS Sierra</td>
+<td><a href="http://shinobi.video/docs/start#setup_macos">Mac OS : Native</a></td>
+</tr>
+  <tr>
+<td>Windows</td>
+<td><a href="http://shinobi.video/docs/start#docker">Docker : The Easiest Way</a></td>
+</tr>
+</tbody></table>
+<h3 class="block-title question">
+<a id="tested-server-side" class="anchor" href="#tested-server-side" aria-hidden="true"></a>Tested Server side</h3>
+ <table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>OS</th>
+<th>System</th>
+<th>Description</th>
+<th>Warnings</th>
+<th>Last Tested</th>
+</tr>
+  <tr>
+<td>Ubuntu 16.04</td>
+<td>Apple 13-Inch MacBook T7200 2.0 GHz Intel Core 2 Duo Processor, 2GB RAM, 120GB HDD, White</td>
+<td>OS and Hardware being used for development.</td>
+<td>iSight Camera does not work in Ubuntu out of the box for this computer.</td>
+<td>1/3/2017</td>
+</tr>
+  <tr>
+<td>Mac OS Sierra</td>
+<td>Macbook 2013, i5, 16GB RAM</td>
+<td>Earlier build of Shinobi was developed on MacOS Sierra.</td>
+<td>Tested a long time ago with a old version of Shinobi.</td>
+<td>1/3/2017</td>
+</tr>
+  <tr>
+<td>Ubuntu 16.04 ARM</td>
+<td>Odroid XU4 (Samsung Exynos5 Octa ARM, 2GB RAM</td>
+<td>Uses Ubuntu ARM applicable versions of software.</td>
+<td>Requires FFMPEG 3.x to be built manually or installed from PPA with all required encoders.</td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Linux Mint 18.1</td>
+<td>Lenovo Yoga 11E laptop</td>
+<td>Followed installation instructions for Ubuntu 16.04. <b>Thanks jm93944</b>
+</td>
+<td></td>
+<td>1/16/2017</td>
+</tr>
+  <tr>
+<td>Debian 8</td>
+<td>“Intel Something” 4 core, 8GB RAM</td>
+<td><b>Thanks mrproper</b></td>
+<td></td>
+<td>1/19/2017</td>
+</tr>
+  <tr>
+<td>Puppy Linux 6.0.5</td>
+<td>Intel T2400 2 Cores @ 1.83GHz, 4GB RAM</td>
+<td><b>Thanks rockedge</b></td>
+<td></td>
+<td>1/19/2017</td>
+</tr>
+</tbody></table>
+<h3 class="block-title question">
+<a id="tested-client-side" class="anchor" href="#tested-client-side" aria-hidden="true"></a>Tested Client side</h3>
+ <table class="table table-striped table-inverse">
+  <tbody><tr>
+<th>Browser</th>
+<th>OS</th>
+<th>System</th>
+<th>Description</th>
+<th>Warnings</th>
+<th>Date Tested</th>
+</tr>
+  <tr>
+<td>Safari</td>
+<td>iOS</td>
+<td>iPad Mini 2</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Chrome</td>
+<td>iOS</td>
+<td>iPad Mini 2</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Safari</td>
+<td>iOS</td>
+<td>iPhone 5</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Chrome</td>
+<td>iOS</td>
+<td>iPhone 5</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Chrome</td>
+<td>Windows 7</td>
+<td>i7, 16GB RAM</td>
+<td></td>
+<td></td>
+<td>1/3/2017</td>
+</tr>
+  <tr>
+<td>FireFox</td>
+<td>Windows 7</td>
+<td>i7, 16GB RAM</td>
+<td></td>
+<td>FireFox in general just seems to not work correctly for the dashboard. Streamer works fine.</td>
+<td>1/3/2017</td>
+</tr>
+  <tr>
+<td>Safari</td>
+<td>MacOS Sierra</td>
+<td>i5, 16GB RAM</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+  <tr>
+<td>Chrome</td>
+<td>MacOS Sierra</td>
+<td>i5, 16GB RAM</td>
+<td></td>
+<td></td>
+<td>December 2016</td>
+</tr>
+</tbody></table>
+<ul>
+  <li>If you have successfully run Shinobi on a system not listed (client or server). Please send me a PM so I can add it to the list.</li>
+</ul>
+                                </div>
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu hidden-xs" data-spy="affix">
+                                <li><a class="scrollto" href="#supported-cameras">Supported Cameras</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#input-methods-input-type">Input Methods (Input Type)</a></li>
+                                        <li><a class="scrollto" href="#output-methods-stream-type">Output Methods (Stream Type)</a></li>
+                                        <li><a class="scrollto" href="#video-recording-formats">Video Recording Formats</a></li>
+                                        <li><a class="scrollto" href="#tested-cameras">Tested Cameras</a></li>
+                                        <li><a class="scrollto" href="#public-camera-streams">Public Camera Streams</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li><a class="scrollto" href="#supported-systems">Supported Systems</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#recommended-installation-methods">Recommended Installation Methods</a></li>
+                                        <li><a class="scrollto" href="#tested-server-side">Tested Server side</a></li>
+                                        <li><a class="scrollto" href="#tested-client-side">Tested Client side</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

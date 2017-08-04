@@ -1,0 +1,38 @@
+<% config.Title='Shop';
+var products=JSON.parse(file_get_contents(__dirname+'/web/data/products.json','utf8'))
+%>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>var handler = StripeCheckout.configure({
+  key: 'pk_live_SjzKuxKHK0ascZEkjF82aQB9',
+  image: '/libs/assets/icon/mstile-310x310-circle.png',
+  locale: 'auto',
+  token: function(token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+</script>
+<% include blocks/header.ejs %>
+<% switch(option){
+    case'tos':
+    case'rebate':
+    case'returns':
+        %>
+    <%- include('blocks/shop/'+option+'.ejs') %>
+  <%  break;
+    default:
+        if(option&&option!==''&&products[option]){ 
+            var product=products[option]
+            product.stripe.description=product.shortDescription
+            product.stripe.currency=product.currency
+            product.stripe.amount=product.amount*100
+        %>
+            <% include blocks/shop/product.ejs %>
+        <% }else{ %>
+            <% include blocks/shop/front.ejs %>
+        <% }
+    break;
+   } %>
+<% include blocks/adstrip.ejs %>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

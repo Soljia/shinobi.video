@@ -1,0 +1,144 @@
+[
+    {
+        "description":"Install OpenCV <b>without</b> CUDA <small>(Ubuntu - Easy)</small>",
+        "blocks":[
+            {
+                "text":"OpenCV is the base engine used for detection. You will find most object detection software uses OpenCV or something based on it."
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Install libraries",
+                        "code":"sudo apt update && sudo apt install git libopencv-dev python-opencv openalpr openalpr-daemon openalpr-utils libopenalpr-dev libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Install OpenCV <b>with</b> CUDA <small>(Ubuntu - Boring)</small>",
+        "blocks":[
+            {
+                "text":"<b>WARNING : </b> Only do this if you have a Nvidia graphics chip."
+            },
+            {
+                "orderList":[
+                    {
+                        "text":"Disable noveau, Create a file to do this.",
+                        "code":"sudo nano /etc/modprobe.d/blacklist-nouveau.conf"
+                    },
+                    {
+                        "text":"Place these lines in the blank file.",
+                        "code":"blacklist nouveau<br>options nouveau modeset=0"
+                    },
+                    {
+                        "text":"Update the system image. Reboot.",
+                        "code":"sudo update-initramfs -u<br>sudo reboot"
+                    },
+                    {
+                        "text":"Download CUDA 8.0.",
+                        "code":"wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run"
+                    },
+                    {
+                        "text":"You must stop your GPU to install CUDA.",
+                        "code":"sudo service lightdm stop<br>sudo chmod +x cuda_8.0.44_linux-run<br>sudo ./cuda_8.0.44_linux-run"
+                    },
+                    {
+                        "text":"Download and Install CuDNN from <a href=\"https://developer.nvidia.com/cudnn\">Nvidia's Website</a>.",
+                        "code":"<i>Install Example : dpkg -i ./libcudnn6_6.0.21-1+cuda8.0_amd64.deb</i>"
+                    },
+                    {
+                        "text":"Install libraries",
+                        "code":"sudo apt-get update && sudo apt-get install git libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff5-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils libjpeg-dev libpango1.0-dev libgif-dev g++ openalpr openalpr-daemon openalpr-utils libopenalpr-dev"
+                    },
+                    {
+                        "text":"Download the source for OpenCV",
+                        "code":"git clone https://github.com/opencv/opencv.git -b 2.4 opencv"
+                    },
+                    {
+                        "text":"Build the Installer for OpenCV from the source files",
+                        "code":"cd opencv<br>mkdir release<br>cd release<br>cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_NVCUVID=ON -D BUILD_DOCS=ON -D WITH_XINE=ON -D WITH_CUDA=ON -D WITH_OPENGL=ON -D WITH_TBB=ON -D WITH_OPENNI=ON -D BUILD_EXAMPLES=ON -D WITH_OPENCL=ON -D CMAKE_BUILD_TYPE=RELEASE -D OPENCV_EXTRA_MODULES_PATH=../modules/opencv_contrib-master/modules/ -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 .."
+                    },
+                    {
+                        "text":"When the installer is made you should see something like this somewhere just before the end.",
+                        "code":"--   NVIDIA CUDA<br>--     Use CUFFT:                   YES<br>--     Use CUBLAS:                  YES<br>--     USE NVCUVID:                YES<br>--     NVIDIA GPU arch:             20 21 30 35<br>--     NVIDIA PTX archs:            30<br>--     Use fast math:               YES<br>--     Tiny gpu module:             NO"
+                    },
+                    {
+                        "text":"Install OpenCV. This is the boring part.",
+                        "code":"make<br>make install"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Install the Shinobi Plugin",
+        "blocks":[
+            {
+                "orderList":[
+                    {
+                        "text":"<b>OPTIONAL : </b> If you are already root user you must return to a regular user.",
+                        "code":"exit"
+                    },
+                    {
+                        "text":"Navigate to your Shinobi directory, where you downloaded the Shinobi files to.",
+                        "code":"<i>Example : </i>cd /home/Shinobi"
+                    },
+                    {
+                        "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin.",
+                        "code":"sudo npm install opencv canvas moment"
+                    },
+                    {
+                        "text":"Setup the configuration file for the plugin.",
+                        "code":"cp plugins/opencv/conf.sample.json plugins/opencv/conf.json"
+                    },
+                    {
+                        "text":"<b>OPTIONAL : </b> Modify the conf.json to match your current listening port. Default is 8080.",
+                        "code":"nano plugins/opencv/conf.json"
+                    },
+                    {
+                        "text":"Check that your main configuration file, for the main Shinobi app, has a Plugin Key set. If one is not set the plugin will not work. You may review <code>conf.sample.json</code> to see the default setup.",
+                        "code":"nano conf.json"
+                    },
+                    {
+                        "text":"Reutrn to root user.",
+                        "code":"sudo su"
+                    },
+                    {
+                        "text":"Start the OpenCV plugin",
+                        "code":"pm2 start plugins/opencv/shinobi-opencv.js"
+                    },
+                    {
+                        "text":"When complete you will see <code>Detector : OpenCV Connected</code> in your Monitor Settings. Shinobi does not need to be restarted unless you modified the <code>PluginKeys</code> in <code>conf.json</code>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Once Installed",
+        "blocks":[
+            {
+                "text":"Important information to note are as follows."
+            },
+            {
+                "list":[
+                    {
+                        "text":"<code>Monitor Settings > Detector > Send Frames : </code> Enabling this will push frames to your detection plugin for analyzation, in this case OpenCV."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > Detect Objects : </code> Enabling this will reveal a list of usable cascades. If you do not have any cascades a link will be provided in the dashboard or you can get on over to the public <a href=\"https://github.com/ShinobiCCTV/OpenCVcascades\" target=\"_blank\">repository on Github.</a>"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "description":"Why aren't plugins just integrated?",
+        "blocks":[
+            {
+                "text":"Not everyone uses motion detection or object tracking and the libraries required can be bothersome to install, based on the OS. For example if I make shinobi-opencv.js a feature then everyone will be required to install OpenCV just to use basic features in Shinobi. This also allows us to swap the plugin with a custom one or run it on another machine entirely. Sharing the work between multiple machines can be a great way to optimize performance."
+            }
+        ]
+    }
+]

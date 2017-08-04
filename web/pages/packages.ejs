@@ -1,0 +1,25 @@
+<% config.Title='Packages'; %>
+<% include blocks/header.ejs %>
+<header id="first">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="border-radius:50%" src="libs/assets/icon/apple-touch-icon-152x152.png">
+            <h1 class="cursive">Metal and Maintenance</h1>
+            <h4 style="text-transform:uppercase">Professional Support and Dedicated Servers</h4>
+            <hr>
+            <div class="btn-group">
+                <a href="#support" class="btn btn-primary btn-xl page-scroll">Learn More</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</header>
+<section class="bg-primary" id="support">
+    <% include blocks/table-support.ejs %>
+</section>
+<section id="dedicated">
+    <% include blocks/table-metal.ejs %>
+</section>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

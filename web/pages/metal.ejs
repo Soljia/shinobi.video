@@ -1,0 +1,147 @@
+<% config.Title='Metal'; %>
+<% include blocks/header.ejs %>
+<style>
+    header{background-image:url(/libs/assets/backgrounds/3.jpg)}
+</style>
+<header id="first">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="height:350px" src="/libs/assets/cloud-server.png">
+            <h1 class="cursive">Metal</h1>
+            <h4 style="text-transform:uppercase">Cloud Hosting for Cameras</h4>
+            <hr>
+            <div class="btn-group">
+                <a href="#cameras" class="btn btn-default btn-xl page-scroll">Learn More</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</header>
+<% include blocks/subheader.ejs %>
+<section class="bg-primary" id="support">
+    <% include blocks/table-metal.ejs %>
+</section>
+<section id="cameras">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center pull-right">
+                <h2 class="margin-top-0 text-primary">Cameras</h2>
+                <br>
+                <p class="large">Shinobi supports so many cameras, we sort of lost count.</p>
+                <p class="large">The number of cameras shown for each package is a recommendation. You may use more cameras if your resource consumption is low.</p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img style="max-width:250px;width:100%" src="/libs/assets/cameras.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-primary" id="support-package">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <h2 class="margin-top-0 text-primary">Support Package</h2>
+                <br>
+                <p class="large">Each dedicated server that is offered also comes with a support package level.</p>
+                <p class="large">We will answer your questions about how Shinobi works, the different ways you can use it, and it's documentation. We will keep your installation maintained with the latest stable build.</p>
+                <div class="btn-group">
+                    <a href="/packages" class="btn btn-default btn-lg page-scroll">Support Packages</a> 
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="/libs/assets/hero.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="learn2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center pull-right">
+                <h2 class="margin-top-0 text-primary">Public IPv4 Address</h2>
+                <br>
+                <p class="large">
+                    With this you are able to access this server from the web. You can register a domain and assign it to the IP address provided to you after service activation.
+                </p>
+                <p class="large">Shinobi runs well under CloudFlare. Seamless SSL with DDoS protection. <small class="text-faded">Requires port 80</small></p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="/libs/assets/globe-shadow.png">
+            </div>
+        </div>
+    </div>
+</section>
+<% include blocks/adstrip.ejs %>
+<section class="bg-primary" id="learn3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 text-center">
+                <h2 class="margin-top-0 text-primary">x86 64bit Cores</h2>
+                <br>
+                <p class="large">Intel Avoton CPU offered great performance in their price range allowing for an efficient server for cloud purposes. They are an excellent alternative to ARM CPUs for applications which need more memory.</p>
+                <p class="large">The Intel Avoton are systems on a chip (SoC). Due to their power and price we can pass on the savings.</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="/libs/assets/laptop-rocket.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="learn4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center pull-right">
+                <h2 class="margin-top-0 text-primary">Memory and Storage</h2>
+                <br>
+                <p class="large">More Memory (RAM) is recommended for high bitrate and high resolution streams.</p>
+                <p class="large">Fast Solid State Drives (SSD) storage space included in every package.</p>
+                <div class="btn-group">
+                    <a href="#metal" class="btn btn-default btn-xl page-scroll">Servers</a> 
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img style="max-height:400px" src="/libs/assets/cloud-server.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-primary" id="learn5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center">
+                <h2 class="margin-top-0 text-primary">Unmetered Bandwidth</h2>
+                <br>
+                <p class="large">Bandwidth is the calculated amount of data that goes in and out from your server.</p>
+                <p class="large">It is never monitored or metered by us. Use as much as you like. Stream, Download, and Share. It's Unmetered.</p>
+
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="gradient-reef" style="border-radius:5px">
+                    <img style="max-height:400px" src="/libs/assets/iot-network.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<aside class="bg-dark" id="why">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2 class="text-primary">Get Started</h2>
+            <div class="btn-group">
+                <a href="#metal" class="btn btn-primary btn-xl page-scroll">Servers</a> &nbsp; <a href="/docs" class="btn btn-primary btn-xl">Documentation</a>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="row">
+                    <h6 class="wide-space text-center text-uppercase">Shinobi is Free Software, If you like it please consider <a href="/docs/donate" title="Donation Link Here">donating</a>.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+<% include blocks/footer.ejs %>

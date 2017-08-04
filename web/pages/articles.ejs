@@ -1,0 +1,23 @@
+<% config.Title='Articles';%>
+<% include blocks/globalHeader.ejs %>
+<link rel="stylesheet" type="text/css" href="/libs/css/articles.css">
+<script src="/libs/js/jquery.min.js"></script>
+<script src="/libs/js/moment.js"></script>
+<% switch(option){
+    case'new':
+        %>
+    <%- include('blocks/articles/'+option+'.ejs') %>
+  <%  break;
+    default:
+        if(option&&option!==''&&articlesPosts[option]){
+            var articles = articlesPosts[option];
+            %>
+            <meta name="description" content="<%- articles.page__opening.replace(/<\/?[^>]+(>|$)/g, ""); %>" />
+            <% include blocks/articles/story.ejs %>
+        <% }else{ %>
+            <meta name="description" content="Read news about the security sector and more! Shinobi Articles." />
+            <% include blocks/articles/front.ejs %>
+        <% }
+    break;
+   } %>
+<% include blocks/articles/footer.ejs %>

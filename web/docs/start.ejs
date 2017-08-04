@@ -1,0 +1,209 @@
+<% var Title='Get Started'; %>
+<% include blocks/header.ejs %>
+<body class="body-orange">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-bolt"></i> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="download-section" class="doc-section">
+                                <h2 class="section-title">Download</h2>
+                                <div class="section-block">
+                                    <blockquote><p>If you have questions please post on Reddit or Discord. Due to limited resources support time is limited. Ordering a support package will give you priority for support.</p><small>Moe Alam</small></blockquote>
+                                    <a class="btn btn-success btn-ghost" href="<%= config.downloadLink %>">Download</a>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="requirement-section" class="doc-section">
+                                <h2 class="section-title">Requirements</h2>
+                                <div class="section-block">
+                                    <ul>
+                                        <li>MySQL Server and Client</li>
+                                        <li>Node.js 7.2.0 or higher
+
+                                        <ul>
+                                        <li>check your version with <code>nodejs -v</code> or <code>node -v</code>
+                                        </li>
+                                        </ul>
+                                        </li>
+                                        <li>FFMPEG 3.2.4 or higher with libvpx and libx264.
+
+                                        <ul>
+                                        <li>Here are some pre built versions of FFMPEG. Just drop them in <code>/usr/bin</code> and you should be good to go.
+                                            <ul>
+                                                <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-32bit-static.tar.xz">Version 3.3 - 32bit</a></li>
+                                                <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-64bit-static.tar.xz">Version 3.3 - 64bit</a></li>
+                                                <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armel-32bit-static.tar.xz">Version 3.3 - ARMel</a></li>
+                                                <li><a href="https://s3.amazonaws.com/cloudcamio/ffmpeg-release-armhf-32bit-static.tar.xz">Version 3.3 - ARMhf</a></li>
+                                            </ul>
+                                            </li>
+                                        </ul>
+                                        </li>
+                                        <li>Linux or MacOS base operating system capable of running the previously mentioned libraries and programs.
+
+                                        <ul>
+                                        <li>Virtual Machines use Linux.</li>
+                                        <li>Currently Windows cannot natively run Shinobi. This is due to the choice of certain exec commands and not the JavaScript itself. You can adapt it for use on Windows but it will take one with a sharp mind and a bold heart.</li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            </section><!--//doc-section-->
+                            <section id="installation-section" class="doc-section">
+                                <h2 class="section-title">Installation</h2>
+                               <% pageData.forEach(function(v,n){ %>
+                                    <div class="section-block">
+                                        <h3 class="block-title question"><a id="content-<%- link_id(v.description) %>" href="#content-<%- link_id(v.description) %>" class="text-faded"><i class="fa fa-paperclip"></i></a>  <%- v.description %></h3>
+                                        <% v.blocks.forEach(function(b,m){ %>
+                                            <% var drawListItems = function(b,m){ %>
+                                                <li>
+                                                    <% Object.keys(b).forEach(function(t,y){ %>
+                                                        <% switch(t){
+                                                        case 'text': %>
+                                                            <div><p><%- b[t] %></p></div>
+                                                        <% break;
+                                                        case 'code': %>
+                                                            <pre><code><%- b[t] %></code></pre>
+                                                        <% break;
+                                                        case 'list': %>
+                                                            <ul>
+                                                                <% b[t].forEach(drawListItems) %>
+                                                            </ul>
+                                                        <% break;
+                                                        case 'orderList': %>
+                                                            <ol>
+                                                                <% b[t].forEach(drawListItems) %>
+                                                            </ol>
+                                                        <% break; %>
+                                                        <% } %>
+                                                    <% }) %>
+                                                </li>
+                                            <% } %>
+                                            <% Object.keys(b).forEach(function(t,y){ %>
+                                                <% switch(t){
+                                                case 'text': %>
+                                                    <div><p><%- b[t] %></p></div>
+                                                <% break;
+                                                case 'code': %>
+                                                    <pre><code><%- b[t] %></code></pre>
+                                                <% break;
+                                                case 'list': %>
+                                                    <ul>
+                                                        <% b[t].forEach(drawListItems) %>
+                                                    </ul>
+                                                <% break;
+                                                case 'orderList': %>
+                                                    <ol>
+                                                        <% b[t].forEach(drawListItems) %>
+                                                    </ol>
+                                                <% break; %>
+                                                <% } %>
+                                            <% }) %>
+                                        <%  }) %>
+                                    </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                                <%  }) %>
+                                <% include blocks/install/ubuntu_hard.ejs %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                                <% include blocks/install/windows_hard.ejs %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                                <% include blocks/install/macos.ejs %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            </section><!--//doc-section-->
+                            <section id="clean-section" class="doc-section">
+                                <h2 class="section-title">Clean up</h2>
+                                <% include blocks/install/cron.ejs %>
+                            </section><!--//doc-section-->
+                            <section id="account-section" class="doc-section">
+                                <h2 class="section-title">Account Management</h2>
+                                <% include blocks/install/account.ejs %>
+                            </section><!--//doc-section-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            <section id="update-section" class="doc-section">
+                                <h2 class="section-title">Updating Shinobi</h2>
+                                <% include blocks/install/update.ejs %>
+                            </section><!--//doc-section-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            <section id="daemon-section" class="doc-section">
+                                <h2 class="section-title">Daemonize and Startup</h2>
+                                <% include blocks/install/daemon.ejs %>
+                            </section><!--//doc-section-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            <section id="code-section" class="doc-section">
+                                <h2 class="section-title">Configuration</h2>
+                                <% include blocks/install/config.ejs %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                            </section><!--//doc-section-->
+                            <section id="trouble-section" class="doc-section">
+                                <h2 class="section-title">Troubleshooting</h2>
+                                <% include blocks/install/troubleshoot.ejs %>
+
+
+                            </section><!--//doc-section-->
+                            <section>
+    <% include blocks/support.ejs %>
+                            </section><!--//doc-section-->                            
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#download-section">Download</a></li>
+                                <li><a class="scrollto" href="#requirement-section">Requirements</a></li>
+                                <li>
+                                    <a class="scrollto" href="#installation-section">Installation</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#content-the-ninja-way">The Ninja Way : Easiest</a></li>
+                                        <li><a class="scrollto" href="#content-docker--kitematic">Docker : Kitematic</a></li>
+                                        <li><a class="scrollto" href="#content-ubuntu--the-easier-way">Ubuntu : Easier Way</a></li>
+                                        <li><a class="scrollto" href="#content-centos-fedora-rhel--the-easier-way">CentOS, Fedora, RHEL : Easier</a></li>
+                                        <li><a class="scrollto" href="#setup_ubuntu_hard">Ubuntu 16.04 : The Harder Way</a></li>
+                                        <li><a class="scrollto" href="#windows-hard">Windows : The Harder Way</a></li>
+                                        <li><a class="scrollto" href="#setup_macos">Mac OS : Native</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#clean-section">Clean up</a>
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#account-section">Account Management</a>
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#update-section">Updating Shinobi</a>
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#daemon-section">Daemonize and Startup</a>
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#code-section">Configuration</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#config_login">Default Login</a></li>
+                                        <li><a class="scrollto" href="#config_conf">conf.json</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li><a class="scrollto" href="#trouble-section">Troubleshooting</a></li>
+                                <li><a class="scrollto" href="#support">Support Packages</a></li>
+                                <% include blocks/menu-options.ejs %>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+
+<% include blocks/footer.ejs %>
+
+</body>
+</html> 
+

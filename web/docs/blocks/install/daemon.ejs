@@ -1,0 +1,16 @@
+<div class="section-block">
+<ol>
+<li>
+<p>Start <code>camera.js and cron.js</code> then run check to see they are running under PM2.</p>
+
+<pre><code>pm2 start camera.js
+pm2 start cron.js
+pm2 list</code></pre>
+</li>
+    <li>
+<p>After <code>camera.js and cron.js</code> are started you can run the following to start them on boot.</p>
+<pre><code>pm2 startup
+pm2 save</code></pre>
+</li>
+</ol>
+</div>

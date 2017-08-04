@@ -1,0 +1,116 @@
+<% var Title='Donate'; %>
+<% include blocks/header.ejs %>
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <% include blocks/branding.ejs %>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_gift"></span> <%= Title %></h1>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                        <div class="content-inner">
+                            <section id="chartjs" class="doc-section">
+                                <div class="jumbotron">
+                                    <blockquote>
+                                        A large chunk of the earnings I give to my family. People who spend their life for me <b>and through Shinobi all of you as well</b>. Please help me make the rest of my family's life comfortable the same way they are making mine and yours comfortable. <b>Without them I would not be here to give you Shinobi.</b>
+                                        <small>Moe Alam</small><br>
+<a id="customButton" class="btn btn-success btn-lg btn-ghost"><i class="fa fa-cc-stripe"></i> Donate $20 CAD</a> <a class="btn btn-success btn-lg btn-ghost" href="https://www.paypal.me/ShinobiCCTV"><i class="fa fa-paypal"></i> Donate by Paypal</a> <a class="btn btn-success btn-lg btn-ghost" href="/support">Support Packages</a> <a class="btn btn-success btn-lg btn-ghost" href="https://www.patreon.com/moeiscool">Patreon</a>
+                                    </blockquote>
+                                    <p>When Shinobi reaches <b>$600</b> in contributions for the month <b>all ads will be removed for everyone</b>.</p>
+        <p>Ordering a Paid Support, or anything from <a href="//camera.observer">here</a> will add to the contribution meter located above. <i class="fa fa-smile-o"></i></p>
+                                    <p>Support packages are designed to benefit both the developers and the supporter.</p>
+<p><strong>Paid Support :</strong> <a href="/support">from @moeiscool, The Lead Developer</a></p>
+
+<div><p><strong>Paypal Address :</strong> <a href="https://www.paypal.me/ShinobiCCTV">paypal@m03.ca</a></p></div>
+
+<p><strong>Bitcoin Address :</strong> 1FvC7M8P9wVT1hXwHj8ugxpZj8JGfGyUDu</p>
+
+<small>PayPal and Bitcoin contributions will not appear in the contribution count.</small>
+        <h2>Can't do a monthly contribution? That's fine! Any amount helps!</h2>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script>
+var handler = StripeCheckout.configure({
+  key: 'pk_test_kzJ1JwNQJIJT2iFy08hjfm4y',
+  image: '/libs/assets/icon/mstile-310x310-circle.png',
+  locale: 'auto',
+  token: function(token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+
+document.getElementById('customButton').addEventListener('click', function(e) {
+  // Open Checkout with further options:
+  handler.open({
+    name: 'Shinobi Development',
+    description: 'Support the development.',
+    currency: 'cad',
+    amount: 2000
+  });
+  e.preventDefault();
+});
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
+</script>
+</div>
+<div class="jumbotron">
+<p><b style="font-size:120%">Big</b> Thank You to those already supporting! With you more time and effort can be put into Shinobi! <i class="fa fa-smile-o"></i></p>
+<ul class="donorNames">
+    
+</ul>
+    <style>.donorNames li {font-size:20pt}</style>
+</div>
+            <div class="row" style="margin-top:30px">
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle3 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="8727169313"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h6 class="wide-space text-center">ADVERTISEMENT</h6>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- rectangle4 --> <ins class="adsbygoogle"      style="display:inline-block;width:336px;height:280px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="1203902518"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                </div>
+            </div>
+<div class="section-block">
+<h3 class="block-title question">
+<a id="user-content-cant-donate--thats-alright" class="anchor" href="#cant-donate--thats-alright" aria-hidden="true"></a>Can't Donate $? That's alright.</h3>
+
+<p>All these are donations in a way :)</p>
+
+<ul>
+<li>Hit the star on <a href="https://github.com/moeiscool/Shinobi">Github</a>!</li>
+<li>Spread the word!</li>
+<li>Do bug reports in the <a href="https://github.com/moeiscool/Shinobi/issues">Issues</a>
+</li>
+<li>Commenting and upvoting this FontAwesome request for adding the <a href="https://github.com/FortAwesome/Font-Awesome/issues/10122">cloud icon</a></li>
+<li>Checking out <a href="https://unmetered.online">UNMETERED</a> for goodies in IoT services.
+</li>
+<li>Turning <b>off</b> your <strong>AdBlocker</strong> on this site.</li>
+<li>Watching, Commenting, and Subscribing to the <a href="https://www.youtube.com/user/MrMoea92">YouTube</a> videos will help too :D</li>
+</ul>
+
+<p><em>Thanks for stopping by!</em></p>
+
+<p>-Moe Alam</p>
+
+<p style="font-size:20pt"><a href="http://discordapp.com/invite/mdhmvuH/"><i class="fa fa-comments"></i></a> &nbsp; <a href="https://www.reddit.com/r/ShinobiCCTV/"><i class="fa fa-reddit"></i></a> &nbsp; <a href="https://www.youtube.com/user/MrMoea92"><i class="fa fa-youtube"></i></a> &nbsp; <a href="https://twitter.com/ShinobiCCTV"><i class="fa fa-twitter"></i></a> &nbsp; <a href="https://www.facebook.com/Shinobi-1223193167773738/?ref=bookmarks"><i class="fa fa-facebook"></i></a> &nbsp; <a href="https://github.com/moeiscool/Shinobi"><i class="fa fa-github"></i></a></p>
+</div>
+                            </section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+    </div><!--//page-wrapper-->
+<% include blocks/footer.ejs %>
+</body>
+</html> 
+

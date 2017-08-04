@@ -1,0 +1,66 @@
+<% config.Title='Gallery'; %>
+<% include blocks/header.ejs %>
+<header id="first">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <a href="#learn" class="page-scroll"><img src="http://shinobi.video/libs/assets/demo/6.jpg" style="max-width:100%;border-radius:10px;box-shadow:0 0 15px #333"></a>
+        </div>
+        </div>
+    </div>
+</header>
+<% include blocks/subheader.ejs %>
+<section id="learn">
+    <div class="container doc-content text-center">
+        <h2 class="margin-top-0 text-primary title">Gallery</h2>
+        <hr class="primary">
+        <div style="display:inline-block;width:400px;margin-bottom:20px"><% include ../docs/blocks/search.ejs %></div>
+        <div class="flex-table">
+        <% [
+                {"name":"Live Stream","type":"frame","src":"//demo.shinobi.video/CT1TvlAdsWqnd02KsMehuEJMvi94AY/embed/2Df5hBE/2041039/jquery|fullscreen|gui","description":"Happening Now at 3 frames per second over Websocket. Each frame is Base64 encoded then pushed to all connected clients. A type of multicast."},
+                {"name":"Live Stream","type":"frame","src":"//demo.shinobi.video/CT1TvlAdsWqnd02KsMehuEJMvi94AY/embed/2Df5hBE/awFST99MGn/jquery|fullscreen|gui","description":"Happening Now at 15 frames per second over HLS. Segments of the stream are saved to RAM and acquired through a playlist file."},
+                {"name":"Dashboard v1","type":"image","src":"/libs/assets/demo/1.gif","description":"When it all began in November 2016."},
+                {"name":"Dashboard v2","type":"image","src":"/libs/assets/demo/1.jpg","description":"From May 2017"},
+                {"name":"Power Video Viewer v2","type":"image","src":"/libs/assets/demo/3.jpg","description":"From June 2017"},
+                {"name":"Power Video Viewer v3","type":"image","src":"/libs/assets/demo/4.jpg","description":"From June 2017"},
+                {"name":"Power Video Viewer v4","type":"image","src":"/libs/assets/demo/6.jpg","description":"From June 2017"},
+                {"name":"Region Editor","type":"image","src":"/libs/assets/demo/7.jpg","description":"Region Editor is for choosing zones of the stream to do detection. For example a parking lot entrance."},
+                {"name":"Dark Theme on Monitor Settings","type":"image","src":"/libs/assets/demo/8.jpg","description":"From June 2017"},
+                {"name":"2-Factor Authentication","type":"image","src":"/libs/assets/demo/5.jpg","description":"From June 2017"},
+                {"name":"FFprobe Stream Analyzer","type":"image","src":"/libs/assets/demo/2.jpg","description":"ffprobe is a simple multimedia streams analyzer. You can use it to output all kinds of information about an input including duration, frame rate, frame size, etc. It is also useful for gathering specific information about an input to be used in a script."},
+                {"name":"Shinobi in the Beginning","type":"ytvideo","yid":"Z2hr5E8w8Q8","description":"From November 2016"},
+                {"name":"Shinobi is Easy","type":"ytvideo","yid":"ZnKr1LwNR88","description":""},
+                {"name":"Who is Shinobi for?","type":"ytvideo","yid":"1s0PnFWO6hE","description":""},
+                {"name":"Shinobi is Smooth","type":"ytvideo","yid":"CZcBrOEgv2M","description":""},
+                {"name":"Shinobi on an Intel Atom 1.6Ghz","type":"ytvideo","yid":"G-Zpxu2aEHg","description":"Aspire One D255E, Intel Atom N455 / 1.66 GHz, 2GB RAM"},
+                {"name":"Installing Shinobi on Kitematic","type":"ytvideo","yid":"k8sWHRWiaCM","description":"Kitematic requires that you select the <b>kitematic</b> tag before beginning to build the docker image."},
+                {"name":"Installing Shinobi on Kitematic","type":"ytvideo","yid":"v0Q1zFVvX3M","description":"Shinobi on Windows requires MariaDB or MySQL installed. This is how you can install it manually."},
+                {"name":"Get Control URL for Foscam","type":"ytvideo","yid":"zjs-8LZDc1I","description":""},
+                {"name":"Add a Streamer Camera","type":"ytvideo","yid":"7pO1l87iNMY","description":""},
+            ].forEach(function(v){ %>
+            <div class="flex-block col-md-6 section-block">
+                <div class="flex-unit">
+                    <h4 class="margin-top-0 text-primary title"><%-v.name%></h4>
+                    <hr class="primary">
+                    <div class="flex-container">
+                        <%if(v.description){%><div class="description"><%-v.description%></div><% } %>
+                        <% switch(v.type){
+                            case'ytvideo': %>
+                            <iframe class="flex-unit-element" src="https://www.youtube.com/embed/<%-v.yid%>" frameborder="0" allowfullscreen></iframe>
+                        <%  break;
+                            case'image': %>
+                            <img class="flex-unit-element imgPop" src="<%-v.src%>">
+                        <%  break;
+                            case'frame': %>
+                            <iframe class="flex-unit-element" src="<%-v.src%>"></iframe>
+                        <%  break;
+                           } %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+     </div>
+  </section>
+<% include blocks/getstarted.ejs %>
+<% include blocks/footer.ejs %>

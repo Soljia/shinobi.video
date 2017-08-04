@@ -1,0 +1,115 @@
+<style>
+    #learn ul,#learn p{font-size:16pt}
+    .form-element .form-group{}
+    .form-element .form-group label{width:100%;display:flex}
+    .form-element .form-group label div:nth-child(1){width:30%;}
+    .form-element .form-group label div:nth-child(1) span{border-bottom:1px solid #ddd;display:block}
+    .form-element .form-group label div:nth-child(2){width:70%;border-radius:5px;padding:5px;border:1px solid #ddd}
+</style>
+<header id="first" style="min-height:600px;background-image:url(/libs/assets/backgrounds/3.jpg)">
+    <div class="_shade">
+    <div class="header-content">
+        <div class="inner">
+            <img style="height:350px" src="/libs/assets/engineer.png">
+            <h1 class="cursive">Contact Us</h1>
+            <h4 style="text-transform:uppercase">We can't wait to here form you</h4>
+        </div>
+        </div>
+    </div>
+</header>
+<% include blocks/subheader.ejs %>
+<section id="learn">
+<div class="container-fluid">
+    <div class="content-wrapper">	
+		<div class="item-container">
+			<div class="container" style="padding-top:0px;padding-bottom:30px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 id="rebates" class="text-primary"><i class="fa fa-wrench text-success"></i> General Support</h2>
+                        <p><i>For help with installation and how to use the program please refer to <a href="http://discordapp.com/invite/mdhmvuH/">Discord</a>. Please note that support for Shinobi is limited. Detailed support related to your system or setup in specific may require the purchase of a support package.</i></p>
+                        <p>This contact form is for business inquiries and partnership proposals. If you would like to become a reseller of Shinobi support packages and cloud hosting head on over to <a href="http://billing.place/affiliates/">our Affiliage page</a> to sign up and gain a percentage of services offered by Shinobi.</p>
+                        <h2 class="text-primary"><i class="fa fa-check text-success"></i> Before Contacting</h2>
+                        <p>Please read the docs to make sure you are up to date with the currently provided information about the the software. Questions that have information already provided in the documentation may be discarded without notice.</p>
+                        <h2 id="rebates" class="text-primary"><i class="fa fa-wrench text-success"></i> Feature Reequests</h2>
+                        <p>You may place your requests in the <code>#suggestions</code> channel on Discord. Developer efforts are limited. If you would like to have us put more priority on your requests you may want to consider a contribution through a support package. <i class="fa fa-smile-o"></i></p>
+                        <p>Support packages tremendously boost development as it supports the developers working on the project.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <img style="height:350px" src="/libs/assets/nerd.png">
+                            <div>
+                                <a href="/support" class="btn btn-default btn-xl">Support Packages</a>
+                            </div>
+                            <hr>
+                        </div>
+                        <h2 class="text-primary"><i class="fa fa-leaf text-success"></i> Contact Form</h2>
+                        <form class="form-element" id="contactForm">
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Name</span></div>
+                                    <div><input class="form-control" name="name"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Email</span></div>
+                                    <div><input class="form-control" name="mail"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>City</span></div>
+                                    <div><input class="form-control" name="city"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Province / State</span></div>
+                                    <div><input class="form-control" name="province"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Country</span></div>
+                                    <div><input class="form-control" name="country"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Phone</span></div>
+                                    <div><input class="form-control" name="phone"></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <div><span>Note</span></div>
+                                    <div><textarea class="form-control" name="note"></textarea></div>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-default">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    $('#contactForm').submit(function(ee){
+        e={e:$(this)}
+        e.submitButton=e.e.find('[type=submit]').removeClass('btn-default btn-success btn-danger')
+        $.post('/contact',e.e.serialize(),function(d){
+            if(d.ok===true){
+                e.e.find('input,textarea').prop('disabled',true)
+                e.submitButton.text('Sent! Thank you for contacting us!').addClass('btn-success')
+                $('#contactForm').unbind('submit').submit(function(e){return false;e.preventDefault()})
+            }else{
+                e.submitButton.text(d.msg).addClass('btn-danger')
+            }
+        })
+        ee.preventDefault()
+    })
+</script>

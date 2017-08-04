@@ -1,0 +1,26 @@
+    <% [
+        {name:"Personal",price:"0",text:"Personal and Educational use does not require any license.",subText:["Cannot sell Shinobi usage."],linkText:"Donate",href:"/docs/donate",img:"/libs/assets/backgrounds/1.jpg"},
+        {name:"Educational",price:"0",text:"Shinobi is free for all schools and educational purposes.",subText:["Cannot sell Shinobi usage."],linkText:"Donate",href:"/docs/donate",img:"/libs/assets/backgrounds/5.jpg"},
+        {name:"Business License",price:"15",text:"Businesses that use Shinobi for their locations.",subText:["This is optional for businesses  with gross income less than $10000 CAD/month.","License active upon successful payment. Receipt will be emailed.","Cannot sell Shinobi usage."],linkText:"Order",href:"http://billing.place/cart/licenses/",img:"/libs/assets/backgrounds/3.jpg"},
+        {name:"Seller License",price:"225",text:"Allows creation of accounts for commercial purposes.",linkText:"Order",subText:["Required only if you choose to bill your users for the use of Shinobi.","Also covers creation of multiple installations.","License active upon successful payment. Receipt will be emailed."],href:"http://billing.place/cart/licenses/",img:"/libs/assets/backgrounds/2.jpg"},
+    ].forEach(function(v,n){ %>
+    <div class="grid-1-5" style="background-image:url(<%= v.img %>)">
+        <div class="_shade"></div>
+        <div class="_content">
+            <h2><%= v.name %></h2>
+            <h3><span class="uppercase"><span class="currency"><sup>$</sup><%= v.price %></span>/mo</span></h3>
+            <p><%= v.text %></p>
+            <% if(v.subText){ %>
+                <ul>
+                    <% v.subText.forEach(function(b,m){ %>
+                    <li><%= b %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+            <a href="<%= v.href %>" class="button"><%= v.linkText %></a>
+        </div>
+    </div>
+ <% }) %>
+<div class="text-center" style="padding-top:20px">
+    <small>Buying a license is a way to show support, the application is fully unlocked without one.</small>
+</div>

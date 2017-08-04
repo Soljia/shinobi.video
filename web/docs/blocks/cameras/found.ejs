@@ -1,0 +1,67 @@
+<style>
+    [copyurl]{cursor:pointer}
+    .bs-callout table ul {list-style:none;padding:10px 0 0 0}
+    .bs-callout table ul:empty{display:none}
+</style>
+<div id="legend">
+    <a href="/docs/cameras" class="bs-callout bs-callout-danger">
+        Home
+    </a> &nbsp; 
+    <% Object.keys(pageData).forEach(function(v,n){
+        var callout_color='warning'
+        if(v.indexOf('rtsp')>-1){
+            callout_color='info'
+        }
+    %>
+<% Object.keys(pageData[v].types).forEach(function(b){ %>
+    <a href="#<%-b+v%>" class="bs-callout bs-callout-<%-callout_color%>">
+        <%-b%> <small>over <%-v%></small>
+    </a> &nbsp;                                
+        <%}) %>
+    <% }) %>
+</div>
+<div>
+    <% Object.keys(pageData).forEach(function(v,n){
+        var callout_color='warning'
+        if(v.indexOf('rtsp')>-1){
+            callout_color='info'
+        }
+    %>
+<% Object.keys(pageData[v].types).forEach(function(b){ %>
+    <div id="<%-b+v %>" class="section-block bs-callout bs-callout-<%-callout_color%>">
+        <div class="row">
+            <div class="col-md-6">
+                <h4><%-b%> <small>over <%-v%></small></h4>
+                <p><small class="text-faded">Click URL to copy</small></p>
+                <table class="table">
+                    <% Object.keys(pageData[v].types[b]).forEach(function(m){%>
+                        <tr><td>
+                            <span copyurl="<%-m%>"><%-m%></span>
+                            <ul><% pageData[v].types[b][m].forEach(function(g){ %><li copyurl="<%-m%>?<%-g%>"><code><small><i class="fa fa-paperclip"></i></small> ?<%-g%></code></li><%}) %></ul>
+                        </td></tr>
+                    <%}) %>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h5>Models &nbsp; <small>Use the search bar to quickly find models</small></h5>
+                <% parsedModels=[];
+                pageData[v].models.forEach(function(m){ 
+                    if(m.toLowerCase().indexOf('other')>-1){return}
+                    parsedModels.push(m)
+                }) %>
+                <%- parsedModels.join(', ') %>
+            </div>
+        </div>
+    </div>
+            <% }) %>
+    <% }) %>
+</div>
+<script>
+$('[copyurl]').click(function(){
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(this).attr('copyurl')).select();
+    document.execCommand("copy");
+    $temp.remove();
+})
+</script>

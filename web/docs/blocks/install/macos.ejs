@@ -1,0 +1,75 @@
+<div id="setup_macos"  class="section-block">
+<h3 class="block-title question">Mac OS : Native</h3>
+    <ol>
+<li><p>Open <code>Terminal</code>.</p></li>
+<li>
+<p>Install the required system packages <code>git nodejs npm mysql</code> via <code>brew</code>. If you don't have brew, download it from here: <a href="http://brew.sh/">http://brew.sh/</a>
+If you have these already on your system you can skip this step.</p>
+
+<pre><code>brew install git nodejs npm mysql
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable</code></pre>
+</li>
+<li>
+<p>Install the <code>ffmpeg</code> package via <code>brew</code>.</p>
+
+<pre><code>brew install ffmpeg --with-chromaprint --with-fdk-aac --with-fontconfig --with-freetype --with-frei0r --with-game-music-emu --with-libass --with-libbluray --with-libbs2b --with-libcaca --with-libebur128 --with-libgsm --with-libmodplug --with-libsoxr --with-libssh --with-libvidstab --with-libvorbis --with-libvpx --with-opencore-amr --with-openh264 --with-openjpeg --with-openssl --with-opus --with-rtmpdump --with-rubberband --with-schroedinger --with-sdl2 --with-snappy --with-speex --with-tesseract --with-theora --with-tools --with-two-lame --with-wavpack --with-webp --with-x265 --with-xz --with-zeromq --with-zimg</code></pre>
+</li>
+<li>
+<p>Download the repo via GIT</p>
+
+<pre><code>git clone https://github.com/moeiscool/shinobi Shinobi &amp;&amp; cd Shinobi
+</code></pre>
+</li>
+<li>
+<p>Import the <code>sql/framework.sql</code> SQL file, it will create a database called <code>ccio</code></p>
+
+<pre><code>cat sql/framework.sql | mysql -u root -p
+</code></pre>
+</li>
+<li>
+<p>Import the <code>sql/default_data.sql</code> SQL file, it will create a default user and camera source</p>
+
+<pre><code>cat sql/default_data.sql | mysql -u root -p ccio
+</code></pre>
+</li>
+<li>
+<p>Run <code>npm install</code> from your <code>Shinobi</code> directory to install the required <code>nodejs</code> packages.</p>
+
+<pre><code>npm install
+</code></pre>
+</li>
+<li>
+<p>Copy <code>conf.sample.json</code> to <code>conf.json</code> in your <code>Shinobi</code> directory and enter your database connection details</p>
+
+<pre><code>cp conf.sample.json conf.json
+</code></pre>
+</li>
+<li>
+<p>Set your timezone in <code>conf.json</code>. <strong>This is important if your event times are not matching.</strong></p>
+
+<pre><code>"utcOffset":"-0800"
+</code></pre>
+</li>
+<li>
+<p>Run <code>npm start</code> from your <code>Shinobi</code> directory to start the Shinobi App.</p>
+
+<pre><code>npm start
+</code></pre>
+</li>
+<li>
+<p>Open up <code>http://YOUR_IP:8080</code> in your browser.</p>
+
+<ul>
+<li>
+<b>Default Login :</b> This was originally set by adding <code>default_data.sql</code>.
+<ul>
+<li><code>Username : ccio@m03.ca</code></li>
+<li><code>Password : password</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
