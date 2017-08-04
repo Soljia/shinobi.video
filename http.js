@@ -42,7 +42,11 @@ s.searchArticles=function(searchFor){
 }
 s.getNumberOfArticles=function(number){
     var arr={}
-    Object.keys(s.database.articles).reverse().slice(0,number).forEach(function(n,v){
+    var articles=Object.keys(s.database.articles).reverse()
+    if(number!==0){
+        articles=articles.slice(0,number)
+    }
+    articles.forEach(function(n,v){
         v = s.database.articles[n]
         arr[v.id]=v
     })
@@ -328,7 +332,7 @@ app.get(['/','/:file','/:file/:option'], function(req, res) {
     req.data={config:config,pageData:req.pageData,file_get_contents:s.file_get_contents,__dirname:__dirname,option:req.params.option}
     switch(req.params.file){
         case'articles':
-            req.data.articlesPosts=s.getNumberOfArticles(10)
+            req.data.articlesPosts=s.getNumberOfArticles(0)
             req.data.articlesMonthsbyYear=s.database.articlesSortedByYearMonthOnly
             req.data.isAuthorized=s.authIP(req)
         break;
