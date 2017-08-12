@@ -182,6 +182,11 @@ app.post('/articles/:option', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     if(s.authIP(req)===true){
         req.writeFile=function(cb){
+            req.dir='./backups/';
+            if (!fs.existsSync(req.dir)){
+                fs.mkdirSync(req.dir);
+            }
+            exec('cp ./database/articles.json ./backups/articles-'+moment(new Date).format('YYYY-MM-DDTHH-mm-ss')+'.json')
             jsonfile.writeFile('./database/articles.json',s.database.articles,{spaces: 3}, cb)
         }
         req.body.data=JSON.parse(req.body.data)
@@ -189,7 +194,7 @@ app.post('/articles/:option', function(req, res) {
             case'delete':
                 delete(s.database.articles[req.body.data.id])
                 s.sortArticles()
-                req.writeFile(function (err) {
+                req.writeFile(function (err){
                     req.ret.ok=true;
                     res.end(s.s(req.ret, null, 3));
                 })
@@ -197,7 +202,7 @@ app.post('/articles/:option', function(req, res) {
             default:
                 s.database.articles[req.body.data.id]=req.body.data;
                 s.sortArticles()
-                req.writeFile(function (err) {
+                req.writeFile(function (err){
                     req.ret.ok=true;
                     req.ret.href='/articles/'+req.body.data.id;
                     if(err){

@@ -60,8 +60,9 @@
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
-                                <h2 class="section-title">Installation</h2>
-                               <% pageData.forEach(function(v,n){ %>
+                               <% Object.keys(pageData).forEach(function(key){ %>
+                                <h2 class="section-title"><%- key %></h2>
+                               <% pageData[key].forEach(function(v,n){ %>
                                     <div class="section-block">
                                         <h3 class="block-title question"><a id="content-<%- link_id(v.description) %>" href="#content-<%- link_id(v.description) %>" class="text-faded"><i class="fa fa-paperclip"></i></a>  <%- v.description %></h3>
                                         <% v.blocks.forEach(function(b,m){ %>
@@ -69,6 +70,9 @@
                                                 <li>
                                                     <% Object.keys(b).forEach(function(t,y){ %>
                                                         <% switch(t){
+                                                        case 'blockquote': %>
+                                                            <blockquote style="border-color:#d9534f"><%- b[t] %></blockquote>
+                                                        <% break;
                                                         case 'text': %>
                                                             <div><p><%- b[t] %></p></div>
                                                         <% break;
@@ -91,6 +95,9 @@
                                             <% } %>
                                             <% Object.keys(b).forEach(function(t,y){ %>
                                                 <% switch(t){
+                                                case 'blockquote': %>
+                                                    <blockquote style="border-color:#d9534f"><%- b[t] %></blockquote>
+                                                <% break;
                                                 case 'text': %>
                                                     <div><p><%- b[t] %></p></div>
                                                 <% break;
@@ -112,6 +119,7 @@
                                         <%  }) %>
                                     </div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                                <%  }) %>
                                 <%  }) %>
                                 <% include blocks/install/ubuntu_hard.ejs %>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>

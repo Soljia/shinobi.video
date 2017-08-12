@@ -1,117 +1,26 @@
 <% config.Title='Pro'; %>
 <% include blocks/header.ejs %>
-<header id="first">
-    <div class="_shade">
-    <div class="header-content">
-        <div class="inner">
-                <blockquote>
-                    <p>
-                        I want to help people and one way I believed this could be done was to make a world class CCTV platform. One that anyone can use. Simply login to your account, add camera details, set options, and away you go. No client app installations. Viewing streams and recordings on your mobile device by simply opening a web page.
-                    </p>
-                    <p>
-                        You should be able to view it on any device with a capable web browser. A base was needed to start with so I took to the internet for more answers.
-                    </p>
-                    <p>
-                        After much searching one popular CCTV application born in 2003 was the primary choice but found it wasn't capable of fulfilling the role.
-                    </p>
-                    <small>Moe Alam</small>
-                </blockquote>
-            <hr>
-            <div class="btn-group">
-                <a href="#learn" class="btn btn-default btn-xl page-scroll">Why?</a>
-            </div>
-        </div>
-        </div>
-    </div>
-</header>
 <% include blocks/subheader.ejs %>
-<section id="learn" class="bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="margin-top-0 text-primary">Performance Comparison</h2>
-                <p>ZoneMinder is the most popular free open source CCTV platform</p>
-                <hr class="primary">
-            </div>
-        </div>
-      <table class="super-table red-center" style="font-size:15pt">
-          <thead>
-              <tr>
-                  <td>&nbsp;</td>
-                  <td>Shinobi</td>
-                  <td>ZoneMinder</td>
-              </tr>
-          </thead>
-          <tbody>
-              <% [
-                  {
-                      label:'x2 Quad Xeon 2.4 GHz (8 Cores), 16GB RAM, Baremetal',
-                      feature:'18 Cameras, 3fps, ~60% Load',
-                      compare1:'Crashed at 15 Cameras',
-                      description:'Many cameras are currently set to record WebM, thus leaving Shinobi with a high CPU usage.',
-                  },
-                  {
-                      label:'Pentium E5500 2.8GHz (2 Cores), 3GB RAM, Baremetal',
-                      feature:'16 Cameras, 15fps, 10% Load at most',
-                      compare1:'Crashed at 6 Cameras',
-                      description:'The cameras running on Shinobi are using the <b>copy</b> video encoder for MP4 files. Using this method simply pipes your stream data into a file. No extra processing.',
-                  },
-                  {
-                      label:'Cloud x64/x86 Server (8 Cores), 16GB RAM, Baremetal',
-                      feature:'18 Cameras, 3fps, ~60% Load',
-                      compare1:'Not Tested',
-                      description:'Many cameras are currently set to record WebM, thus leaving Shinobi with a high CPU usage.',
-                  },
-              ].forEach(function(v,n){
-                  ['feature','compare1'].forEach(function(b){
-                      if(v[b]===1){v[b]='<i class="fa fa-check text-success"></i>'}
-                      if(v[b]===0){v[b]='<i class="fa fa-times text-danger"></i>'}
-                  })
-                  %>
-              <tr>
-                  <td><%-v.label%><div class="description"><small><%-v.description%></small></div></td>
-                  <td><%-v.feature%></td>
-                  <td><%-v.compare1%></td>
-              </tr>
-           <%  }) %>
-          </tbody>
-          <tfoot>
-              <tr>
-                  <td>&nbsp;</td>
-                  <td><a class="btn btn-ghost" href="/articles/2017-07-30-the-aim-of-shinobi">Learn More</a></td>
-                  <td><a class="btn btn-default" href="/articles/2017-07-29-why-not-just-use-zoneminder">More Details</a></td>
-              </tr>
-          </tfoot>
-      </table>
-     </div>
-  </section>
 <section id="learn6">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 text-center">
-                <h2 class="margin-top-0 text-primary">Why can't I get the same stream viewing performance as some others?</h2>
-                <br>
-                <img style="width:100%" src="/libs/assets/car.png">
-            </div>
-            <div class="col-lg-6 text-center">
-                <p class="large">iSpyconnect, Blue Iris, FFplay, VLC and many others aren't hindered in the same way because they don't run in a browser, you must install them to use them. This means they can make better use of the CPU and GPU. In short : they have more freedom in how they can design their application.</p>
-                <div class="btn-group">
-                    <a href="#learn7" class="btn btn-primary btn-xl page-scroll">Why not do it their way?</a>
-                </div>
+            <div class="col-lg-12 text-center">
+                <h1 class="margin-top-0 text-primary">Shinobi Pro</h1>
+                <p>Shinobi Pro is for Business and Enterprise Installations</p>
+                <hr class="primary">
             </div>
         </div>
-    </div>
-</section>
-<section class="bg-primary" id="learn7">
-    <div class="container">
         <div class="row">
             <div class="col-lg-6 text-center">
-                <h2 class="margin-top-0 text-primary">Why not do it like the others?</h2>
+                <h2 class="margin-top-0 text-primary">Updates</h2>
                 <br>
-                <p class="large">By giving up this freedom for developers more freedom is given to the user. Shinobi's client viewer is supposed to run on as many devices as possible. Simply open a web browser and away you go. If you really wanted to you could view Shinobi streams on a Nintendo DS.</p>
+                <p class="large">Updates will be as it was before the introduction of Pro and CE. Shinobi Pro will get regular updates to the <code>dev</code> branch. When stable it will be merged to <code>master</code>. If the update is critical it will be merged to CE.</p>
+                <div class="btn-group">
+                    <a href="/articles/2017-08-03-shinobi-ce-and-shinobi-pro" class="btn btn-primary btn-xl">CE and Pro Differences</a>
+                </div>
             </div>
             <div class="col-lg-6 text-center">
-                <img style="width:100%" src="/libs/assets/hero.png">
+                <img style="width:100%" src="/libs/assets/globe-shadow.png">
             </div>
         </div>
     </div>
@@ -120,11 +29,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 text-center pull-right">
-                <h2 class="margin-top-0 text-primary">Why Discord for Chat?</h2>
+                <h2 class="margin-top-0 text-primary">Support</h2>
                 <br>
-                <p class="large">Slack was the primary choice but it turned out there was a limit on how many people can get invitations for free teams. Not to mention the extra hoops required to invite new members. <i>Simply put,</i> Slack is bad for business.</p>
+                <p class="large">Support for Shinobi is provided only to Pro subscribers. Once you have an active subscription you will be emailed an invite for the Shinobi Pro community chat. This community is separate from the Shinobi CE chat.</p>
                 <div class="btn-group">
-                    <a href="http://discordapp.com/invite/mdhmvuH/" class="btn btn-primary btn-xl">Join us on Discord</a>
+                    <a href="//billing.place/cart/shinobi-pro/" class="btn btn-primary btn-xl">Subscribe for Pro</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center">
@@ -136,16 +45,16 @@
 <section class="bg-primary" id="learn5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 text-center">
-                <h2 class="margin-top-0 text-primary">Why FFMPEG?</h2>
+            <div class="col-lg-6 text-center">
+                <h2 class="margin-top-0 text-primary">Licensing</h2>
                 <br>
-                <p class="large">After much research it was found FFMPEG was the leading tool in video processing. It can read almost any type of video stream. There was no need to reinvent the wheel and come up with something like "Shinobpeg" because FFMPEG does a fantastic job already.</p>
+                <p class="large">Shinobi Pro is licensed under Creative Commons 4.0. This means that you will be required to have a subscription to use Shinobi Pro in commercial locations.</p>
                 <div class="btn-group">
-                    <a href="/docs/start" class="btn btn-primary btn-xl">Install Shinobi</a>
+                    <a href="//billing.place/cart/shinobi-pro/" class="btn btn-primary btn-xl">Order Now</a>
                 </div>
             </div>
-            <div class="col-lg-4 text-center">
-                <img style="max-width:250px;width:100%" src="/libs/assets/ffmpeg.png">
+            <div class="col-lg-6 text-center">
+                <img style="max-width:250px;width:100%" src="/libs/assets/handshake.png">
             </div>
         </div>
     </div>
@@ -154,15 +63,32 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 text-center pull-right">
-                <h2 class="margin-top-0 text-primary">Why Advertisements?</h2>
+                <h2 class="margin-top-0 text-primary">Shinobi Pro without a Subscription</h2>
                 <br>
-                <p class="large">It would be preferred that all time and energy are spent toward making Shinobi better and that there are no annoying ads anywhere... but unfortunately developing such a project takes a lot of time and effort. <b>When the contribution count is above $600 for the month all ads are removed for everyone</b>.</p>
+                <p class="large">You can use Shinobi Pro for personal use without a license in non commercial locations, for educational, or simple testing. Schools, Colleges, and Universities do not require a subscription.</p>
                 <div class="btn-group">
-                    <a href="/docs/donate" class="btn btn-primary btn-xl">Contribute</a>
+                    <a href="/articles/2017-08-03-shinobi-ce-and-shinobi-pro" class="btn btn-primary btn-xl">Learn More</a>
                 </div>
             </div>
             <div class="col-lg-4 text-center">
-                <img style="max-width:250px;width:100%" src="/libs/assets/blow-horn.png">
+                <img style="max-width:250px;width:100%" src="/libs/assets/laptop-rocket.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-primary" id="learn6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 text-center">
+                <h2 class="margin-top-0 text-primary">What is commercial use or a commercial location?</h2>
+                <br>
+                <p class="large">Locations that engage in the buying and selling of goods and services. Using Shinobi in an application or scheme that results in economical gain - Example : making an isolated account and charging for it</p>
+                <div class="btn-group">
+                    <a href="/articles/2017-08-03-shinobi-ce-and-shinobi-pro" class="btn btn-primary btn-xl">More Details</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img style="max-width:250px;width:100%" src="/libs/assets/engineer.png">
             </div>
         </div>
     </div>
