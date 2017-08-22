@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="margin-top-0 text-primary">Support Packages</h2>
-                <p>Shinobi is free software. Ordering a support package supports the engineers.</p>
+                <p>Support Packages support the developers as well as the users</p>
                 <hr class="primary">
             </div>
         </div>
@@ -13,24 +13,21 @@
 </table>
 <script>
     var plans=[
-        {"name":"Tiny Once",href:'http://billing.place/cart/shinobi/'},
-        {"name":"Tiny Monthly",href:'http://billing.place/cart/shinobi/'},
-        {"name":"Micro",href:'http://billing.place/cart/shinobi/'},
-        {"name":"Mini",href:'http://billing.place/cart/shinobi/'},
+        {"name":"Tiny",href:'http://billing.place/cart/shinobi/'},
         {"name":"Individual",href:'http://billing.place/cart/shinobi/'},
         {"name":"Priority",href:'http://billing.place/cart/shinobi/'},
         {"name":"Enterprise",href:'http://billing.place/cart/shinobi/'},
     ]
     var specs={
-        "License Included":"Business",
-        "Bug Support":["10 days","10 days","10 days","5 days","5 days","72 days","1 hour"],
-        "General Support":["48 hours","48 hours","48 hours","24 hours","24 hours","5 hours","1 hour"],
-        "Email Support":[0,0,0,0,1,1,1],
-        "Remote Support":[0,0,0,0,1,1,1],
-        "Voice Support":[0,0,0,0,0,0,'FaceTime and Discord'],
-        "Feature Request Priority":["Low","Low","Low","Low","Low","Medium","High"],
-        "Payment Cycle":["One Time, 1 Week","Monthly","Annually","Annually","Monthly","Monthly","Monthly"],
-        "Price":["10","10","90","300","50","300","1000"],
+        "Pro Included":[0,0,0,1],
+        "Bug Support":["10 days","5 days","72 days","1 hour"],
+        "General Support":["48 hours","24 hours","5 hours","1 hour"],
+        "Email Support":[0,1,1,1],
+        "Remote Support":[0,1,1,1],
+        "Voice Support":[0,0,0,'FaceTime and Discord'],
+        "Feature Request Priority":["Low","Low","Medium","High"],
+        "Payment Cycle":["Monthly","Monthly","Monthly","Monthly"],
+        "Price":["10","50","300","1000"],
     }
     var details={
         "Bug Support": "Support and Software Update for when you have found a bug that is interferring with how Shinobi is supposed to function and with how you use Shinobi. Support will be expected within the specified time period.",
@@ -53,7 +50,7 @@
     $('#packages.super-table tfoot tr').append(tmp);
     tmp='';
     $.each(specs,function(m,b){
-        if((b instanceof Array)===false){b=[b,b,b,b,b,b,b]}
+        if((b instanceof Array)===false){b=[b,b,b,b]}
         tmp+='<tr><td>'+m+'</td>'
         $.each(b,function(c,x){
             if(m==='Price'){

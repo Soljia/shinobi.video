@@ -1,0 +1,21 @@
+{
+  "name": "shinobi.video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jsonfile": "^3.0.1",
+    "moment": "^2.18.1",
+    "nedb": "^1.8.0",
+    "ejs": "^2.5.7",
+    "nodemailer": "^4.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -57,11 +57,10 @@
                                         </li>
                                     </ul>
                                 </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
                                <% Object.keys(pageData).forEach(function(key){ %>
-                                <h2 class="section-title"><%- key %></h2>
+                                <h2 class="section-title"><a id="content-<%- link_id(key) %>" href="#content-<%- link_id(key) %>" class="text-faded"><i class="fa fa-paperclip"></i></a>  <%- key %></h2>
                                <% pageData[key].forEach(function(v,n){ %>
                                     <div class="section-block">
                                         <h3 class="block-title question"><a id="content-<%- link_id(v.description) %>" href="#content-<%- link_id(v.description) %>" class="text-faded"><i class="fa fa-paperclip"></i></a>  <%- v.description %></h3>
@@ -95,6 +94,9 @@
                                             <% } %>
                                             <% Object.keys(b).forEach(function(t,y){ %>
                                                 <% switch(t){
+                                                case 'ejs': %>
+                                                    <%- include('blocks/install/'+b[t]+'.ejs')%>
+                                                <% break;
                                                 case 'blockquote': %>
                                                     <blockquote style="border-color:#d9534f"><%- b[t] %></blockquote>
                                                 <% break;
@@ -118,48 +120,11 @@
                                             <% }) %>
                                         <%  }) %>
                                     </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
                                 <%  }) %>
                                 <%  }) %>
-                                <% include blocks/install/ubuntu_hard.ejs %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                                <% include blocks/install/windows_hard.ejs %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                                <% include blocks/install/macos.ejs %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                            </section><!--//doc-section-->
-                            <section id="clean-section" class="doc-section">
-                                <h2 class="section-title">Clean up</h2>
-                                <% include blocks/install/cron.ejs %>
-                            </section><!--//doc-section-->
-                            <section id="account-section" class="doc-section">
-                                <h2 class="section-title">Account Management</h2>
-                                <% include blocks/install/account.ejs %>
-                            </section><!--//doc-section-->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                            <section id="update-section" class="doc-section">
-                                <h2 class="section-title">Updating Shinobi</h2>
-                                <% include blocks/install/update.ejs %>
-                            </section><!--//doc-section-->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                            <section id="daemon-section" class="doc-section">
-                                <h2 class="section-title">Daemonize and Startup</h2>
-                                <% include blocks/install/daemon.ejs %>
-                            </section><!--//doc-section-->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                            <section id="code-section" class="doc-section">
-                                <h2 class="section-title">Configuration</h2>
-                                <% include blocks/install/config.ejs %>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Bar-skinny --> <ins class="adsbygoogle"      style="display:inline-block;width:600px;height:50px"      data-ad-client="ca-pub-3391236677062948"      data-ad-slot="3180163319"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-                            </section><!--//doc-section-->
-                            <section id="trouble-section" class="doc-section">
-                                <h2 class="section-title">Troubleshooting</h2>
-                                <% include blocks/install/troubleshoot.ejs %>
-
-
                             </section><!--//doc-section-->
                             <section>
-    <% include blocks/support.ejs %>
+                                <% include blocks/support.ejs %>
                             </section><!--//doc-section-->                            
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
@@ -168,6 +133,7 @@
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#download-section">Download</a></li>
                                 <li><a class="scrollto" href="#requirement-section">Requirements</a></li>
+<!--
                                 <li>
                                     <a class="scrollto" href="#installation-section">Installation</a>
                                     <ul class="nav doc-sub-menu">
@@ -178,7 +144,7 @@
                                         <li><a class="scrollto" href="#setup_ubuntu_hard">Ubuntu 16.04 : The Harder Way</a></li>
                                         <li><a class="scrollto" href="#windows-hard">Windows : The Harder Way</a></li>
                                         <li><a class="scrollto" href="#setup_macos">Mac OS : Native</a></li>
-                                    </ul><!--//nav-->
+                                    </ul>
                                 </li>
                                 <li>
                                     <a class="scrollto" href="#clean-section">Clean up</a>
@@ -197,10 +163,20 @@
                                     <ul class="nav doc-sub-menu">
                                         <li><a class="scrollto" href="#config_login">Default Login</a></li>
                                         <li><a class="scrollto" href="#config_conf">conf.json</a></li>
-                                    </ul><!--//nav-->
+                                    </ul>
                                 </li>
                                 <li><a class="scrollto" href="#trouble-section">Troubleshooting</a></li>
                                 <li><a class="scrollto" href="#support">Support Packages</a></li>
+-->
+                                <% Object.keys(pageData).forEach(function(key){ %>
+                                    <li><a class="scrollto" href="#content-<%- link_id(key) %>"><%- key %></a>
+                                    <ul class="nav doc-sub-menu">
+                                        <% pageData[key].forEach(function(v,n){ %>
+                                        <li><a class="scrollto" href="#content-<%- link_id(v.description) %>"><%- v.description %></a></li>
+                                        <%  }) %>
+                                    </ul>
+                                </li>
+                                <%  }) %>
                                 <% include blocks/menu-options.ejs %>
                             </ul><!--//doc-menu-->
                         </nav>

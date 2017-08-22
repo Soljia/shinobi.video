@@ -23,6 +23,10 @@
                     {
                         "text":"Install libraries",
                         "code":"sudo yum install cairo-devel libjpeg-turbo-devel giflib-devel -y"
+                    },
+                    {
+                        "text":"<b>Try this only if installing the plugin fails</b>",
+                        "code":"yum groupinstall \"Development tools\""
                     }
                 ]
             }

@@ -2,23 +2,9 @@
 <% include blocks/header.ejs %>
 <style>
     .super-table tr td:first-child{text-transform:initial;font-weight: 500;}
+    .super-table thead tr td{text-transform: initial;letter-spacing: normal;}
     header{background-image:url(/libs/assets/backgrounds/1.jpg)}
 </style>
-<header id="first">
-    <div class="_shade">
-    <div class="header-content">
-        <div class="inner">
-            <img style="height:350px" src="/libs/assets/iot-network.png">
-            <h1 class="cursive">Features</h1>
-            <h4 style="text-transform:uppercase">Special, Yet Familiar</h4>
-            <hr>
-            <div class="btn-group">
-                <a href="#learn" class="btn btn-default btn-xl page-scroll">Find Out How</a>
-            </div>
-        </div>
-        </div>
-    </div>
-</header>
 <% include blocks/subheader.ejs %>
 <section id="learn">
     <div class="container">
@@ -33,7 +19,7 @@
           <thead>
               <tr>
                   <td>&nbsp;</td>
-                  <td>Shinobi</td>
+                  <td class="cursive" style="font-size: 20pt!important;">Shinobi</td>
                   <td>ZoneMinder</td>
               </tr>
           </thead>
@@ -306,7 +292,7 @@
           <tfoot>
               <tr>
                   <td>&nbsp;</td>
-                  <td><a class="btn btn-ghost" href="/metal">Order Metal</a></td>
+                  <td><a class="btn btn-ghost" href="/pro">Shinobi Pro</a></td>
                   <td><a class="btn btn-default" href="/articles/2017-07-29-why-not-just-use-zoneminder">More Info</a></td>
               </tr>
           </tfoot>

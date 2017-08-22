@@ -32,3 +32,15 @@ window.addEventListener('load', function() {
         })
     });
 });
+
+$(window).bind('keydown', function(event) {
+    if (event.ctrlKey || event.metaKey) {
+        if(String.fromCharCode(event.which).toLowerCase()==='s'){
+            event.preventDefault();
+            if($('.ct-ignition--editing').length>0)
+                $('.ct-ignition__button--confirm').click()
+            else
+                $('.ct-ignition__button--edit').click()
+        }
+    }
+});;

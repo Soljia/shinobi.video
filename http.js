@@ -151,10 +151,8 @@ app.get('/favicon.ico', function(req, res) {
 app.get('/articles/search', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     req.ret={ok:false}
-    if(s.authIP(req)===true){
-        req.ret.ok=true
-        req.ret.articles=s.searchArticles(req.query.search)
-    }
+    req.ret.ok=true
+    req.ret.articles=s.searchArticles(req.query.search)
     res.end(s.s(req.ret,null,3))
 })
 //reload articles

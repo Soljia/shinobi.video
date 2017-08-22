@@ -40,15 +40,15 @@
         },
         {
             "Q": "Where can i change the videos or temporary streams directory?",
-            "A": "Please have a look at the <a href=\"//shinobi.video/docs/start#config_conf\">Configuration section</a> on the Install page."
+            "A": "Please have a look at the <a href=\"http://shinobi.video/docs/start#content-configuration\">Configuration section</a> on the Install page."
         },
         {
             "Q": "Would it work for a raspberry pi streaming RTSP h264 video?",
-            "A": "If you can open the stream in VLC Media Player then ffmpeg should be able to get it too. ffmpeg is what Shinobi uses for encoding."
+            "A": "Yes."
         },
         {
             "Q": "Does it timestamp the videos?",
-            "A": "It does but for some wacky reason the time is off sometimes. I am trying to figure out why it does that. I am welcoming any input on this."
+            "A": "Yes."
         },
         {
             "Q": "Is the video montage showing the actual stream or a reduced version?",
@@ -60,15 +60,7 @@
         },
         {
             "Q": "Why can’t I see anything in my camera window? There are no logs.",
-            "A": "This might mean ffmpeg was unable to start. Please ensure your machine is capable of installing ffmpeg. by running the following commands. Ubuntu’s package manager will inform whether or not there is a build available for your flavour of Ubuntu."
-        },
-        {
-            "Q": "I can’t record to WebM or MP4, but I can see the stream.",
-            "A": "For <b>WebM</b> you need <b>libvpx</b> installed and for <b>MP4</b> you require <b>libx264</b> (and <b>libx265</b> if you want it). Then compile FFMPEG. Otherwise with Ubuntu 16.04 Server you should get all the needed libraries with <b>apt-get install libav-tools</b>."
-        },
-        {
-            "Q": "I can’t open some events, the time or URL is incorrect.",
-            "A": "<p>Please check your <b>conf.json</b>. The timezone may be incorrect. Option <b>utcOffset</b> should be set to <b>one</b> of the following:</p><ul><li>the system’s timezone, Example :  America/Vancouver would be <b>-0800</b>.</li><li>the timezone that your SQL database is using (normally the system timezone)</li><li><b>null</b> (defaults to system timezone)</li><li>Remove the option from <b>conf.json</b>. This is the same as setting to <b>null</b>.</li></ul>"
+            "A": "Check out the article \"<a href=\"http://shinobi.video/articles/2017-08-12-my-stream-appears-black-or-just-a-solid-color\">My stream appears black or just a solid color</a>\""
         },
         {
             "Q": "I keep getting \"undefined function\" errors, why?",
@@ -80,7 +72,7 @@
         },
         {
             "Q": "I see strange artifacts, smeering, streaking, melting, and maybe ice cream",
-            "A": "<p>Set your <b>Analyzation Duration</b> in the <b>Input</b> Section to <b>1000</b>. Also by default FFMPEG tries UDP first. You can change this by using this flag in the <b>Custom</b> Section’s <b>Input Flags</b> box.</p><pre>-rtsp_transport tcp</pre>"
+            "A": "Check out the article \"<a href=\"http://shinobi.video/articles/2017-07-26-ways-to-resolve-smearing-smudging-streaking-melting-and-artifacts\">Ways to resolve smearing, smudging, streaking, melting, and artifacts</a>\""
         },
         {
             "Q": "After disconnecting SSH my Shinobi stops working correctly.",

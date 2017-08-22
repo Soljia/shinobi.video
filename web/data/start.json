@@ -331,10 +331,7 @@
                             "text":"Open up <code>http://YOUR_IP:8080</code> in your browser. The <b>Default Login</b> was originally set by adding <code>default_data.sql</code>.",
                             "list":[
                                 {
-                                    "text":"Username : m03.ca"
-                                },
-                                {
-                                    "text":"Password : password"
+                                    "code":"Username : ccio@m03.ca<br>Password : password"
                                 }
                             ]
                         }
@@ -482,9 +479,9 @@
                                     "code":"pm2 start camera.js<br>pm2 start cron.js"
                                 },
                                 {
+                                    "text":"<b>The regular way</b> (you must keep the command window open after starting shinobi, no other command windows should be visible.)",
                                     "orderList":[
                                         {
-                                            "text":"<b>The regular way</b> (you must keep the command window open after starting shinobi, no other command windows should be visible.)",
                                             "code":"node camera.js"
                                         },
                                         {
@@ -498,9 +495,90 @@
                     ]
                 }
             ]
+        },
+        {
+            "description":"MacOS : Native",
+            "blocks":[
+                {
+                    "ejs":"macos"
+                }
+            ]
         }
     ],
     "Account Management":[
-        
+        {
+            "description":"Set up Superuser Access",
+            "blocks":[
+                {
+                    "text":"Rename <code>super.sample.json</code> to <code>super.json</code>. Run the following command inside the Shinobi directory with terminal. <i>Passwords are saved as MD5 strings.</i> <b>You only need to do this step once.</b>",
+                    "code":"cp super.sample.json super.json"
+                },
+                {
+                    "text":"Login at <code>http://your.shinobi.video/super</code>.",
+                    "code":"Username : admin@shinobi.video<br>Password : admin"
+                },
+                {
+                    "text":"You should now be able to manage accounts"
+                }
+            ]
+        },
+        {
+            "description":"Set up Sub-Accounts",
+            "blocks":[
+                {
+                    "text":"Login at <code>http://your.shinobi.video/admin</code>. With the main account of the group. If a sub account is used to login to this page it will be directed to the regular dashboard."
+                }
+            ]
+        }
+    ],
+    "Clean up":[
+        {
+            "description":"Set up the cron file",
+            "blocks":[
+                {
+                    "ejs":"cron"
+                }
+            ]
+        }
+    ],
+    "Updating Shinobi":[
+        {
+            "description":"Getting the latest files",
+            "blocks":[
+                {
+                    "ejs":"update"
+                }
+            ]
+        }
+    ],
+    "Daemonize and Startup":[
+        {
+            "description":"Keep running and on boot",
+            "blocks":[
+                {
+                    "ejs":"daemon"
+                }
+            ]
+        }
+    ],
+    "Configuration":[
+        {
+            "description":"Default Login",
+            "blocks":[
+                {
+                    "ejs":"config"
+                }
+            ]
+        }
+    ],
+    "Troubleshooting":[
+        {
+            "description":"Finding Problems",
+            "blocks":[
+                {
+                    "ejs":"troubleshoot"
+                }
+            ]
+        }
     ]
 }
