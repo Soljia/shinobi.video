@@ -116,7 +116,7 @@
                         },
                         {
                             "text":"Pull the <code>master</code> repository.",
-                            "code":"git clone https://github.com/moeiscool/Shinobi.git Shinobi"
+                            "code":"git clone https://github.com/ShinobiCCTV/Shinobi.git Shinobi"
                         },
                         {
                             "text":"Open Shinobi directory.",
@@ -233,7 +233,7 @@
                         },
                         {
                             "text":"Download Shinobi with <code>wget</code> if you don't have <code>git</code> installed. Do this only if you haven't already downloaded the files.",
-                            "code":"wget https://github.com/moeiscool/Shinobi/tarball/master"
+                            "code":"wget https://github.com/ShinobiCCTV/Shinobi/tarball/master"
                         },
                         {
                             "text":"Untar the downloaded file. The extracted directory is the shinobi directory.",
@@ -360,7 +360,7 @@
                         },
                         {
                             "text":"Pull the <code>master</code> repository.",
-                            "code":"git clone https://github.com/moeiscool/Shinobi.git Shinobi"
+                            "code":"git clone https://github.com/ShinobiCCTV/Shinobi.git Shinobi"
                         },
                         {
                             "text":"Open Shinobi directory.",
@@ -403,7 +403,7 @@
                     "text":"You will need a few things installed before being able to run Shinobi.",
                     "list":[
                         {
-                            "text":"<a href=\"https://github.com/moeiscool/Shinobi/zipball/master\">Shinobi</a> <i>Latest Master</i>"
+                            "text":"<a href=\"https://github.com/ShinobiCCTV/Shinobi/zipball/master\">Shinobi</a> <i>Latest Master</i>"
                         },
                         {
                             "text":"<a href=\"https://s3.amazonaws.com/cloudcamio/node-v6.10.3-x64.msi\">Node.js 6.10.3+</a>"

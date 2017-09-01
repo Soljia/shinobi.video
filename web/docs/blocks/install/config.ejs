@@ -19,8 +19,9 @@
   
 </p><pre lang=""><code>{
   "port": 8080,
-  "utcOffset":"-0800",
-  "DropboxAppKey": "mwgh09b16myew4s",
+  "addStorage": [
+      {"name":"second","path":"__DIR__/videos2"}
+  ],
   "db": {
     "host": "127.0.0.1",
     "user": "majesticflame",
@@ -217,5 +218,11 @@
 <td>no</td>
 <td>string</td>
 <td>Default is <b>en_CA</b>. You can check the <code>langauges</code> folder inside the Shinobi directory for more options. You can make more by using <code>node tools/translateLanguageFile.js</code>.</td>
+</tr>
+      <tr>
+<td>addStorage</td>
+<td>no</td>
+<td>object</td>
+<td>View the sample above for how to structure this object.</td>
 </tr>
 </tbody></table>
