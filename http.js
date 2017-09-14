@@ -136,6 +136,10 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
+app.all('/webhook', function(req, res) {
+    console.log('body',req.body)
+    console.log('query',req.query)
+})
 app.get('/.well-known/apple-developer-merchantid-domain-association', function(req, res) {
     res.sendFile(__dirname+'/web/verifiers/apple-developer-merchantid-domain-association')
 })
@@ -265,6 +269,7 @@ app.get('/donations.json', function(req, res) {
                         }
                     })
                     x.percent=x.total/x.donationMax*100
+                    if(x.percent>100){x.percent=100}
                     res.send(JSON.stringify(x))
 //                }else{
 //                    req.run(req.chunks.sorter.sorterpage+1)
@@ -437,6 +442,8 @@ app.post(['/:form','/shop/:form'],function(req,res){
             })
             nodemailer.sendMail(req.mailOptions, (error, info) => {
                 if (error) {
+                    console.log(req.form)
+                    console.log(req.mailOptions.html)
                     console.log(error)
                 }
             });

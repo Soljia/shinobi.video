@@ -1,18 +1,55 @@
 <% config.Title='Terms of Service'; %>
 <% include blocks/header.ejs %>
-<section id="cameras">
-    <div class="container primary-container">
-        <div class="row">
-            <div class="col-lg-6 text-center pull-right">
-                <h2 class="margin-top-0 text-primary">Between you and Shinobi</h2>
-                <br>
-                <p class="large">Shinobi supports so many cameras, we sort of lost count.</p>
-            </div>
-            <div class="col-lg-6 text-center">
-                <img style="max-width:250px;width:100%" src="/libs/assets/cameras.png">
-            </div>
+<% include blocks/subheader.ejs %>
+<section id="learn">
+    <div class="container doc-content">
+        <h2 class="margin-top-0 text-primary text-center title">Terms of Service<br>
+        <small>We'll try to keep it short and simple</small></h2>
+        <hr class="primary">
+        <div>
+            <p>This Service Agreement (this “Agreement”) is a contract between you (“you” or “Purchaser”) and Shinobi (Shinobi, ShinobiCCTV, Shinobi developers, and The Shinobi Corporation). This agreement may change. New versions of the agreement must be accepted to continue Shinobi services. Notice will be provided by your assigned Shinobi developer.</p>
+            <p><b>The application</b> is a reference to Shinobi, ShinobiCCTV, the program that does all the cool video stuff.</p>
+            <p><b>Product</b> is a reference to snippets of code specified by your Shinobi developer.</p>
+            <p><b>Commit history</b> is a reference to the different changes that are pushed to the provided private repository.</p>
+            <p><b>Modified code</b>, <b>code changes</b>, or <b>modified versions</b> of Shinobi are a reference to the different changes made to the private branch of Shinobi provided.</p>
+            <p><b>harming others</b> is defined as acts of terrorism, violence, and/or child abuse.</p>
+
+            <h1 class="big-title">Shinobi Support Agreement</h1>
+            <p>"Shinobi Support" or "Support Packages" are services. These services include adding or removing code, maintaining code related to your requested changes, and helping with use of the application (Shinobi, ShinobiCCTV).</p>
+            <p>Any features added to the main application are property of Shinobi (and it's developers). Through agreement these features will not be shared publicly.</p>
+            <p>The purpose maintaining ownership is to uphold the primary goal of Shinobi : <b>Helping People.</b> If somehow a Shinobi developer has been paid to legally hand off code to someone who may use it maliciously, We want the opportunity to give that information to associated authorities. Notice of such actions will be given prior if you are not suspected of intentionally harming others.</p>
+            <p>The <b>main application</b> refers to specific files. Those files are as follows.</p>
+            <ul>
+                <li>camera.js (Main Server File)</li>
+                <li>web (Folder with client side files, such as images and pages)</li>
+                <li>*plugins (Folder with plugins for the Main Server File)</li>
+                <li>languages (Folder with language variables used throughout the application)</li>
+                <li>definitions (Folder with detailed information about fields and other elements in the application)</li>
+            </ul>
+            <p><b>Transactions</b> begin when a payment is received, support is provided, or code is provided. This includes demonstration code. A <b>complete transaction</b> is when payment has been recieved and any amount of code or support is provided.</p>
+            <p>All code provided before a complete transaction is considered demonstration code.</p>
+            <p>Ownership of code changes in the main application can be transfered if agreed upon. This can be an agreement over direct message or written contract. Naturally if the change is specific to only work with a system you have then of course there is no need for Shinobi to maintain ownership. Generally, but not bound to, this occurs when the changes are really the creation of a plugin. In which case you will be receiving a product along with my service.</p>
+            <p>The private repository provided may include updates not found in public repositories. They are not part of your request. They are included to ensure stability for your future installations and updates of the modified version of Shinobi. <i>They will eventually meet public code.</i> Please speak to your assigned developer to understand which sections of code are updates and which are part of your request as the commit history does not make this distinction for us.</p>
+            <h3>Sharing Code</h3>
+            <p>The use of modified versions of Shinobi done by Shinobi developers are only allowed for those the code was designed for, you. Allowing any other parties to view or use the modified code is considered sharing.</p>
+            <p>Sharing of modified versions of Shinobi done by Shinobi developers with anyone will result in the code changes be viewed as public changes and to then be used by Shinobi developers however it is seen fit. It will simply go under consideration to be merged for the community to use as well.</p>
+            <p>Sharing without voiding privacy status of the code can occur if agreed upon. Generally, but not bound to, those who seek this would like to resell installations.</p>
+            <p>Using the modified code in a publicly accessible installation is not considered sharing code.</p>
+            <h3>Payment</h3>
+            <p>Payment comes first. Demonstrations are provided to help the Shinobi developer understand the end goal that is being requested. They are a curteousy and are the property of Shinobi unless stated otherwise.</p>
+            <p><b>Required before payment</b> would be comments or answers to the following questions or statements. This is a method of appraisal and are deciding factors of whether or not service will be provided by developers of Shinobi.</p>
+            <ul>
+                <li>What in specific were you looking to have done?</li>
+                <li>Do you have any sketches or another program I can take a look at for comparison?</li>
+                <li>How soon would you need this completed? </li>
+                <li>Would this integration be a private feature for your organization or will it be acceptable to have it added to the public repository?</li>
+                <li>What is the intended purpose of this integration?</li>
+                <li>Are you having this integration done for your organization or to be offered to a third party?</li>
+                <li>Will you need recurring changes or updates to this feature by a Shinobi developer? (Any changes to your features that are needed as a result of my own changes to other parts of the program are not your responsibility.)</li>
+            </ul>
+            <p>If your use case includes harming others you can forget Shinobi altogether.</p>
         </div>
-    </div>
-</section>
+     </div>
+  </section>
 <% include blocks/getstarted.ejs %>
 <% include blocks/footer.ejs %>

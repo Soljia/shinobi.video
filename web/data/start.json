@@ -107,15 +107,11 @@
                             "text":"Open <code>Terminal</code>."
                         },
                         {
-                            "text":"Download and Install Node.js, NPM.",
-                            "code":"sudo apt update<br>sudo apt install curl gnupg2 -y<br>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -<br>sudo apt install nodejs -y<br>sudo apt install npm -y"
-                        },
-                        {
                             "text":"Install git command line library.",
                             "code":"apt install git -y"
                         },
                         {
-                            "text":"Pull the <code>master</code> repository.",
+                            "text":"Pull the repository.",
                             "code":"git clone https://github.com/ShinobiCCTV/Shinobi.git Shinobi"
                         },
                         {

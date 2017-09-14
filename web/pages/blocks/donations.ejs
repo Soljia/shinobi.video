@@ -21,7 +21,7 @@ $(document).ready(function(){
     if(!window.donations==true){
         window.donations=true;
         $.getJSON('/donations.json',function(x){
-            $('.donations .progress-bar').css('width',x.percent+'px').text('$'+x.total)
+            $('.donations .progress-bar').css('width',x.percent+'%').text('$'+x.total)
             $('.donationTag').attr('title','$'+x.total+' of $'+x.donationMax)
             if(parseFloat(x.total)>=600){
                 window.canRunAds=true
