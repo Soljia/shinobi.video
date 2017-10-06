@@ -1,3 +1,4 @@
+
 <div class="text-center donations-block">
     <a href="/docs/donate" style="text-decoration:none">
     <h3 class="donationTag">Contributions this Month<br><small>Please consider ordering <b>Shinobi Pro</b> to contribute. <i class="fa fa-smile-o"></i></small></h3>
@@ -7,13 +8,14 @@
         0%
       </div>
     </div>
-    </a><br>
-    <a href="/docs/donate" class="btn btn-sm btn-default">Donate</a>
+    </a>
+    <small style="margin:0 0 30px 0;font-size:70%">PayPal donations will not appear in the contribution count... yet</small>
 </div>
 <style>
     .donations-block{position:relative;}
 .donations {max-width:400px;width:100%;background:#83a1d2;border: 1px solid #4285f4;display:inline-block;}
 .donations .progress-bar{background:#4285f4;color:#fff}
+.donations.progress{margin-bottom:5px}
 </style>
 <script>
 $(document).ready(function(){
@@ -27,7 +29,6 @@ $(document).ready(function(){
                 window.canRunAds=true
                 $('#whyYouBlock').remove()
                 $('#follower').remove()
-                $('.adsbygoogle').remove()
             }
             x.e=$('.donorNames')
             if(x.names.length>0){
@@ -35,7 +36,7 @@ $(document).ready(function(){
                     x.e.append('<li>'+v+'</li>')
                 })
             }else{
-                x.e.html("No donors this month :'(")
+                x.e.html("")
             }
         })
     }
