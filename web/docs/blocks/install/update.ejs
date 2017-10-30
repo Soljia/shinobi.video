@@ -1,16 +1,22 @@
 <div class="section-block">
-<p>The easiest way to update is to just overwrite the <code>web</code> folder and <code>camera.js</code> files.</p>
-</div>
-<div class="section-block">
-<h3 class="block-title question"><a class="anchor" href="#update-shinobi-from-this-repository"></a>Github Pull Method <small>Easy, Complete</small></h3>
-
-<pre><code>git checkout master
-git pull https://github.com/moeiscool/Shinobi.git <i>dev</i></code></pre>
-</div>
-<div class="section-block">
-<h3 class="block-title question"><a class="anchor" href="#update-shinobi-from-this-repository"></a>Update Shinobi with built in script <small>Easy, does not update plugins at this time</small></h3>
-<p>This overwrites <strong>camera.js</strong>, <strong>web</strong>, and <strong>UPDATE.sh</strong> </p>
-
-<pre><code>http://xxx.xxx.xxx.xxx/[API KEY]/update/[UPDATE KEY]
-</code></pre>
+    <p><i>There are 4 way to do this.</i></p>
+    <ul>
+        <li>
+            <p><b>The easiest way</b> to update is to login to the <a href="#content-set-up-superuser-access">Superuser panel</a> and click Update to Master. Then Wait! Seriously. just wait about 3 minutes at most. When the panel is back on the web, Shinobi is updated. <i><b>This is not an action to be taken lightly. Please click it only once!</b></i></p>
+        </li>
+        <li>
+            <p><b>The second easiest way</b> to update is to just overwrite the <code>web</code>,<code>languages</code>,<code>defintions</code> folders and <code>camera.js</code> files.</p>
+        </li>
+        <li>
+            <p><b>The third way</b> is the Github Pull Method <small>This method only works if you used <code>git</code> to download Shinobi.</small></p>
+            <pre><code>cd <i>Shinobi</i>
+git pull</code></pre>
+        </li>
+        <li>
+            <blockquote>This method will is now deprecated and will be removed in future releases. It will be replaced with a new method only usable by the Superuser.</blockquote>
+            <p>Update Shinobi with built in script <small>Easy, does not update plugins at this time</small></p>
+            <p>This overwrites <strong>camera.js</strong>, <strong>web</strong>, and <strong>UPDATE.sh</strong> </p>
+            <pre><code>http://xxx.xxx.xxx.xxx/[API KEY]/update/[UPDATE KEY]</code></pre>
+        </li>
+    </ul>
 </div>
