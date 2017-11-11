@@ -86,7 +86,7 @@
                     },
                     {
                         "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin.",
-                        "code":"sudo npm install opencv canvas moment"
+                        "code":"sudo npm install opencv canvas@1.6 moment"
                     },
                     {
                         "text":"Setup the configuration file for the plugin.",

@@ -39,7 +39,7 @@
                 "orderList":[
                     {
                         "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin.",
-                        "code":"npm install canvas moment"
+                        "code":"sudo npm install canvas@1.6 moment"
                     },
                     {
                         "text":"Setup the configuration file for the plugin.",
