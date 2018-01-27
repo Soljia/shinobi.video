@@ -4,36 +4,41 @@
             "description":"The Ninja Way",
             "blocks":[
                 {
-                    "text":"The easiest way to install, directly on metal, is through NPM. The following operating systems are supported.",
+                    "text":"The easiest way to install, directly on metal, is through git. The following operating systems are supported.",
                     "list":[
                         {
-                            "text":"Ubuntu 16, Ubuntu 17"
+                            "text":"Ubuntu 16.10.3, 17.10.1 and 18.04"
                         },
                         {
-                            "text":"CentOS, Fedora, RHEL"
+                            "text":"CentOS 7"
+                        },
+                        {
+                            "text":"MacOS 10.7(+)"
                         }
                     ]
                 },
                 {
                     "orderList":[
                         {
-                            "text":"<b>Ubuntu</b> - Download and Install Node.js, NPM.",
-                            "code":"sudo apt update<br>sudo apt install curl gnupg2 -y<br>curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -<br>sudo apt install nodejs -y<br>sudo apt install npm -y"
-                        }
-                    ]
-                },
-                {
-                    "orderList":[
-                        {
-                            "text":"<b>CentOS / RHEL</b> - Download and Install Node.js, NPM.",
-                            "code":"sudo yum update<br>sudo yum install curl -y<br>curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -<br>sudo yum install nodejs npm -y"
+                            "text":"Become <b>root</b> to use the installer and run Shinobi. Use one of the following to do so.",
+                            "list":[
+                                {
+                                    "text":"<b>Ubuntu</b> 16.10.3, 17.10.1 and 18.04",
+                                    "code":"sudo su"
+                                },
+                                {
+                                    "text":"<b>CentOS</b> 7",
+                                    "code":"su"
+                                },
+                                {
+                                    "text":"<b>MacOS</b> 10.7(+)",
+                                    "code":"su"
+                                }
+                            ]
                         },
                         {
-                            "text":"Install Shinobi",
-                            "code":"mkdir Shinobi<br>cd Shinobi<br>sudo npm install shinobi<br>mv node_modules/shinobi/* .<br>sudo npm start"
-                        },
-                        {
-                            "text":"You will be asked a series of questions throughout the installation. Please note that the Ninja way will install the Pro version. To use this method in commercial locations you will be required to purchase a subscription to Shinobi Pro."
+                           "text":"Download and run the installer.",
+                           "code":"bash <(curl -s https://raw.githubusercontent.com/ShinobiCCTV/Shinobi-Installer/master/shinobi-install.sh)"
                         }
                     ]
                 }
@@ -99,12 +104,16 @@
             "description":"Ubuntu : The Easier Way",
             "blocks":[
                 {
-                    "text":"This installer works well with Ubuntu 16 and 17."
+                    "text":"This installer works well with Ubuntu 16.10.3, 17.10.1 and 18.04"
                 },
                 {
                     "orderList":[
                         {
                             "text":"Open <code>Terminal</code>."
+                        },
+                        {
+                            "text":"Become <b>root</b>.",
+                            "code":"sudo su"
                         },
                         {
                             "text":"Install git command line library.",
@@ -149,7 +158,7 @@
             "description":"Ubuntu : The Harder Way",
             "blocks":[
                 {
-                    "text":"This installer works well with Ubuntu 16 and 17."
+                    "text":"This installer works well with Ubuntu 16 and 18."
                 },
                 {
                     "text":"<b>Dont have FFMPEG installed?</b>",
@@ -158,7 +167,7 @@
                             "text":"Open <code>Terminal</code>."
                         },
                         {
-                            "text":"Add the ffmpeg 3.x repo if you are not on Ubuntu 17 or above.",
+                            "text":"Add the ffmpeg 3.x repo if you are not on Ubuntu 18 or above.",
                             "code":"sudo add-apt-repository ppa:jonathonf/ffmpeg-3"
                         },
                         {
