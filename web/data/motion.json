@@ -1,5 +1,16 @@
 [
     {
+        "description":"Use Built-In",
+        "blocks":[
+            {
+                "text":"Based on Kevin Godell's <a href=\"https://github.com/kevinGodell/pam-diff\">pam-diff</a> and <a href=\"https://github.com/kevinGodell/pipe2pam\">pipe2pam</a>. You no longer need to connect a plugin. Just switch <code>Monitor Settings > Detector > Built-In</code> to  <code>Yes</code> and away you go."
+            },
+            {
+                "text":"Otherwise following along below to use the plugin method and you can use your own or one of the ones provided."
+            }
+        ]
+    },
+    {
         "description":"Install Cario2 on Ubuntu / Debian",
         "blocks":[
             {
@@ -38,8 +49,8 @@
             {
                 "orderList":[
                     {
-                        "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin.",
-                        "code":"sudo npm install canvas@1.6 moment"
+                        "text":"Navigate to your Shinobi directory and install the node.js wrappers needed to run the plugin. <b>--unsafe-perm</b> has been added because some machines aren't able to install without.",
+                        "code":"sudo npm install canvas@1.6 moment --unsafe-perm"
                     },
                     {
                         "text":"Setup the configuration file for the plugin.",
