@@ -35,7 +35,7 @@
             },
             {
                 "text":"<b>MJPEG for iframe.</b>",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/mjpeg/[GROUP KEY]/[MONITOR ID]/full"
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/mjpeg/[GROUP KEY]/[MONITOR ID]?full=true"
             },
             {
                 "text":"<b>m3u8 for HLS Stream.</b> Stream type must be HLS.",

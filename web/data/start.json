@@ -45,6 +45,70 @@
             ]
         },
         {
+            "description":"Virtual Box",
+            "blocks":[
+                {
+                    "text":"These images may be severely out of date. It is recommended that you update Shinobi when the image is started if you plan to use it further than testing."
+                },
+                {
+                    "orderList":[
+                        {
+                            "text":"Download and Install Virtual Box <a href=\"https://www.virtualbox.org/wiki/Downloads\">https://www.virtualbox.org/wiki/Downloads</a>"
+                        },
+                        {
+                            "text":"Download a Shinobi Vritual Box Image",
+                            "list":[
+                                {
+                                    "text":"Ubuntu 17.10.1 (30-1-2018) from <a href=\"https://cdn.shinobi.video/virtualdisk/Shinobi-30-1-2018.ova\">cdn.shinobi.video</a>"
+                                }
+                            ]
+                        },
+                        {
+                            "text":"Double click the image and it will begin the import process. Don't start it once it's done importing."
+                        },
+                        {
+                            "text":"Once completed open the <b>Settings</b> of the VM then click the <b>Network</b> tab."
+                        },
+                        {
+                            "text":"Set the VM's network to <b>Bridge</b> with your physical computer's network adapter. Save and start the VM."
+                        },
+                        {
+                            "text":"Login to the Terminal.",
+                            "list":[
+                                {
+                                    "code":"Terminal Username : shinobicctv<br>Terminal Password : shinobicctv"
+                                }
+                            ]
+                        },
+                        {
+                            "text":"Get the IP Address of the machine by running the following.",
+                            "list":[
+                                {
+                                    "code":"ifconfig"
+                                }
+                            ]
+                        },
+                        {
+                            "text":"Open the IP address associated with this machine in your web browser on port 8080. <i>Example : http://192.168.1.100:8080</i>",
+                            "list":[
+                                {
+                                    "code":"Dashboard Username : svsNSr@yzCTic.com<br>Dashboard Password : jWgfmo"
+                                }
+                            ]
+                        },
+                        {
+                            "text":"Enjoy!",
+                            "list":[
+                                {
+                                    "text":"<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=hRsp9pMh1M4\">How to add more CPUs to VirtualBox</a>"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "description":"Docker : Kitematic",
             "blocks":[
                 {
@@ -436,7 +500,7 @@
                     "text":"Install Node.js, MariaDB and your favorite SQL client. The links are posted above.",
                     "orderList":[
                         {
-                            "text":"MariaDB : <a href=\"https://www.youtube.com/edit?o=U&video_id=v0Q1zFVvX3M\">How to Install MariaDB in under 2 Minutes</a>"
+                            "text":"MariaDB : <a href=\"https://www.youtube.com/watch?v=v0Q1zFVvX3M\">How to Install MariaDB in under 2 Minutes</a>"
                         },
                         {
                             "text":"Once all those are installed download and extract Shinobi and place where you want it to run from.",
