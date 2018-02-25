@@ -6,6 +6,9 @@
                 "text":"Based on Kevin Godell's <a href=\"https://github.com/kevinGodell/pam-diff\">pam-diff</a> and <a href=\"https://github.com/kevinGodell/pipe2pam\">pipe2pam</a>. You no longer need to connect a plugin. Just switch <code>Monitor Settings > Detector > Built-In</code> to  <code>Yes</code> and away you go."
             },
             {
+                "text":"If you choose to use Built-In Motion Detection then please review the <a href='https://shinobi.video/docs/motion#content-once-installed'>\"Once Installed\"</a> section of this page."
+            },
+            {
                 "text":"Otherwise following along below to use the plugin method and you can use your own or one of the ones provided."
             }
         ]
@@ -85,6 +88,9 @@
                 "list":[
                     {
                         "text":"<code>UI Element > Motion Meter : </code> When motion occurs a red bar will appear under your stream to indicate how much motion has happened."
+                    },
+                    {
+                        "text":"<code>Monitor Settings > Detector > Save to SQL : </code> This will save events to the database so they can be reviewed in the Power Video Viewer."
                     },
                     {
                         "text":"<code>Monitor Settings > Detector > How to Record : </code> This chooses how the detector engine will choose to create or keep videos for review."
