@@ -76,24 +76,24 @@
                 "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]"
             },
             {
-                "text":"Get video file after start time",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss"
+                "text":"Get video files after start time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]?start=YYYY-MM-DDTHH:mm:ss"
             },
             {
-                "text":"Get video file before end time",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?end=YYYY-MM-DDTHH:mm:ss"
+                "text":"Get video files before end time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]?end=YYYY-MM-DDTHH:mm:ss"
             },
             {
-                "text":"Get video file between start time and end time",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss&end=YYYY-MM-DDTHH:mm:ss"
+                "text":"Get video files between start time and end time",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]?start=YYYY-MM-DDTHH:mm:ss&end=YYYY-MM-DDTHH:mm:ss"
             },
             {
-                "text":"Get video file with custom start operator",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?start=YYYY-MM-DDTHH:mm:ss&startOperator=>="
+                "text":"Get video files with custom start operator",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]?start=YYYY-MM-DDTHH:mm:ss&startOperator=>="
             },
             {
-                "text":"Get video file with custom end operator",
-                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]/[FILENAME]?end=YYYY-MM-DDTHH:mm:ss&endOperator=<="
+                "text":"Get video files with custom end operator",
+                "code":"http://xxx.xxx.xxx.xxx/[API KEY]/videos/[GROUP KEY]/[MONITOR ID]?end=YYYY-MM-DDTHH:mm:ss&endOperator=<="
             }
         ]
     },
